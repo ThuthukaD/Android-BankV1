@@ -70,26 +70,26 @@ public class SplashActivity extends AppCompatActivity
                         finally
                         {
                             Log.d(TAG, "run: Splash - Timer Complete");
-//                            if (isLogged)
-//                            {
-//                                Log.d(TAG, "run: Splash - Starting loginActivity");
-//                                Intent intent = new Intent
-//                                        (SplashActivity.this,
-//                                                LoginActivity.class);
-//                                startActivity(intent);
-//                                finish();
-//                                Log.d(TAG, "run: Splash - Closing splashActivity");
-//                            }
-//                            else
-//                            {
-//                                Log.d(TAG, "run: Splash - Starting RegisterActivity");
-//                                Intent intent = new Intent
-//                                        (SplashActivity.this,
-//                                                RegisterActivity.class);
-//                                startActivity(intent);
-//                                finish();
-//                                Log.d(TAG, "run: Splash - Closing splashActivity");
-//                            }
+                            if (isLogged)
+                            {
+                                Log.d(TAG, "run: Splash - Starting loginActivity");
+                                Intent intent = new Intent
+                                        (SplashActivity.this,
+                                                LoginActivity.class);
+                                startActivity(intent);
+                                finish();
+                                Log.d(TAG, "run: Splash - Closing splashActivity");
+                            }
+                            else
+                            {
+                                Log.d(TAG, "run: Splash - Starting RegisterActivity");
+                                Intent intent = new Intent
+                                        (SplashActivity.this,
+                                                RegisterActivity.class);
+                                startActivity(intent);
+                                finish();
+                                Log.d(TAG, "run: Splash - Closing splashActivity");
+                            }
                         }
                         Log.d(TAG, "run: Splash - Autologin Complete");
                     }

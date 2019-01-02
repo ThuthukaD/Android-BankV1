@@ -2,10 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/back"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
-    tools:layout_editor_absoluteY="25dp">
+    tools:context=".LoginActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <ImageView
         android:id="@+id/imgBackground"
@@ -18,41 +19,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:weightSum="100">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="20">
 
             <ImageView
                 android:id="@+id/imgLock"
                 android:layout_width="62dp"
-                android:layout_height="62dp"
+                android:layout_height="58dp"
                 android:layout_centerHorizontal="true"
                 app:srcCompat="@drawable/lockv1"
                 tools:layout_editor_absoluteX="161dp"
-                tools:layout_editor_absoluteY="32dp" />
+                tools:layout_editor_absoluteY="12dp" />
 
             <TextView
-                android:id="@+id/tvRegister"
+                android:id="@+id/tvLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/imgLock"
-                android:text="Registration"
+                android:layout_marginTop="10dp"
+                android:text="Login"
                 android:textSize="24sp"
-                tools:layout_editor_absoluteX="149dp"
-                tools:layout_editor_absoluteY="108dp" />
+                tools:layout_editor_absoluteX="164dp"
+                tools:layout_editor_absoluteY="81dp" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="50">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/cvDetails"
                 android:layout_width="300dp"
-                android:layout_height="260dp"
+                android:layout_height="180dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 app:cardCornerRadius="15dp"
@@ -62,75 +67,57 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
-                    <EditText
-                        android:id="@+id/etUser"
+                    <TextView
+                        android:id="@+id/tvWelcome"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="40dp"
+                        android:text="Welcome"
+                        android:textSize="14sp"
+                        tools:layout_editor_absoluteX="174dp"
+                        tools:layout_editor_absoluteY="152dp" />
+
+                    <TextView
+                        android:id="@+id/tvUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvWelcome"
+                        android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
-                        android:inputType="textPersonName"
-                        android:textAlignment="center"
-                        android:hint="Username"
-                        android:ems="10"
-                        tools:layout_editor_absoluteX="85dp"
-                        tools:layout_editor_absoluteY="160dp" />
-
-                    <EditText
-                        android:id="@+id/etEmail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/etUser"
-                        android:inputType="textPersonName"
-                        android:textAlignment="center"
-                        android:hint="Email"
-                        android:ems="10"
-                        tools:layout_editor_absoluteX="84dp"
-                        tools:layout_editor_absoluteY="204dp" />
+                        android:text="User"
+                        android:textSize="18sp"
+                        tools:layout_editor_absoluteX="174dp"
+                        tools:layout_editor_absoluteY="152dp" />
 
                     <EditText
                         android:id="@+id/etPin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/etEmail"
-                        android:textAlignment="center"
+                        android:layout_below="@+id/tvUser"
                         android:inputType="numberPassword"
-                        android:hint="New Pin"
+                        android:textAlignment="center"
+                        android:hint="0 0 0 0 0 0"
                         android:maxLength="6"
                         tools:layout_editor_absoluteX="84dp"
-                        tools:layout_editor_absoluteY="249dp"
-                        android:ems="10"/>
-
-                    <EditText
-                        android:id="@+id/etConPin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/etPin"
-                        android:textAlignment="center"
-                        android:inputType="numberPassword"
-                        android:hint="Confirm Pin"
-                        android:maxLength="6"
-                        tools:layout_editor_absoluteX="85dp"
-                        tools:layout_editor_absoluteY="294dp"
+                        tools:layout_editor_absoluteY="188dp"
                         android:ems="10" />
 
                     <EditText
-                        android:id="@+id/etNumber"
+                        android:id="@+id/etEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/etPin"
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@+id/etConPin"
                         android:textAlignment="center"
-                        android:hint="Phone Number"
-                        android:inputType="phone"
-                        android:maxLength="10"
-                        tools:layout_editor_absoluteX="85dp"
-                        tools:layout_editor_absoluteY="340dp"
+                        android:hint="Email"
+                        android:inputType="textPersonName"
+                        tools:layout_editor_absoluteX="84dp"
+                        tools:layout_editor_absoluteY="188dp"
+                        android:visibility="invisible"
                         android:ems="10" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
@@ -139,13 +126,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp">
+            android:layout_weight="10">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/cvInteraction"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
                 app:cardCornerRadius="25dp"
                 android:elevation="10dp"
                 tools:layout_editor_absoluteX="42dp"
@@ -156,13 +144,13 @@
                     android:layout_height="match_parent">
 
                     <Button
-                        android:id="@+id/btnRegister"
+                        android:id="@+id/btnLogin"
                         style="@style/Widget.AppCompat.Button.Borderless"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
-                        android:onClick="Register"
-                        android:text="Register" />
+                        android:onClick="Login"
+                        android:text="Login" />
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
         </RelativeLayout>
@@ -170,20 +158,49 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="5"
             android:paddingTop="10dp">
 
             <TextView
-                android:id="@+id/tvLogin"
-                android:paddingTop="15dp"
+                android:id="@+id/tvSwitchUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="Return to Login"
-                android:onClick="Login"
+                android:onClick="SwitchUser"
+                android:layout_marginTop="5dp"
+                android:text="Register Here"
                 android:textStyle="bold"
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                 tools:layout_editor_absoluteX="148dp"
                 tools:layout_editor_absoluteY="383dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_weight="20"
+            android:paddingTop="10dp"
+            android:visibility="invisible">
+
+            <EditText
+                android:id="@+id/etLoginNumber"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:inputType="number"
+                android:ems="10" />
+
+            <EditText
+                android:id="@+id/etLoginNotification"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etLoginNumber"
+                android:layout_centerHorizontal="true"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:ems="10" />
         </RelativeLayout>
     </android.support.v7.widget.LinearLayoutCompat>
 </RelativeLayout>
