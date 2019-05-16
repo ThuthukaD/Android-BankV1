@@ -34,7 +34,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:elevation="10dp"
-            app:cardBackgroundColor="@color/colorExperiment"
+            app:cardBackgroundColor="#0E3C6E"
             app:cardCornerRadius="5dp"
             tools:layout_editor_absoluteX="42dp"
             tools:layout_editor_absoluteY="320dp">
@@ -50,6 +50,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
                     android:clickable="false"
+                    app:backgroundTint="@android:color/white"
                     app:srcCompat="@drawable/user_account_icon" />
 
                 <TextView
@@ -60,6 +61,7 @@
                     android:layout_marginStart="70dp"
                     android:layout_marginTop="20dp"
                     android:text="Placeholder Name"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
                     android:textSize="24sp" />
 
                 <TextView
@@ -68,7 +70,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/tvUserName"
                     android:layout_marginTop="45dp"
-                    android:text="Placeholder Acount Name" />
+                    android:text="Placeholder Acount Name"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default" />
             </RelativeLayout>
         </android.support.v7.widget.CardView>
     </RelativeLayout>
@@ -83,9 +86,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="horizontal"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
-            android:orientation="horizontal">
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:clipToPadding="false">
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fbtnPay"
@@ -93,6 +99,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:clickable="true"
+                app:backgroundTint="@android:color/white"
+                android:elevation="5dp"
                 app:srcCompat="@drawable/pay" />
 
             <android.support.design.widget.FloatingActionButton
@@ -101,6 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:clickable="true"
+                app:backgroundTint="@android:color/white"
                 app:srcCompat="@drawable/transfer" />
 
             <android.support.design.widget.FloatingActionButton
@@ -109,6 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:clickable="true"
+                app:backgroundTint="@android:color/white"
                 app:srcCompat="@drawable/buy" />
 
             <android.support.design.widget.FloatingActionButton
@@ -117,6 +127,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:clickable="true"
+                app:backgroundTint="@android:color/white"
                 app:srcCompat="@drawable/budget" />
 
             <android.support.design.widget.FloatingActionButton
@@ -125,6 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:clickable="true"
+                app:backgroundTint="@android:color/white"
                 app:srcCompat="@drawable/warning" />
         </LinearLayout>
     </HorizontalScrollView>
@@ -148,122 +160,133 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <android.support.v7.widget.CardView
-                android:id="@+id/cvCard1"
-                android:layout_width="340dp"
-                android:layout_height="150dp"
-                android:layout_centerHorizontal="true"
-                android:elevation="10dp"
-                app:cardBackgroundColor="@color/colorExperiment"
-                app:cardCornerRadius="1dp"
-                tools:layout_editor_absoluteX="42dp"
-                tools:layout_editor_absoluteY="320dp">
+                    android:id="@+id/cvCard1"
+                    android:layout_width="340dp"
+                    android:layout_height="150dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:clickable="true"
+                    android:elevation="10dp"
+                    app:cardBackgroundColor="#0E3C6E"
+                    app:cardCornerRadius="1dp"
+                    tools:layout_editor_absoluteX="42dp"
+                    tools:layout_editor_absoluteY="320dp">
 
                     <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
                         <TextView
-                        android:id="@+id/tvChequeAccount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="10dp"
-                        android:text="Cheque Account"
-                        android:textSize="24sp" />
+                            android:id="@+id/tvChequeAccount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Cheque Account"
+                            android:textColor="@android:color/white"
+                            android:textSize="24sp" />
 
                         <TextView
-                        android:id="@+id/tvCardNumber1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/tvChequeAccount"
-                        android:layout_marginTop="45dp"
-                        android:text="6252 5166 0967 52451" />
+                            android:id="@+id/tvCardNumber1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/tvChequeAccount"
+                            android:layout_marginTop="45dp"
+                            android:text="6252 5166 0967 52451"
+                            android:textColor="@android:color/white" />
 
                         <TextView
-                        android:id="@+id/tvMoney1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="40dp"
-                        android:text="R99999.99"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
+                            android:id="@+id/tvMoney1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="40dp"
+                            android:text="R99999.99"
+                            android:textColor="@android:color/white"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
 
                         <TextView
-                        android:id="@+id/tvAvailableBalance1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="15dp"
-                        android:text="Available Balance" />
+                            android:id="@+id/tvAvailableBalance1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="15dp"
+                            android:text="Available Balance"
+                            android:textColor="@android:color/white" />
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                android:id="@+id/cvCard2"
-                android:layout_width="340dp"
-                android:layout_height="150dp"
-                android:elevation="10dp"
-                android:layout_marginTop="160dp"
-                app:cardBackgroundColor="@color/colorExperiment"
-                app:cardCornerRadius="1dp"
-                tools:layout_editor_absoluteX="42dp"
-                tools:layout_editor_absoluteY="320dp"
-                android:layout_centerHorizontal="true">
+                    android:id="@+id/cvCard2"
+                    android:layout_width="340dp"
+                    android:layout_height="150dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="160dp"
+                    android:clickable="true"
+                    android:elevation="10dp"
+                    app:cardBackgroundColor="#0E3C6E"
+                    app:cardCornerRadius="1dp"
+                    tools:layout_editor_absoluteX="42dp"
+                    tools:layout_editor_absoluteY="320dp">
 
                     <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
                         <TextView
-                        android:id="@+id/tvCreditAccount"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="10dp"
-                        android:text="Credit Account"
-                        android:textSize="24sp" />
+                            android:id="@+id/tvCreditAccount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Credit Account"
+                            android:textColor="@android:color/white"
+                            android:textSize="24sp" />
 
                         <TextView
-                        android:id="@+id/tvCardNumber2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignStart="@+id/tvCreditAccount"
-                        android:layout_marginTop="45dp"
-                        android:text="8763 4125 0069 7366" />
+                            android:id="@+id/tvCardNumber2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/tvCreditAccount"
+                            android:layout_marginTop="45dp"
+                            android:text="8763 4125 0069 7366"
+                            android:textColor="@android:color/white" />
 
                         <TextView
-                        android:id="@+id/tvMoney2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="40dp"
-                        android:text="R99999.99"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
+                            android:id="@+id/tvMoney2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="40dp"
+                            android:text="R99999.99"
+                            android:textColor="@android:color/white"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
 
                         <TextView
-                        android:id="@+id/tvAvailableBalance2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="15dp"
-                        android:text="Available Balance" />
+                            android:id="@+id/tvAvailableBalance2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="15dp"
+                            android:text="Available Balance"
+                            android:textColor="@android:color/white" />
 
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
@@ -273,9 +296,10 @@
                     android:layout_width="340dp"
                     android:layout_height="150dp"
                     android:layout_centerHorizontal="true"
-                    android:elevation="10dp"
                     android:layout_marginTop="320dp"
-                    app:cardBackgroundColor="@color/colorExperiment"
+                    android:clickable="true"
+                    android:elevation="10dp"
+                    app:cardBackgroundColor="#0E3C6E"
                     app:cardCornerRadius="1dp"
                     tools:layout_editor_absoluteX="42dp"
                     tools:layout_editor_absoluteY="320dp">
@@ -288,9 +312,10 @@
                             android:id="@+id/tvSavingsAccount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
                             android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
                             android:text="Savings Account"
+                            android:textColor="@android:color/white"
                             android:textSize="24sp" />
 
                         <TextView
@@ -299,7 +324,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignStart="@+id/tvSavingsAccount"
                             android:layout_marginTop="45dp"
-                            android:text="6564 7512 7984 7245" />
+                            android:text="6564 7512 7984 7245"
+                            android:textColor="@android:color/white" />
 
                         <TextView
                             android:id="@+id/tvMoney3"
@@ -310,6 +336,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="40dp"
                             android:text="R99999.99"
+                            android:textColor="@android:color/white"
                             android:textSize="24sp"
                             android:textStyle="bold" />
 
@@ -321,7 +348,8 @@
                             android:layout_alignParentBottom="true"
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="15dp"
-                            android:text="Available Balance" />
+                            android:text="Available Balance"
+                            android:textColor="@android:color/white" />
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
 
@@ -330,9 +358,10 @@
                     android:layout_width="340dp"
                     android:layout_height="150dp"
                     android:layout_centerHorizontal="true"
-                    android:elevation="10dp"
                     android:layout_marginTop="480dp"
-                    app:cardBackgroundColor="@color/colorExperiment"
+                    android:clickable="true"
+                    android:elevation="10dp"
+                    app:cardBackgroundColor="#0E3C6E"
                     app:cardCornerRadius="1dp"
                     tools:layout_editor_absoluteX="42dp"
                     tools:layout_editor_absoluteY="320dp">
@@ -345,9 +374,10 @@
                             android:id="@+id/tvBusinessAccount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
                             android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
                             android:text="Business Account"
+                            android:textColor="@android:color/white"
                             android:textSize="24sp" />
 
                         <TextView
@@ -356,7 +386,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignStart="@+id/tvBusinessAccount"
                             android:layout_marginTop="45dp"
-                            android:text="7152 5363 9541 5625" />
+                            android:text="7152 5363 9541 5625"
+                            android:textColor="@android:color/white" />
 
                         <TextView
                             android:id="@+id/tvMoney4"
@@ -367,6 +398,7 @@
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="40dp"
                             android:text="R99999.99"
+                            android:textColor="@android:color/white"
                             android:textSize="24sp"
                             android:textStyle="bold" />
 
@@ -378,7 +410,8 @@
                             android:layout_alignParentBottom="true"
                             android:layout_marginEnd="10dp"
                             android:layout_marginBottom="15dp"
-                            android:text="Available Balance" />
+                            android:text="Available Balance"
+                            android:textColor="@android:color/white" />
                     </RelativeLayout>
                 </android.support.v7.widget.CardView>
             </RelativeLayout>
