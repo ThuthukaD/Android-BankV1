@@ -1,5 +1,6 @@
 package com.example.desel.bankv1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity
         cvCard4 = findViewById(R.id.cvCard4);
 
         floatButtons();
+        cardViewClicks();
     }
 
     private void floatButtons()
@@ -61,7 +63,11 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-
+                Intent intent = new Intent
+                        (MainActivity.this,
+                                PaymentActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -70,7 +76,11 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-
+                Intent intent = new Intent
+                        (MainActivity.this,
+                                TransferActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -79,7 +89,11 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-
+                Intent intent = new Intent
+                        (MainActivity.this,
+                                BuyActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -88,7 +102,11 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                
+                Intent intent = new Intent
+                        (MainActivity.this,
+                                BudgetActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -101,6 +119,89 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText
                         (MainActivity.this, "Locked, Upcoming Feature",
                         Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void cardViewClicks()
+    {
+        cvCard1.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                cvCard1.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent = new Intent
+                                (MainActivity.this,
+                                        ChequeActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+            }
+        });
+
+        cvCard2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                cvCard2.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent = new Intent
+                                (MainActivity.this,
+                                        CreditActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+            }
+        });
+
+        cvCard3.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                cvCard3.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent = new Intent
+                                (MainActivity.this,
+                                        SavingsActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+            }
+        });
+
+        cvCard4.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                cvCard4.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Intent intent = new Intent
+                                (MainActivity.this,
+                                        BusinessActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
             }
         });
     }

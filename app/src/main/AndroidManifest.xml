@@ -38,7 +38,11 @@
         <activity android:name=".PurchaseActivity" />
         <activity android:name=".TransferActivity" />
         <activity android:name=".PaymentActivity" />
-        <activity android:name=".BudgetActivity"></activity>
+        <activity android:name=".BudgetActivity" />
+        <activity android:name=".ChequeActivity" />
+        <activity android:name=".CreditActivity" />
+        <activity android:name=".SavingsActivity" />
+        <activity android:name=".BusinessActivity"></activity>
     </application>
 
 </manifest>
