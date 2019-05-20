@@ -1,15 +1,18 @@
 package com.example.desel.bankv1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
@@ -28,6 +31,9 @@ public class MainActivity extends AppCompatActivity
     CardView cvCard2;
     CardView cvCard3;
     CardView cvCard4;
+
+    // Text Views
+    TextView tvUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -52,8 +58,20 @@ public class MainActivity extends AppCompatActivity
         cvCard3 = findViewById(R.id.cvCard3);
         cvCard4 = findViewById(R.id.cvCard4);
 
+        // Text Views
+        tvUserName = findViewById(R.id.tvUserName);
+
         floatButtons();
         cardViewClicks();
+
+        try
+        {
+            Text();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     private void floatButtons()
@@ -130,6 +148,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                // Starting new Activity
                 cvCard1.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
@@ -204,6 +223,19 @@ public class MainActivity extends AppCompatActivity
                 });
             }
         });
+    }
+
+    // Get text method
+    public void Text()
+    {
+        // Calling prefs from RegisterActivity
+        SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
+
+        // Passed string for user
+        String username = prefs.getString("username", "Username");
+
+        // Setting the current fields to the stored text
+        tvUserName.setText(username);
     }
 
     @Override
