@@ -15,7 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChequeAirtimeActivity"></activity>
+        <activity android:name=".ChequeFoodActivity"></activity>
+        <activity android:name=".ChequeElectricityActivity" />
+        <activity android:name=".ChequeDataActivity" />
+        <activity android:name=".ChequeAirtimeActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
