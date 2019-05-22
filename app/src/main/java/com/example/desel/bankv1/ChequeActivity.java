@@ -34,6 +34,8 @@ public class ChequeActivity extends AppCompatActivity
     EditText etLocation;
     EditText etSAmount;
     EditText etCategory;
+    EditText etDate;
+    EditText etSpent;
 
     // Storing
     double fAmount;
@@ -66,6 +68,8 @@ public class ChequeActivity extends AppCompatActivity
         etLocation = findViewById(R.id.etLocation);
         etSAmount = findViewById(R.id.etSAmount);
         etCategory = findViewById(R.id.etCategory);
+        etDate = findViewById(R.id.etDate);
+        etSpent = findViewById(R.id.etSpent);
 
         // Other
         lvList = findViewById(R.id.lvChequeTransactions);
@@ -145,7 +149,7 @@ public class ChequeActivity extends AppCompatActivity
 
                 ListAdapter listAdapter = new ArrayAdapter<>
                         // the list style which  is changeable
-                        (this, android.R.layout.simple_expandable_list_item_1, theList);
+                        (this, android.R.layout.simple_list_item_1, theList);
 
                 lvList.setAdapter(listAdapter);
             }
@@ -184,24 +188,44 @@ public class ChequeActivity extends AppCompatActivity
 
                 if (parent.getItemIdAtPosition(position) == 1)
                 {
+                    Intent intent = new Intent
+                            (ChequeActivity.this,
+                                    ChequeAirtimeActivity.class);
+                    startActivity(intent);
+
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
                 }
                 else if (parent.getItemIdAtPosition(position) == 2)
                 {
+                    Intent intent = new Intent
+                            (ChequeActivity.this,
+                                    ChequeDataActivity.class);
+                    startActivity(intent);
+
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
                 }
                 else if (parent.getItemIdAtPosition(position) == 3)
                 {
+                    Intent intent = new Intent
+                            (ChequeActivity.this,
+                                    ChequeElectricityActivity.class);
+                    startActivity(intent);
+
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
                 }
                 else if (parent.getItemIdAtPosition(position) == 4)
                 {
+                    Intent intent = new Intent
+                            (ChequeActivity.this,
+                                    ChequeFoodActivity.class);
+                    startActivity(intent);
+
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
