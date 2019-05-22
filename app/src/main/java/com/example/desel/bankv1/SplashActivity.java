@@ -28,12 +28,13 @@ public class SplashActivity extends AppCompatActivity
         // TYPE CASTING
         progressBar = findViewById(R.id.progressBar);
 
-        Log.d(TAG, "onCreate: Splash - Starting");
+        Log.i("SplashActivity", "Splash Starting");
 
         // -----------------------------------------------------------------------------
         // WORK
 
         Log.d(TAG, "onCreate: Splash - ProgressBar Starting");
+        Log.i("SplashActivity", "Progressbar Starting");
         // Progress Bar Code
         new Thread(new Runnable()
         {
@@ -48,6 +49,7 @@ public class SplashActivity extends AppCompatActivity
                 }
 
                 Log.d(TAG, "run: Splash - Auto login Starting");
+                Log.i("SplashActivity", "Auto Login Starting");
                 // Auto Login Code
                 SharedPreferences prefs = getSharedPreferences("login",
                         MODE_PRIVATE);

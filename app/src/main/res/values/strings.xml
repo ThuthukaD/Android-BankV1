@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">BankV1</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="purchaseOptions">
+
+        <item>Select What to Purchase</item>
+        <item>Airtime</item>
+        <item>Data</item>
+        <item>Electricity</item>
+        <item>Food</item>
+    </string-array>
 </resources>

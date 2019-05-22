@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity
 
     // Text Views
     TextView tvUserName;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -64,9 +65,11 @@ public class MainActivity extends AppCompatActivity
         floatButtons();
         cardViewClicks();
 
+        Log.i(TAG, "onCreate: Fetching text");
         try
         {
             Text();
+            Log.i(TAG, "onCreate: Text fetch successful");
         }
         catch (Exception e)
         {
@@ -85,7 +88,6 @@ public class MainActivity extends AppCompatActivity
                         (MainActivity.this,
                                 PaymentActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -98,7 +100,6 @@ public class MainActivity extends AppCompatActivity
                         (MainActivity.this,
                                 TransferActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -111,7 +112,6 @@ public class MainActivity extends AppCompatActivity
                         (MainActivity.this,
                                 BuyActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -124,7 +124,6 @@ public class MainActivity extends AppCompatActivity
                         (MainActivity.this,
                                 BudgetActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -139,6 +138,8 @@ public class MainActivity extends AppCompatActivity
                         Toast.LENGTH_SHORT).show();
             }
         });
+
+        Log.i(TAG, "floatButtons: Floating Button Clicked");
     }
 
     private void cardViewClicks()
@@ -158,7 +159,6 @@ public class MainActivity extends AppCompatActivity
                                 (MainActivity.this,
                                         ChequeActivity.class);
                         startActivity(intent);
-                        finish();
                     }
                 });
             }
@@ -178,7 +178,6 @@ public class MainActivity extends AppCompatActivity
                                 (MainActivity.this,
                                         CreditActivity.class);
                         startActivity(intent);
-                        finish();
                     }
                 });
             }
@@ -198,7 +197,6 @@ public class MainActivity extends AppCompatActivity
                                 (MainActivity.this,
                                         SavingsActivity.class);
                         startActivity(intent);
-                        finish();
                     }
                 });
             }
@@ -218,11 +216,12 @@ public class MainActivity extends AppCompatActivity
                                 (MainActivity.this,
                                         BusinessActivity.class);
                         startActivity(intent);
-                        finish();
                     }
                 });
             }
         });
+
+        Log.i(TAG, "cardViewClicks: Card View Button Clicked");
     }
 
     // Get text method
