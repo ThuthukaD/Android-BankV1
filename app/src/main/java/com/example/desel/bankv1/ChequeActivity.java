@@ -24,28 +24,8 @@ public class ChequeActivity extends AppCompatActivity
     // Database Related
     DatabaseHelper myDB;
 
-    // Buttons
-    Button btnAdd;
-    Button btnView;
-
-    // Edit Texts
-    EditText etFAmount;
-    EditText etLocation;
-    EditText etSAmount;
-    EditText etCategory;
-    EditText etDate;
-    EditText etSpent;
-
-    // Storing
-    double fAmount;
-    String location;
-    double sAmount;
-    String category;
-
     // Other
     ListView lvList;
-    Spinner spinOptions;
-    ArrayAdapter<CharSequence> adapterForSpinner;
     private static final String TAG = "ChequeActivity";
 
     @Override
@@ -59,22 +39,8 @@ public class ChequeActivity extends AppCompatActivity
         // Database Related
         myDB = new DatabaseHelper(this);
 
-        // Buttons
-        btnAdd = findViewById(R.id.btnAdd);
-
-        // Edit Texts
-        etFAmount = findViewById(R.id.etFAmount);
-        etLocation = findViewById(R.id.etLocation);
-        etSAmount = findViewById(R.id.etSAmount);
-        etCategory = findViewById(R.id.etCategory);
-        etDate = findViewById(R.id.etDate);
-        etSpent = findViewById(R.id.etSpent);
-
         // Other
         lvList = findViewById(R.id.lvChequeTransactions);
-        spinOptions = findViewById(R.id.spinOptions);
-        adapterForSpinner = ArrayAdapter.createFromResource(this, R.array.purchaseOptions,
-                android.R.layout.simple_spinner_item);
 
         view();
         Log.i(TAG, "onCreate: List View Viewing");
