@@ -106,7 +106,7 @@ public class BuyActivity extends AppCompatActivity
 
                     Log.i(TAG, "onClick: Fields Emptied");
 
-
+                    // view();
 
                     Log.i(TAG, "onClick: List View Updated again");
                 }
