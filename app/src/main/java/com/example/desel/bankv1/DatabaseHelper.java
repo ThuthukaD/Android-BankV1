@@ -87,4 +87,15 @@ public class DatabaseHelper extends SQLiteOpenHelper
         //Cursor data = db.query("SELECT * FROM" + TABLE_NAME, rank, null, null, null, null, COL1 + "DESC");
         return data;
     }
+
+    public Cursor getLastValue()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Log.i("DatabaseHelper", "Getting Content from db");
+        //Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME,null);
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " + COL1 + " DESC LIMIT 1",null);
+        //Cursor data = db.query("SELECT * FROM" + TABLE_NAME, rank, null, null, null, null, COL1 + "DESC");
+        return data;
+    }
 }

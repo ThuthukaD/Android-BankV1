@@ -1,6 +1,7 @@
 package com.example.desel.bankv1;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class BuyActivity extends AppCompatActivity
@@ -19,11 +21,11 @@ public class BuyActivity extends AppCompatActivity
     // Database Related
     DatabaseHelper myDB;
 
-    // Buttons
-    Button btnAdd;
-    Button btnView;
+    // Text Views
+    TextView tvAmount;
 
     // Edit Texts
+    EditText etIAmount;
     EditText etFAmount;
     EditText etLocation;
     EditText etSAmount;
@@ -31,11 +33,16 @@ public class BuyActivity extends AppCompatActivity
     EditText etDate;
     EditText etSpent;
 
+    // Buttons
+    Button btnAdd;
+
     // Storing
+    double iAmount;
     double fAmount;
     String location;
     double sAmount;
     String category;
+    double spent;
 
     // Other
     Spinner spinOptions;
@@ -53,16 +60,20 @@ public class BuyActivity extends AppCompatActivity
         // Database Related
         myDB = new DatabaseHelper(this);
 
-        // Buttons
-        btnAdd = findViewById(R.id.btnAdd);
+        // Text Views
+        tvAmount = findViewById(R.id.tvAmount);
 
         // Edit Texts
+        etIAmount = findViewById(R.id.etIAmount);
         etFAmount = findViewById(R.id.etFAmount);
         etLocation = findViewById(R.id.etLocation);
         etSAmount = findViewById(R.id.etSAmount);
         etCategory = findViewById(R.id.etCategory);
         etDate = findViewById(R.id.etDate);
         etSpent = findViewById(R.id.etSpent);
+
+        // Buttons
+        btnAdd = findViewById(R.id.btnAdd);
 
         // Other
         spinOptions = findViewById(R.id.spinOptions);
@@ -73,6 +84,7 @@ public class BuyActivity extends AppCompatActivity
         Log.i(TAG, "onCreate: Data Possibly Added");
         spinner();
         Log.i(TAG, "onCreate: Spinner Working");
+        view();
     }
 
     private void add()
@@ -83,10 +95,24 @@ public class BuyActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                fAmount = Double.parseDouble(etFAmount.getText().toString());
+                // Pulling initial Text
+                iAmount = Double.parseDouble(etIAmount.getText().toString());
                 location = etLocation.getText().toString();
-                sAmount = Double.parseDouble(etSAmount.getText().toString());
                 category = etCategory.getText().toString();
+                spent = Double.parseDouble(etSpent.getText().toString());
+
+                // Setting text for fAmount
+                fAmount = spent;
+                etFAmount.setText("" + fAmount);
+
+                // Setting text for sAmount
+                sAmount = iAmount - fAmount;
+                etSAmount.setText("" + sAmount);
+
+                // Pulling new text
+                fAmount = Double.parseDouble(etFAmount.getText().toString());
+                sAmount = Double.parseDouble(etSAmount.getText().toString());
+
 
                 if (etFAmount.length() != 0 && etLocation.length() != 0 &&
                         etSAmount.length() != 0 && etCategory.length() != 0)
@@ -94,16 +120,22 @@ public class BuyActivity extends AppCompatActivity
                     addData(fAmount, location, sAmount, category);
                     Log.i(TAG, "onClick: Data adding to db");
 
+                    etIAmount.setText(null);
                     etFAmount.setText(null);
                     etLocation.setText(null);
                     etSAmount.setText(null);
                     etCategory.setText(null);
+                    etSpent.setText(null);
 
                     Log.i(TAG, "onClick: Fields Emptied");
 
                     // view();
 
-                    Log.i(TAG, "onClick: List View Updated again");
+                    // Log.i(TAG, "onClick: List View Updated again");
+
+                    Intent intent = new Intent
+                            (BuyActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
                 else
                 {
@@ -155,6 +187,8 @@ public class BuyActivity extends AppCompatActivity
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
+
+                    parent.setSelection(0);
                 }
                 else if (parent.getItemIdAtPosition(position) == 2)
                 {
@@ -166,6 +200,8 @@ public class BuyActivity extends AppCompatActivity
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
+
+                    parent.setSelection(0);
                 }
                 else if (parent.getItemIdAtPosition(position) == 3)
                 {
@@ -177,6 +213,8 @@ public class BuyActivity extends AppCompatActivity
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
+
+                    parent.setSelection(0);
                 }
                 else if (parent.getItemIdAtPosition(position) == 4)
                 {
@@ -188,6 +226,8 @@ public class BuyActivity extends AppCompatActivity
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
+
+                    parent.setSelection(0);
                 }
             }
 
@@ -197,5 +237,39 @@ public class BuyActivity extends AppCompatActivity
 
             }
         });
+    }
+
+    public void calculations()
+    {
+        iAmount = Double.parseDouble(etIAmount.getText().toString());
+
+        //sAmount = fAmount - spent;
+        fAmount = spent;
+        sAmount = iAmount - fAmount;
+
+        etSAmount.setText("" + sAmount);
+        //etSpent.setText(null);
+    }
+
+    private void view()
+    {
+        Cursor data = myDB.getLastValue();
+
+        if (data.getCount() == 0)
+        {
+            Toast.makeText
+                    (this, "The database is empty",
+                            Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            while(data.moveToNext())
+            {
+                // This value is the column ID for the Items
+                etIAmount.setText("" + data.getString(3));
+
+                tvAmount.setText("R" + etIAmount.getText().toString());
+            }
+        }
     }
 }
