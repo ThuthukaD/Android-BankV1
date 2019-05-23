@@ -16,10 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".BuyActivity"></activity>
-        <activity android:name=".ChequeFoodActivity" />
-        <activity android:name=".ChequeElectricityActivity" />
-        <activity android:name=".ChequeDataActivity" />
-        <activity android:name=".ChequeAirtimeActivity" />
+        <activity android:name=".BuyFoodActivity" />
+        <activity android:name=".BuyElectricityActivity" />
+        <activity android:name=".BuyDataActivity" />
+        <activity android:name=".BuyAirtimeActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

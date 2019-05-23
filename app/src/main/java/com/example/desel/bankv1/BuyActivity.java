@@ -1,7 +1,6 @@
 package com.example.desel.bankv1;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,12 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class BuyActivity extends AppCompatActivity
 {
@@ -154,7 +149,7 @@ public class BuyActivity extends AppCompatActivity
                 {
                     Intent intent = new Intent
                             (BuyActivity.this,
-                                    ChequeAirtimeActivity.class);
+                                    BuyAirtimeActivity.class);
                     startActivity(intent);
 
                     Toast.makeText
@@ -165,7 +160,7 @@ public class BuyActivity extends AppCompatActivity
                 {
                     Intent intent = new Intent
                             (BuyActivity.this,
-                                    ChequeDataActivity.class);
+                                    BuyDataActivity.class);
                     startActivity(intent);
 
                     Toast.makeText
@@ -176,7 +171,7 @@ public class BuyActivity extends AppCompatActivity
                 {
                     Intent intent = new Intent
                             (BuyActivity.this,
-                                    ChequeElectricityActivity.class);
+                                    BuyElectricityActivity.class);
                     startActivity(intent);
 
                     Toast.makeText
@@ -187,7 +182,7 @@ public class BuyActivity extends AppCompatActivity
                 {
                     Intent intent = new Intent
                             (BuyActivity.this,
-                                    ChequeFoodActivity.class);
+                                    BuyFoodActivity.class);
                     startActivity(intent);
 
                     Toast.makeText

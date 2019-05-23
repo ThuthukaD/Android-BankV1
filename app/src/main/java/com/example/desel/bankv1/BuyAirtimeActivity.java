@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
-public class ChequeAirtimeActivity extends AppCompatActivity
+public class BuyAirtimeActivity extends AppCompatActivity
 {
     // VARIABLES
 
@@ -42,7 +42,7 @@ public class ChequeAirtimeActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cheque_airtime);
+        setContentView(R.layout.activity_buy_airtime);
 
         // INITIALISING
 
