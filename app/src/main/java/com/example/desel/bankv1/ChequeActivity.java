@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,6 +24,12 @@ public class ChequeActivity extends AppCompatActivity
 
     // Database Related
     DatabaseHelper myDB;
+
+    // Text Views
+    TextView tvAmount;
+
+    // Edit Texts
+    EditText etIAmount;
 
     // Other
     ListView lvList;
@@ -39,11 +46,18 @@ public class ChequeActivity extends AppCompatActivity
         // Database Related
         myDB = new DatabaseHelper(this);
 
+        // Text Views
+        tvAmount = findViewById(R.id.tvAmount);
+
+        // Edit Texts
+        etIAmount = findViewById(R.id.etIAmount);
+
         // Other
         lvList = findViewById(R.id.lvChequeTransactions);
 
         view();
         Log.i(TAG, "onCreate: List View Viewing");
+        viewAmount();
     }
 
     private void view()
@@ -73,6 +87,28 @@ public class ChequeActivity extends AppCompatActivity
                         (this, android.R.layout.simple_expandable_list_item_1, theList);
 
                 lvList.setAdapter(listAdapter);
+            }
+        }
+    }
+
+    private void viewAmount()
+    {
+        Cursor data = myDB.getLastValue();
+
+        if (data.getCount() == 0)
+        {
+            Toast.makeText
+                    (this, "The database is empty",
+                            Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            while (data.moveToNext())
+            {
+                // This value is the column ID for the Items
+                etIAmount.setText("" + data.getString(3));
+
+                tvAmount.setText("R" + etIAmount.getText().toString());
             }
         }
     }

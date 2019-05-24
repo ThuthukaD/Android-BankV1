@@ -10,4 +10,13 @@
         <item>Electricity</item>
         <item>Food</item>
     </string-array>
+
+    <string-array name="cardOptions">
+
+        <item>Select Which Card to Use</item>
+        <item>Cheque</item>
+        <item>Credit</item>
+        <item>Savings</item>
+        <item>Business</item>
+    </string-array>
 </resources>

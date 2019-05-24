@@ -32,6 +32,7 @@ public class BuyActivity extends AppCompatActivity
     EditText etCategory;
     EditText etDate;
     EditText etSpent;
+    EditText etCard;
 
     // Buttons
     Button btnAdd;
@@ -46,7 +47,9 @@ public class BuyActivity extends AppCompatActivity
 
     // Other
     Spinner spinOptions;
+    Spinner spinOptionsCard;
     ArrayAdapter<CharSequence> adapterForSpinner;
+    ArrayAdapter<CharSequence> adapterForSpinnerCard;
     private static final String TAG = "BuyActivity";
 
     @Override
@@ -71,20 +74,28 @@ public class BuyActivity extends AppCompatActivity
         etCategory = findViewById(R.id.etCategory);
         etDate = findViewById(R.id.etDate);
         etSpent = findViewById(R.id.etSpent);
+        etCard = findViewById(R.id.etCard);
 
         // Buttons
         btnAdd = findViewById(R.id.btnAdd);
 
         // Other
         spinOptions = findViewById(R.id.spinOptions);
+        spinOptionsCard = findViewById(R.id.spinOptionsCard);
         adapterForSpinner = ArrayAdapter.createFromResource(this, R.array.purchaseOptions,
+                android.R.layout.simple_spinner_item);
+        adapterForSpinnerCard = ArrayAdapter.createFromResource(this, R.array.cardOptions,
                 android.R.layout.simple_spinner_item);
 
         add();
         Log.i(TAG, "onCreate: Data Possibly Added");
+        spinnerCard();
+        Log.i(TAG, "onCreate: Spinner Working");
         spinner();
         Log.i(TAG, "onCreate: Spinner Working");
         view();
+
+        getSpent();
     }
 
     private void add()
@@ -167,6 +178,70 @@ public class BuyActivity extends AppCompatActivity
         }
     }
 
+    public void spinnerCard()
+    {
+        adapterForSpinnerCard.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinOptionsCard.setAdapter(adapterForSpinnerCard);
+        spinOptionsCard.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+            {
+
+                if (parent.getItemIdAtPosition(position) == 0)
+                {
+
+                }
+                else if (parent.getItemIdAtPosition(position) == 1)
+                {
+                    Toast.makeText
+                            (getBaseContext(), parent.getItemAtPosition(position) +
+                                    " is selected", Toast.LENGTH_LONG).show();
+
+                    etCard.setText("" + parent.getItemAtPosition(position));
+
+                    spinOptions.setVisibility(View.VISIBLE);
+                }
+                else if (parent.getItemIdAtPosition(position) == 2)
+                {
+                    Toast.makeText
+                            (getBaseContext(), parent.getItemAtPosition(position) +
+                                    " is selected", Toast.LENGTH_LONG).show();
+
+                    etCard.setText("" + parent.getItemAtPosition(position));
+
+                    spinOptions.setVisibility(View.VISIBLE);
+                }
+                else if (parent.getItemIdAtPosition(position) == 3)
+                {
+                    Toast.makeText
+                            (getBaseContext(), parent.getItemAtPosition(position) +
+                                    " is selected", Toast.LENGTH_LONG).show();
+
+                    etCard.setText("" + parent.getItemAtPosition(position));
+
+                    spinOptions.setVisibility(View.VISIBLE);
+                }
+                else if (parent.getItemIdAtPosition(position) == 4)
+                {
+                    Toast.makeText
+                            (getBaseContext(), parent.getItemAtPosition(position) +
+                                    " is selected", Toast.LENGTH_LONG).show();
+
+                    etCard.setText("" + parent.getItemAtPosition(position));
+
+                    spinOptions.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent)
+            {
+
+            }
+        });
+    }
+
     public void spinner()
     {
         adapterForSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -177,12 +252,28 @@ public class BuyActivity extends AppCompatActivity
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
             {
 
-                if (parent.getItemIdAtPosition(position) == 1)
+                if (parent.getItemIdAtPosition(position) == 0)
                 {
+                    parent.setSelection(0);
+                }
+                else if (parent.getItemIdAtPosition(position) == 1)
+                {
+
+                    etCategory.setText(""+ parent.getItemAtPosition(position));
+
                     Intent intent = new Intent
-                            (BuyActivity.this,
-                                    BuyAirtimeActivity.class);
+                            (BuyActivity.this, BuyAirtimeActivity.class);
+                    Bundle extras = new Bundle();
+
+                    extras.putString("category", etCategory.getText().toString());
+                    extras.putString("card", etCard.getText().toString());
+
+                    Log.i(TAG, "onItemSelected: Sending Category as: " + etCategory.getText().toString());
+                    Log.i(TAG, "onItemSelected: Sending Card as: " + etCard.getText().toString());
+
+                    intent.putExtras(extras);
                     startActivity(intent);
+                    finish();
 
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
@@ -192,10 +283,21 @@ public class BuyActivity extends AppCompatActivity
                 }
                 else if (parent.getItemIdAtPosition(position) == 2)
                 {
+                    etCategory.setText(""+ parent.getItemAtPosition(position));
+
                     Intent intent = new Intent
-                            (BuyActivity.this,
-                                    BuyDataActivity.class);
+                            (BuyActivity.this, BuyAirtimeActivity.class);
+                    Bundle extras = new Bundle();
+
+                    extras.putString("category", etCategory.getText().toString());
+                    extras.putString("card", etCard.getText().toString());
+
+                    Log.i(TAG, "onItemSelected: Sending Category as: " + etCategory.getText().toString());
+                    Log.i(TAG, "onItemSelected: Sending Card as: " + etCard.getText().toString());
+
+                    intent.putExtras(extras);
                     startActivity(intent);
+                    finish();
 
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
@@ -205,10 +307,21 @@ public class BuyActivity extends AppCompatActivity
                 }
                 else if (parent.getItemIdAtPosition(position) == 3)
                 {
+                    etCategory.setText(""+ parent.getItemAtPosition(position));
+
                     Intent intent = new Intent
-                            (BuyActivity.this,
-                                    BuyElectricityActivity.class);
+                            (BuyActivity.this, BuyAirtimeActivity.class);
+                    Bundle extras = new Bundle();
+
+                    extras.putString("category", etCategory.getText().toString());
+                    extras.putString("card", etCard.getText().toString());
+
+                    Log.i(TAG, "onItemSelected: Sending Category as: " + etCategory.getText().toString());
+                    Log.i(TAG, "onItemSelected: Sending Card as: " + etCard.getText().toString());
+
+                    intent.putExtras(extras);
                     startActivity(intent);
+                    finish();
 
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
@@ -218,10 +331,21 @@ public class BuyActivity extends AppCompatActivity
                 }
                 else if (parent.getItemIdAtPosition(position) == 4)
                 {
+                    etCategory.setText(""+ parent.getItemAtPosition(position));
+
                     Intent intent = new Intent
-                            (BuyActivity.this,
-                                    BuyFoodActivity.class);
+                            (BuyActivity.this, BuyAirtimeActivity.class);
+                    Bundle extras = new Bundle();
+
+                    extras.putString("category", etCategory.getText().toString());
+                    extras.putString("card", etCard.getText().toString());
+
+                    Log.i(TAG, "onItemSelected: Sending Category as: " + etCategory.getText().toString());
+                    Log.i(TAG, "onItemSelected: Sending Card as: " + etCard.getText().toString());
+
+                    intent.putExtras(extras);
                     startActivity(intent);
+                    finish();
 
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
@@ -237,18 +361,6 @@ public class BuyActivity extends AppCompatActivity
 
             }
         });
-    }
-
-    public void calculations()
-    {
-        iAmount = Double.parseDouble(etIAmount.getText().toString());
-
-        //sAmount = fAmount - spent;
-        fAmount = spent;
-        sAmount = iAmount - fAmount;
-
-        etSAmount.setText("" + sAmount);
-        //etSpent.setText(null);
     }
 
     private void view()
@@ -270,6 +382,23 @@ public class BuyActivity extends AppCompatActivity
 
                 tvAmount.setText("R" + etIAmount.getText().toString());
             }
+        }
+    }
+
+    public void getSpent()
+    {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+        {
+            String location = extras.getString("location");
+            String category = extras.getString("category2");
+            double spent = extras.getDouble("spent");
+            String card = extras.getString("card2");
+
+            etLocation.setText(location);
+            etCategory.setText(category);
+            etSpent.setText("" + spent);
+            etCard.setText(card);
         }
     }
 }

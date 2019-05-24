@@ -1,7 +1,9 @@
 package com.example.desel.bankv1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +39,9 @@ public class BuyAirtimeActivity extends AppCompatActivity
 
     // Other
     LinearLayout llOptions;
+    String category;
+    String card;
+    private static final String TAG = "BuyAirtimeActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -73,7 +78,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
         llOptions = findViewById(R.id.llOptions);
 
         selection();
-        buttonClicks();
+        getStuff();
     }
 
     public void selection()
@@ -125,6 +130,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt1);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Cell C");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt1);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -134,6 +151,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt2);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Cell C");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt2);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -143,6 +172,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt3);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Cell C");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt3);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -152,6 +193,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt4);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Cell C");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt4);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -161,6 +214,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt5);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Cell C");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt5);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
             }
@@ -206,6 +271,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt1);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "MTN");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt1);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -215,6 +292,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt2);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "MTN");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt2);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -224,6 +313,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt3);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "MTN");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt3);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -233,6 +334,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt4);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "MTN");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt4);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -242,6 +355,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt5);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "MTN");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt5);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
             }
@@ -285,6 +410,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt1);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Telkom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt1);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -294,6 +431,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt2);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Telkom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt2);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -303,6 +452,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt3);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Telkom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt3);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -312,6 +473,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt4);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Telkom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt4);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
             }
@@ -357,6 +530,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt1);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Vodacom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt1);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -366,6 +551,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt2);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Vodacom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt2);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -375,6 +572,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt3);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Vodacom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt3);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -384,6 +593,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt4);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Vodacom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt4);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -393,6 +614,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt5);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Vodacom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt5);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
             }
@@ -439,6 +672,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt1);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Virgin Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt1);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -448,6 +693,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt2);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Virgin Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt2);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -457,6 +714,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt3);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Virgin Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt3);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -466,6 +735,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt4);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Virgin Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt4);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -475,6 +756,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt5);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Virgin Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt5);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
             }
@@ -528,6 +821,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt1);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Telkom Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt1);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -537,6 +842,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt2);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Telkom Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt2);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -546,6 +863,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt3);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Telkom Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt3);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -555,6 +884,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt4);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Telkom Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt4);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -564,6 +905,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt5);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Telkom Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt5);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -573,6 +926,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt6);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Telkom Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt6);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -582,6 +947,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt7);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Telkom Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt7);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -591,6 +968,18 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt8);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Telkom Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt8);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
 
@@ -600,15 +989,34 @@ public class BuyAirtimeActivity extends AppCompatActivity
                     public void onClick(View v)
                     {
                         etSpent.setText("" + opt9);
+
+                        Intent intent = new Intent
+                                (BuyAirtimeActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Telkom Mobile");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt9);
+                        extras.putString("card2", card);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
                     }
                 });
             }
         });
     }
 
-    public void buttonClicks()
+    public void getStuff()
     {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+        {
+            category = extras.getString("category");
+            card = extras.getString("card");
 
+            Log.i(TAG, "getStuff: Category is stored as: " + category);
+            Log.i(TAG, "getStuff: card is stored as: " + card);
+        }
     }
 }
-
