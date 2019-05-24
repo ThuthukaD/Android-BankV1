@@ -23,6 +23,7 @@ public class BuyActivity extends AppCompatActivity
 
     // Text Views
     TextView tvAmount;
+    TextView tvConfirmation;
 
     // Edit Texts
     EditText etIAmount;
@@ -65,6 +66,7 @@ public class BuyActivity extends AppCompatActivity
 
         // Text Views
         tvAmount = findViewById(R.id.tvAmount);
+        tvConfirmation = findViewById(R.id.tvConfirmation);
 
         // Edit Texts
         etIAmount = findViewById(R.id.etIAmount);
@@ -394,11 +396,20 @@ public class BuyActivity extends AppCompatActivity
             String category = extras.getString("category2");
             double spent = extras.getDouble("spent");
             String card = extras.getString("card2");
+            int btnOn = extras.getInt("buttonOn");
 
             etLocation.setText(location);
             etCategory.setText(category);
             etSpent.setText("" + spent);
             etCard.setText(card);
+            tvConfirmation.setText("Are you sure you want to purchase " +
+                    category + " worth R" + spent + "?");
+
+            if (btnOn == 9999)
+            {
+                btnAdd.setVisibility(View.VISIBLE);
+                tvConfirmation.setVisibility(View.VISIBLE);
+            }
         }
     }
 }
