@@ -76,15 +76,17 @@ public class ChequeActivity extends AppCompatActivity
             while(data.moveToNext())
             {
                 // This value is the column ID for the Items
-                theList.add("    R" + data.getString(1) + " PURCHASE TO '" +
-                        data.getString(2) + "' \n    R" +
-                        data.getString(3) + " IS THE REMAINING AMOUNT \n" +
-                        "    SPEND CATEGORY IS \'" +
-                        data.getString(4) + "\'");
+                theList.add("\n    R" + data.getString(5) + " WAS HOW MUCH YOU HAD\n" +
+                        "    R" + data.getString(1) + " PURCHASE MADE TO '" +
+                        data.getString(2) + "\'\n" +
+                        "'   R" + data.getString(3) + " IS THE REMAINING AMOUNT \n" +
+                                "    SPEND CATEGORY IS \'" +
+                                data.getString(4) + "\'\n" +
+                        "    TIMESTAMP WAS \'" + data.getString(6) + "\'\n");
 
                 ListAdapter listAdapter = new ArrayAdapter<>
                         // the list style which  is changeable
-                        (this, android.R.layout.simple_expandable_list_item_1, theList);
+                        (this, android.R.layout.simple_list_item_1, theList);
 
                 lvList.setAdapter(listAdapter);
             }

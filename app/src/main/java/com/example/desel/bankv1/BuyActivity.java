@@ -14,6 +14,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 public class BuyActivity extends AppCompatActivity
 {
     // VARIABLES
@@ -45,6 +48,9 @@ public class BuyActivity extends AppCompatActivity
     double sAmount;
     String category;
     double spent;
+    String date = DateFormat.getDateTimeInstance()
+            .format(new Date());
+
 
     // Other
     Spinner spinOptions;
@@ -98,6 +104,7 @@ public class BuyActivity extends AppCompatActivity
         view();
 
         getSpent();
+        etDate.setText(date);
     }
 
     private void add()
@@ -126,11 +133,10 @@ public class BuyActivity extends AppCompatActivity
                 fAmount = Double.parseDouble(etFAmount.getText().toString());
                 sAmount = Double.parseDouble(etSAmount.getText().toString());
 
-
                 if (etFAmount.length() != 0 && etLocation.length() != 0 &&
                         etSAmount.length() != 0 && etCategory.length() != 0)
                 {
-                    addData(fAmount, location, sAmount, category);
+                    addData(fAmount, location, sAmount, category, iAmount, date);
                     Log.i(TAG, "onClick: Data adding to db");
 
                     etIAmount.setText(null);
@@ -160,9 +166,11 @@ public class BuyActivity extends AppCompatActivity
         });
     }
 
-    public void addData(double fAmount, String location, double sAmount, String category)
+    public void addData(double fAmount, String location, double sAmount, String category,
+                        double iAmount, String date)
     {
-        boolean isInserted = myDB.addData(fAmount, location, sAmount, category);
+        boolean isInserted = myDB.addData(fAmount, location, sAmount, category,
+                iAmount, date);
 
         if (isInserted)
         {

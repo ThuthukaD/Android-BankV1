@@ -12,13 +12,15 @@ public class DatabaseHelper extends SQLiteOpenHelper
     // VARIABLES
 
     // Database Related
-    public static final String DATABASE_NAME = "bank.db";
+    public static final String DATABASE_NAME = "bank2.db";
     public static final String TABLE_NAME = "bank_data";
     public static final String COL1 = "ID";
     public static final String COL2 = "FirstAmount";
     public static final String COL3 = "Location";
     public static final String COL4 = "SecondAmount";
     public static final String COL5 = "Category";
+    public static final String COL6 = "InitialAmount";
+    public static final String COL7 = "Date";
 
 
     public DatabaseHelper(Context context)
@@ -36,7 +38,9 @@ public class DatabaseHelper extends SQLiteOpenHelper
                 "FirstAmount REAL," +
                 "Location TEXT," +
                 "SecondAmount REAL," +
-                "Category TEXT)");
+                "Category TEXT," +
+                "InitialAmount REAL," +
+                "Date TEXT)");
         db.execSQL(createTable);
 
         Log.i("DatabaseHelper", "Table Created");
@@ -52,16 +56,19 @@ public class DatabaseHelper extends SQLiteOpenHelper
     }
 
     public boolean addData(double fAmount, String location, double sAmount,
-                           String category)
+                           String category, double iAmount, String date)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
         Log.i("DatabaseHelper", "Adding Data");
         ContentValues contentValues = new ContentValues();
+
         contentValues.put(COL2, fAmount);
         contentValues.put(COL3, location);
         contentValues.put(COL4, sAmount);
         contentValues.put(COL5, category);
+        contentValues.put(COL6, iAmount);
+        contentValues.put(COL7, date);
 
         Log.i("DatabaseHelper", "Potentially successful");
 
@@ -82,9 +89,9 @@ public class DatabaseHelper extends SQLiteOpenHelper
         SQLiteDatabase db = this.getWritableDatabase();
 
         Log.i("DatabaseHelper", "Getting Content from db");
-        //Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME,null);
-        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " + COL1 + " DESC",null);
-        //Cursor data = db.query("SELECT * FROM" + TABLE_NAME, rank, null, null, null, null, COL1 + "DESC");
+
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " +
+                COL1 + " DESC",null);
         return data;
     }
 
@@ -93,9 +100,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
         SQLiteDatabase db = this.getWritableDatabase();
 
         Log.i("DatabaseHelper", "Getting Content from db");
-        //Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME,null);
-        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " + COL1 + " DESC LIMIT 1",null);
-        //Cursor data = db.query("SELECT * FROM" + TABLE_NAME, rank, null, null, null, null, COL1 + "DESC");
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME +
+                " ORDER BY " + COL1 + " DESC LIMIT 1",null);
         return data;
     }
 }
