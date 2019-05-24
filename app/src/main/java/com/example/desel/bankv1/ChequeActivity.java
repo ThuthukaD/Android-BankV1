@@ -80,8 +80,10 @@ public class ChequeActivity extends AppCompatActivity
                         "    R" + data.getString(1) + " PURCHASE MADE TO '" +
                         data.getString(2) + "\'\n" +
                         "'   R" + data.getString(3) + " IS THE REMAINING AMOUNT \n" +
-                                "    SPEND CATEGORY IS \'" +
-                                data.getString(4) + "\'\n" +
+                        "    SPEND CATEGORY IS \'" +
+                        data.getString(4) + "\'\n" +
+                        "    ON \'" + data.getString(7) + "\' ACCOUNT\n" +
+                        "    ACCOUNT NO. XXXX XXXX XXXX XXXX \n" +
                         "    TIMESTAMP WAS \'" + data.getString(6) + "\'\n");
 
                 ListAdapter listAdapter = new ArrayAdapter<>

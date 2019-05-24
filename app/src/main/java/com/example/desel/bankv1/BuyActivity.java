@@ -50,6 +50,7 @@ public class BuyActivity extends AppCompatActivity
     double spent;
     String date = DateFormat.getDateTimeInstance()
             .format(new Date());
+    String card;
 
 
     // Other
@@ -132,11 +133,12 @@ public class BuyActivity extends AppCompatActivity
                 // Pulling new text
                 fAmount = Double.parseDouble(etFAmount.getText().toString());
                 sAmount = Double.parseDouble(etSAmount.getText().toString());
+                card = etCard.getText().toString();
 
                 if (etFAmount.length() != 0 && etLocation.length() != 0 &&
                         etSAmount.length() != 0 && etCategory.length() != 0)
                 {
-                    addData(fAmount, location, sAmount, category, iAmount, date);
+                    addData(fAmount, location, sAmount, category, iAmount, date, card);
                     Log.i(TAG, "onClick: Data adding to db");
 
                     etIAmount.setText(null);
@@ -145,6 +147,7 @@ public class BuyActivity extends AppCompatActivity
                     etSAmount.setText(null);
                     etCategory.setText(null);
                     etSpent.setText(null);
+                    etCard.setText(null);
 
                     Log.i(TAG, "onClick: Fields Emptied");
 
@@ -167,10 +170,10 @@ public class BuyActivity extends AppCompatActivity
     }
 
     public void addData(double fAmount, String location, double sAmount, String category,
-                        double iAmount, String date)
+                        double iAmount, String date, String card)
     {
         boolean isInserted = myDB.addData(fAmount, location, sAmount, category,
-                iAmount, date);
+                iAmount, date, card);
 
         if (isInserted)
         {

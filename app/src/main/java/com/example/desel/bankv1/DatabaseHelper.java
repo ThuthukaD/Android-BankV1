@@ -12,7 +12,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
     // VARIABLES
 
     // Database Related
-    public static final String DATABASE_NAME = "bank2.db";
+    public static final String DATABASE_NAME = "bank3.db";
     public static final String TABLE_NAME = "bank_data";
     public static final String COL1 = "ID";
     public static final String COL2 = "FirstAmount";
@@ -21,6 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
     public static final String COL5 = "Category";
     public static final String COL6 = "InitialAmount";
     public static final String COL7 = "Date";
+    public static final String COL8 = "card";
 
 
     public DatabaseHelper(Context context)
@@ -40,7 +41,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
                 "SecondAmount REAL," +
                 "Category TEXT," +
                 "InitialAmount REAL," +
-                "Date TEXT)");
+                "Date TEXT," +
+                "Card TEXT)");
         db.execSQL(createTable);
 
         Log.i("DatabaseHelper", "Table Created");
@@ -56,7 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
     }
 
     public boolean addData(double fAmount, String location, double sAmount,
-                           String category, double iAmount, String date)
+                           String category, double iAmount, String date, String card)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -69,6 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         contentValues.put(COL5, category);
         contentValues.put(COL6, iAmount);
         contentValues.put(COL7, date);
+        contentValues.put(COL8, card);
 
         Log.i("DatabaseHelper", "Potentially successful");
 
