@@ -2,6 +2,7 @@ package com.example.desel.bankv1;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +36,17 @@ public class MainActivity extends AppCompatActivity
 
     // Text Views
     TextView tvUserName;
+    TextView tvMoneyCheque;
+    TextView tvMoneyCredit;
+    TextView tvMoneySavings;
+    TextView tvMoneyBusiness;
+
+    // Edit Text
+    EditText etIAmount;
+
+    // Database Related
+    DatabaseHelper myDB;
+
     private static final String TAG = "MainActivity";
 
     @Override
@@ -45,6 +58,9 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         // INITIALISING
+
+        // Database Related
+        myDB = new DatabaseHelper(this);
 
         // Floating Buttons
         fbtnPay = findViewById(R.id.fbtnPay);
@@ -61,9 +77,17 @@ public class MainActivity extends AppCompatActivity
 
         // Text Views
         tvUserName = findViewById(R.id.tvUserName);
+        tvMoneyCheque = findViewById(R.id.tvMoney1);
+        tvMoneyCredit = findViewById(R.id.tvMoney2);
+        tvMoneySavings = findViewById(R.id.tvMoney3);
+        tvMoneyBusiness = findViewById(R.id.tvMoney4);
+
+        // Edit Text
+        etIAmount = findViewById(R.id.etIAmount);
 
         floatButtons();
         cardViewClicks();
+        view();
 
         Log.i(TAG, "onCreate: Fetching text");
         try
@@ -149,18 +173,10 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                // Starting new Activity
-                cvCard1.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent
-                                (MainActivity.this,
-                                        ChequeActivity.class);
-                        startActivity(intent);
-                    }
-                });
+                Intent intent = new Intent
+                        (MainActivity.this,
+                                ChequeActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -169,17 +185,10 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                cvCard2.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent
-                                (MainActivity.this,
-                                        CreditActivity.class);
-                        startActivity(intent);
-                    }
-                });
+                Intent intent = new Intent
+                        (MainActivity.this,
+                                CreditActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -188,17 +197,10 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                cvCard3.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent
-                                (MainActivity.this,
-                                        SavingsActivity.class);
-                        startActivity(intent);
-                    }
-                });
+                Intent intent = new Intent
+                        (MainActivity.this,
+                                SavingsActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -207,17 +209,10 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                cvCard4.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        Intent intent = new Intent
-                                (MainActivity.this,
-                                        BusinessActivity.class);
-                        startActivity(intent);
-                    }
-                });
+                Intent intent = new Intent
+                        (MainActivity.this,
+                                BusinessActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -260,5 +255,39 @@ public class MainActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void view()
+    {
+        Cursor data = myDB.getLastValue();
+
+        if (data.getCount() == 0)
+        {
+            Toast.makeText
+                    (this, "The database is empty",
+                            Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            while(data.moveToNext())
+            {
+                // This value is the column ID for the Items
+
+                etIAmount.setText("" + data.getString(3));
+
+                Double chequeAmount = Double.parseDouble(etIAmount.getText().toString());
+
+                if (chequeAmount == null)
+                {
+                    chequeAmount = 9999.00;
+
+                    tvMoneyCheque.setText("R" + chequeAmount);
+                }
+                else
+                {
+                    tvMoneyCheque.setText("R" + chequeAmount);
+                }
+            }
+        }
     }
 }
