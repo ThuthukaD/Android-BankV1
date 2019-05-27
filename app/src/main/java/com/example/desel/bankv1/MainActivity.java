@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity
     // Database Related
     DatabaseHelper myDB;
 
+    // Debugging
     private static final String TAG = "MainActivity";
 
     @Override
@@ -93,20 +94,21 @@ public class MainActivity extends AppCompatActivity
         // Edit Text
         etIAmount = findViewById(R.id.etIAmount);
 
-        floatButtons();
-        cardViewClicks();
-        view();
-
-        Log.i(TAG, "onCreate: Fetching text");
+        Log.i(TAG, "onCreate: MainActivity Loaded");
+        Log.i(TAG, "onCreate: Fetching Text");
         try
         {
             Text();
-            Log.i(TAG, "onCreate: Text fetch successful");
+            Log.i(TAG, "onCreate: Text Fetch Successful");
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
+
+        floatButtons();
+        cardViewClicks();
+        viewChequeAvailableBalance();
     }
 
     private void floatButtons()
@@ -116,6 +118,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                Log.i(TAG, "floatButtons: fbtnPay Clicked");
+
                 Intent intent = new Intent
                         (MainActivity.this,
                                 PaymentActivity.class);
@@ -128,6 +132,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                Log.i(TAG, "floatButtons: fbtnTransfer Clicked");
+
                 Intent intent = new Intent
                         (MainActivity.this,
                                 TransferActivity.class);
@@ -140,12 +146,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                Log.i(TAG, "floatButtons: fbtnBuy Clicked");
+
                 Intent intent = new Intent
                         (MainActivity.this,
                                 BuyActivity.class);
 
                 Bundle extras = new Bundle();
 
+                Log.i(TAG, "onClick: Sending Card Number to BuyActivity");
                 extras.putString("cardNoCheque", tvCardNumberCheque.getText().toString());
                 extras.putString("cardNoCredit", tvCardNumberCredit.getText().toString());
                 extras.putString("cardNoSavings", tvCardNumberSavings.getText().toString());
@@ -153,6 +162,8 @@ public class MainActivity extends AppCompatActivity
 
                 intent.putExtras(extras);
                 startActivity(intent);
+
+                Log.i(TAG, "onClick: Started BuyActivity");
             }
         });
 
@@ -161,6 +172,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                Log.i(TAG, "floatButtons: fbtnBudget Clicked");
+
                 Intent intent = new Intent
                         (MainActivity.this,
                                 BudgetActivity.class);
@@ -174,13 +187,13 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                Log.i(TAG, "floatButtons: fbtnTBD Clicked");
+
                 Toast.makeText
                         (MainActivity.this, "Locked, Upcoming Feature",
                         Toast.LENGTH_SHORT).show();
             }
         });
-
-        Log.i(TAG, "floatButtons: Floating Button Clicked");
     }
 
     private void cardViewClicks()
@@ -190,6 +203,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                Log.i(TAG, "onClick: Clicked cvCard1");
+
                 Intent intent = new Intent
                         (MainActivity.this,
                                 ChequeActivity.class);
@@ -202,6 +217,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                Log.i(TAG, "onClick: Clicked cvCard2");
+
                 Intent intent = new Intent
                         (MainActivity.this,
                                 CreditActivity.class);
@@ -214,6 +231,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                Log.i(TAG, "onClick: Clicked cvCard3");
+
                 Intent intent = new Intent
                         (MainActivity.this,
                                 SavingsActivity.class);
@@ -226,24 +245,77 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                Log.i(TAG, "onClick: Clicked cvCard4");
+
                 Intent intent = new Intent
                         (MainActivity.this,
                                 BusinessActivity.class);
                 startActivity(intent);
             }
         });
+    }
 
-        Log.i(TAG, "cardViewClicks: Card View Button Clicked");
+    // Method to view the correct amount for the phone
+    private void viewChequeAvailableBalance()
+    {
+        Cursor data = myDB.getLastValue();
+
+        Log.i(TAG, "viewChequeAvailableBalance: No Data found in the DB");
+        if (data.getCount() == 0)
+        {
+            Toast.makeText
+                    (this, "The database is empty",
+                            Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            while(data.moveToNext())
+            {
+                // This value is the column ID for the Items
+                etIAmount.setText("" + data.getString(3));
+
+                Log.i(TAG, "viewChequeAvailableBalance: The value found is " +
+                        data.getString(3));
+
+                Double chequeAmount = Double.parseDouble(etIAmount.getText().toString());
+
+                if (chequeAmount == null)
+                {
+                    // Used to set the Initial AMount to this value if DB is empty
+                    chequeAmount = 99999.99;
+
+                    // To make decimal in 2 places, use (String.format("%.2f"), value);
+                    tvMoneyCheque.setText(String.format("R%.2f", chequeAmount));
+
+                    Log.i(TAG, "viewChequeAvailableBalance: Formatted Text to have " +
+                            "decimal places");
+                    Log.i(TAG, "viewChequeAvailableBalance: Cheque Available Amount is "
+                            + chequeAmount);
+                }
+                else
+                {
+                    // To make decimal in 2 places, use (String.format("%.2f"), value);
+                    tvMoneyCheque.setText(String.format("R%.2f", chequeAmount));
+
+                    Log.i(TAG, "viewChequeAvailableBalance: Formatted Text to have " +
+                            "decimal places");
+                    Log.i(TAG, "viewChequeAvailableBalance: Cheque Available Amount is "
+                            + chequeAmount);
+                }
+            }
+        }
     }
 
     // Get text method
     public void Text()
     {
+        Log.i(TAG, "Text: Getting username text");
         // Calling prefs from RegisterActivity
         SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
 
         // Passed string for user
         String username = prefs.getString("username", "Username");
+        Log.i(TAG, "Text: Username is " + username);
 
         // Setting the current fields to the stored text
         tvUserName.setText(username);
@@ -272,39 +344,5 @@ public class MainActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private void view()
-    {
-        Cursor data = myDB.getLastValue();
-
-        if (data.getCount() == 0)
-        {
-            Toast.makeText
-                    (this, "The database is empty",
-                            Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            while(data.moveToNext())
-            {
-                // This value is the column ID for the Items
-
-                etIAmount.setText("" + data.getString(3));
-
-                Double chequeAmount = Double.parseDouble(etIAmount.getText().toString());
-
-                if (chequeAmount == null)
-                {
-                    chequeAmount = 9999.00;
-
-                    tvMoneyCheque.setText("R" + chequeAmount);
-                }
-                else
-                {
-                    tvMoneyCheque.setText("R" + chequeAmount);
-                }
-            }
-        }
     }
 }

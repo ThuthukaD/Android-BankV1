@@ -470,7 +470,7 @@ public class BuyActivity extends AppCompatActivity
 
             if (etIAmount.length() == 0)
             {
-                etIAmount.setText("" + 9999);
+                etIAmount.setText("" + 99999.99);
             }
         }
     }

@@ -12,8 +12,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
     // VARIABLES
 
     // Database Related
-    public static final String DATABASE_NAME = "bank4.db";
-    public static final String TABLE_NAME = "bank_data";
+    public static final String DATABASE_NAME = "bank7.db";
+    public static final String TABLE_NAME_CHEQUE = "cheque_data";
     public static final String COL1 = "ID";
     public static final String COL2 = "FirstAmount";
     public static final String COL3 = "Location";
@@ -24,6 +24,9 @@ public class DatabaseHelper extends SQLiteOpenHelper
     public static final String COL8 = "Card";
     public static final String COL9 = "CardNo";
 
+    // Debugging
+    private static final String TAG = "DatabaseHelper";
+
 
     public DatabaseHelper(Context context)
     {
@@ -33,9 +36,9 @@ public class DatabaseHelper extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        Log.i("DatabaseHelper", "Creating Table");
+        Log.i(TAG, "Creating Table");
 
-        String createTable = ("CREATE TABLE " + TABLE_NAME +
+        String createTable = ("CREATE TABLE " + TABLE_NAME_CHEQUE +
                 "(ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "FirstAmount REAL," +
                 "Location TEXT," +
@@ -47,15 +50,15 @@ public class DatabaseHelper extends SQLiteOpenHelper
                 "CardNo TEXT)");
         db.execSQL(createTable);
 
-        Log.i("DatabaseHelper", "Table Created");
+        Log.i(TAG, TABLE_NAME_CHEQUE + " Table Created");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
-        Log.i("DatabaseHelper", "Dropped Table");
+        Log.i(TAG,  TABLE_NAME_CHEQUE + " Table Dropped");
 
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME_CHEQUE);
         onCreate(db);
     }
 
@@ -65,7 +68,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Log.i("DatabaseHelper", "Adding Data");
+        Log.i(TAG, "Adding Data to " + TABLE_NAME_CHEQUE);
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(COL2, fAmount);
@@ -77,38 +80,46 @@ public class DatabaseHelper extends SQLiteOpenHelper
         contentValues.put(COL8, card);
         contentValues.put(COL9, cardNo);
 
-        Log.i("DatabaseHelper", "Potentially successful");
-
-        long result = db.insert(TABLE_NAME, null, contentValues);
+        long result = db.insert(TABLE_NAME_CHEQUE, null, contentValues);
 
         if(result == -1)
         {
+            Log.i(TAG, "addData: Table Does Not Exist");
             return false;
         }
         else
         {
+            Log.i(TAG, "addData: Successfully Inserted Data");
             return true;
         }
     }
 
+    // Method for getting List Content for the Transaction History
     public Cursor getListContent()
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Log.i("DatabaseHelper", "Getting Content from db");
+        Log.i(TAG, "Getting Content from " + TABLE_NAME_CHEQUE + " Table");
 
-        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME + " ORDER BY " +
+        // Used for the Cheque Transaction History
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME_CHEQUE + " ORDER BY " +
                 COL1 + " DESC",null);
         return data;
+
+        // Future Tables can be placed here...
     }
 
+    // Method for getting last Values for Available balances
     public Cursor getLastValue()
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        Log.i("DatabaseHelper", "Getting Content from db");
-        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME +
+        // Used for the Cheque Available Balances
+        Log.i(TAG, "Getting Content from db");
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME_CHEQUE +
                 " ORDER BY " + COL1 + " DESC LIMIT 1",null);
         return data;
+
+        // Future Tables can be placed here...
     }
 }
