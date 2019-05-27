@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity
         // Edit Text
         etIAmount = findViewById(R.id.etIAmount);
 
-        Log.i(TAG, "onCreate: MainActivity Loaded");
+        Log.i(TAG, "onCreate: MainActivity Loading");
         Log.i(TAG, "onCreate: Fetching Text");
         try
         {
@@ -260,12 +260,13 @@ public class MainActivity extends AppCompatActivity
     {
         Cursor data = myDB.getLastValue();
 
-        Log.i(TAG, "viewChequeAvailableBalance: No Data found in the DB");
         if (data.getCount() == 0)
         {
             Toast.makeText
                     (this, "The database is empty",
                             Toast.LENGTH_SHORT).show();
+
+            Log.i(TAG, "viewChequeAvailableBalance: No Data found in the DB");
         }
         else
         {
@@ -274,7 +275,7 @@ public class MainActivity extends AppCompatActivity
                 // This value is the column ID for the Items
                 etIAmount.setText("" + data.getString(3));
 
-                Log.i(TAG, "viewChequeAvailableBalance: The value found is " +
+                Log.i(TAG, "viewChequeAvailableBalance: The Amount Found is " +
                         data.getString(3));
 
                 Double chequeAmount = Double.parseDouble(etIAmount.getText().toString());
@@ -287,20 +288,20 @@ public class MainActivity extends AppCompatActivity
                     // To make decimal in 2 places, use (String.format("%.2f"), value);
                     tvMoneyCheque.setText(String.format("R%.2f", chequeAmount));
 
-                    Log.i(TAG, "viewChequeAvailableBalance: Formatted Text to have " +
-                            "decimal places");
+                    Log.i(TAG, "viewChequeAvailableBalance: Formatted Text to Have " +
+                            "Decimal Places");
                     Log.i(TAG, "viewChequeAvailableBalance: Cheque Available Amount is "
-                            + chequeAmount);
+                            + String.format("R%.2f", chequeAmount));
                 }
                 else
                 {
                     // To make decimal in 2 places, use (String.format("%.2f"), value);
                     tvMoneyCheque.setText(String.format("R%.2f", chequeAmount));
 
-                    Log.i(TAG, "viewChequeAvailableBalance: Formatted Text to have " +
-                            "decimal places");
+                    Log.i(TAG, "viewChequeAvailableBalance: Formatted Text to Have " +
+                            "Decimal Places");
                     Log.i(TAG, "viewChequeAvailableBalance: Cheque Available Amount is "
-                            + chequeAmount);
+                            + String.format("R%.2f", chequeAmount));
                 }
             }
         }
@@ -309,13 +310,13 @@ public class MainActivity extends AppCompatActivity
     // Get text method
     public void Text()
     {
-        Log.i(TAG, "Text: Getting username text");
+        Log.i(TAG, "Text: Getting Username Text");
         // Calling prefs from RegisterActivity
         SharedPreferences prefs = getSharedPreferences("login", MODE_PRIVATE);
 
         // Passed string for user
         String username = prefs.getString("username", "Username");
-        Log.i(TAG, "Text: Username is " + username);
+        Log.i(TAG, "Text: Username is \'" + username + "\'");
 
         // Setting the current fields to the stored text
         tvUserName.setText(username);
