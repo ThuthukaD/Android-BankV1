@@ -40,6 +40,10 @@ public class MainActivity extends AppCompatActivity
     TextView tvMoneyCredit;
     TextView tvMoneySavings;
     TextView tvMoneyBusiness;
+    TextView tvCardNumberCheque;
+    TextView tvCardNumberCredit;
+    TextView tvCardNumberSavings;
+    TextView tvCardNumberBusiness;
 
     // Edit Text
     EditText etIAmount;
@@ -81,6 +85,10 @@ public class MainActivity extends AppCompatActivity
         tvMoneyCredit = findViewById(R.id.tvMoney2);
         tvMoneySavings = findViewById(R.id.tvMoney3);
         tvMoneyBusiness = findViewById(R.id.tvMoney4);
+        tvCardNumberCheque = findViewById(R.id.tvCardNumber1);
+        tvCardNumberCredit = findViewById(R.id.tvCardNumber2);
+        tvCardNumberSavings = findViewById(R.id.tvCardNumber3);
+        tvCardNumberBusiness = findViewById(R.id.tvCardNumber4);
 
         // Edit Text
         etIAmount = findViewById(R.id.etIAmount);
@@ -135,6 +143,15 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent
                         (MainActivity.this,
                                 BuyActivity.class);
+
+                Bundle extras = new Bundle();
+
+                extras.putString("cardNoCheque", tvCardNumberCheque.getText().toString());
+                extras.putString("cardNoCredit", tvCardNumberCredit.getText().toString());
+                extras.putString("cardNoSavings", tvCardNumberSavings.getText().toString());
+                extras.putString("cardNoBusiness", tvCardNumberBusiness.getText().toString());
+
+                intent.putExtras(extras);
                 startActivity(intent);
             }
         });

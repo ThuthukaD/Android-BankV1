@@ -16,7 +16,8 @@ public class SplashActivity extends AppCompatActivity
     // Other
     public ProgressBar progressBar;
     public int progressStatus = 0;
-    public Handler handler;
+
+    // Debugging
     private static final String TAG = "SplashActivity";
 
     @Override
@@ -25,80 +26,97 @@ public class SplashActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // TYPE CASTING
+        // INITIALISING
         progressBar = findViewById(R.id.progressBar);
 
         Log.i("SplashActivity", "Splash Starting");
 
-        // -----------------------------------------------------------------------------
-        // WORK
-
-        Log.d(TAG, "onCreate: Splash - ProgressBar Starting");
         Log.i("SplashActivity", "Progressbar Starting");
+        loading();
+    }
+
+    public void loading()
+    {
+        Log.i(TAG, "run: Loading Running");
+
         // Progress Bar Code
         new Thread(new Runnable()
         {
             @Override
             public void run()
             {
+                // Determines length of the progress bar
                 while (progressStatus < 100)
                 {
                     progressStatus++;
                     SystemClock.sleep(20);
                     progressBar.setProgress(progressStatus);
                 }
-
-                Log.d(TAG, "run: Splash - Auto login Starting");
-                Log.i("SplashActivity", "Auto Login Starting");
-                // Auto Login Code
-                SharedPreferences prefs = getSharedPreferences("login",
-                        MODE_PRIVATE);
-                final Boolean isLogged = prefs.getBoolean("isLogged",
-                        false);
-
-                Thread timer = new Thread()
-                {
-                    public void run()
-                    {
-                        Log.d(TAG, "run: Splash - Timer Started");
-                        try
-                        {
-                            sleep(10);
-                        }
-                        catch (InterruptedException e)
-                        {
-                            e.printStackTrace();
-                        }
-                        finally
-                        {
-                            Log.d(TAG, "run: Splash - Timer Complete");
-                            if (isLogged)
-                            {
-                                Log.d(TAG, "run: Splash - Starting loginActivity");
-                                Intent intent = new Intent
-                                        (SplashActivity.this,
-                                                LoginActivity.class);
-                                startActivity(intent);
-                                finish();
-                                Log.d(TAG, "run: Splash - Closing splashActivity");
-                            }
-                            else
-                            {
-                                Log.d(TAG, "run: Splash - Starting RegisterActivity");
-                                Intent intent = new Intent
-                                        (SplashActivity.this,
-                                                RegisterActivity.class);
-                                startActivity(intent);
-                                finish();
-                                Log.d(TAG, "run: Splash - Closing splashActivity");
-                            }
-                        }
-                        Log.d(TAG, "run: Splash - Autologin Complete");
-                    }
-                };
-                timer.start();
+                autoLogo();
             }
         }).start();
-        Log.d(TAG, "onCreate: Splash Complete");
+        Log.i(TAG, "run: Loading Complete");
+    }
+
+    public void autoLogo()
+    {
+        Log.i("SplashActivity", "Auto Login Starting");
+
+        // Auto Login Code
+        SharedPreferences prefs = getSharedPreferences("login",
+                MODE_PRIVATE);
+        final Boolean isLogged = prefs.getBoolean("isLogged",
+                false);
+
+        Thread timer = new Thread()
+        {
+            public void run()
+            {
+                Log.i(TAG, "run: Splash - Auto Log Timer Started");
+
+                try
+                {
+                    // Short delay for the next page to open
+                    sleep(10);
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+                finally
+                {
+                    Log.i(TAG, "run: Splash - Auto Log Timer Complete");
+
+                    if (isLogged)
+                    {
+                        Log.i(TAG, "run: Splash - Starting LoginActivity");
+
+                        // If logged in previously, open Login Activity
+                        Intent intent = new Intent
+                                (SplashActivity.this,
+                                        LoginActivity.class);
+                        startActivity(intent);
+                        finish();
+
+                        Log.i(TAG, "run: Splash - Closing SplashActivity");
+                    }
+                    else
+                    {
+                        Log.i(TAG, "run: Splash - Starting RegisterActivity");
+
+                        // If never logged in previously, open Register Activity
+                        Intent intent = new Intent
+                                (SplashActivity.this,
+                                        RegisterActivity.class);
+                        startActivity(intent);
+                        finish();
+
+                        Log.i(TAG, "run: Splash - Closing SplashActivity");
+                    }
+                }
+                Log.i(TAG, "run: Splash - Auto Login Complete");
+            }
+        };
+        timer.start();
     }
 }

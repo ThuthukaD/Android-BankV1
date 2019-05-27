@@ -41,6 +41,8 @@ public class BuyAirtimeActivity extends AppCompatActivity
     LinearLayout llOptions;
     String category;
     String card;
+    String cardNo;
+
     private static final String TAG = "BuyAirtimeActivity";
 
     @Override
@@ -140,6 +142,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt1);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -162,6 +165,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt2);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -184,6 +188,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt3);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -206,6 +211,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt4);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -228,6 +234,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt5);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -286,6 +293,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt1);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -308,6 +316,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt2);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -330,6 +339,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt3);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -352,6 +362,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt4);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -374,6 +385,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt5);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -430,6 +442,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt1);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -452,6 +465,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt2);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -474,6 +488,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt3);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -496,6 +511,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt4);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -554,6 +570,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt1);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -576,6 +593,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt2);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -598,6 +616,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt3);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -620,6 +639,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt4);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -642,6 +662,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt5);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -701,6 +722,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt1);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -723,6 +745,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt2);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -745,6 +768,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt3);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -767,6 +791,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt4);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -789,6 +814,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt5);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -855,6 +881,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt1);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -877,6 +904,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt2);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -899,6 +927,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt3);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -921,6 +950,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt4);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -943,6 +973,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt5);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -965,6 +996,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt6);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -987,6 +1019,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt7);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -1009,6 +1042,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt8);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -1031,6 +1065,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putDouble("spent", opt9);
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -1047,6 +1082,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
         {
             category = extras.getString("category");
             card = extras.getString("card");
+            cardNo = extras.getString("cardNo2");
 
             Log.i(TAG, "getStuff: Category is stored as: " + category);
             Log.i(TAG, "getStuff: card is stored as: " + card);

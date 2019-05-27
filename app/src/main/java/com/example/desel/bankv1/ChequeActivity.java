@@ -83,7 +83,7 @@ public class ChequeActivity extends AppCompatActivity
                         "    SPEND CATEGORY IS \'" +
                         data.getString(4) + "\'\n" +
                         "    ON \'" + data.getString(7) + "\' ACCOUNT\n" +
-                        "    ACCOUNT NO. XXXX XXXX XXXX XXXX \n" +
+                        "    ACCOUNT NO. '" + data.getString(8) + "\'\n" +
                         "    TIMESTAMP WAS \'" + data.getString(6) + "\'\n");
 
                 ListAdapter listAdapter = new ArrayAdapter<>
