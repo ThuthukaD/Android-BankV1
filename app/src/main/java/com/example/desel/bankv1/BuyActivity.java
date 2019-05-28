@@ -24,6 +24,12 @@ public class BuyActivity extends AppCompatActivity
     // Database Related
     DatabaseHelper myDB;
 
+    // Spinners
+    Spinner spinOptions;
+    Spinner spinOptionsCard;
+    ArrayAdapter<CharSequence> adapterForSpinner;
+    ArrayAdapter<CharSequence> adapterForSpinnerCard;
+
     // Text Views
     TextView tvAmount;
     TextView tvConfirmation;
@@ -40,7 +46,7 @@ public class BuyActivity extends AppCompatActivity
     EditText etCardNo;
 
     // Buttons
-    Button btnAdd;
+    Button btnBuy;
 
     // Storing
     double iAmount;
@@ -54,13 +60,7 @@ public class BuyActivity extends AppCompatActivity
     String card;
     String cardNo;
 
-
-    // Other
-    Spinner spinOptions;
-    Spinner spinOptionsCard;
-    ArrayAdapter<CharSequence> adapterForSpinner;
-    ArrayAdapter<CharSequence> adapterForSpinnerCard;
-
+    // Debugging
     private static final String TAG = "BuyActivity";
 
     @Override
@@ -73,6 +73,14 @@ public class BuyActivity extends AppCompatActivity
 
         // Database Related
         myDB = new DatabaseHelper(this);
+
+        // Spinners
+        spinOptions = findViewById(R.id.spinOptions);
+        spinOptionsCard = findViewById(R.id.spinOptionsCard);
+        adapterForSpinner = ArrayAdapter.createFromResource(this, R.array.purchaseOptions,
+                android.R.layout.simple_spinner_item);
+        adapterForSpinnerCard = ArrayAdapter.createFromResource(this, R.array.cardOptions,
+                android.R.layout.simple_spinner_item);
 
         // Text Views
         tvAmount = findViewById(R.id.tvAmount);
@@ -90,50 +98,49 @@ public class BuyActivity extends AppCompatActivity
         etCardNo = findViewById(R.id.etCaardNo);
 
         // Buttons
-        btnAdd = findViewById(R.id.btnAdd);
-
-        // Other
-        spinOptions = findViewById(R.id.spinOptions);
-        spinOptionsCard = findViewById(R.id.spinOptionsCard);
-        adapterForSpinner = ArrayAdapter.createFromResource(this, R.array.purchaseOptions,
-                android.R.layout.simple_spinner_item);
-        adapterForSpinnerCard = ArrayAdapter.createFromResource(this, R.array.cardOptions,
-                android.R.layout.simple_spinner_item);
+        btnBuy = findViewById(R.id.btnAdd);
 
         add();
-        Log.i(TAG, "onCreate: Data Possibly Added");
-        spinnerCard();
-        Log.i(TAG, "onCreate: Spinner Working");
-        spinner();
-        Log.i(TAG, "onCreate: Spinner Working");
+        spinnerCardSelection();
+        spinnerPurchaseSelection();
         view();
-
         getThings();
-        etDate.setText(date);
 
+        etDate.setText(date);
     }
 
     private void add()
     {
-        Log.i(TAG, "add: Button Clicked");
-        btnAdd.setOnClickListener(new View.OnClickListener()
+        btnBuy.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                // Pulling initial Text
+                Log.i(TAG, "add: btnAdd Clicked");
+                Log.i(TAG, "onClick: Pulling Initial Text");
+
+                // Pulling initial text
                 iAmount = Double.parseDouble(etIAmount.getText().toString());
                 location = etLocation.getText().toString();
                 category = etCategory.getText().toString();
                 spent = Double.parseDouble(etSpent.getText().toString());
 
+                Log.i(TAG, "onClick: Pulled Initial Text");
+                Log.i(TAG, "onClick: Setting Text for fAmount");
+
                 // Setting text for fAmount
                 fAmount = spent;
                 etFAmount.setText("" + fAmount);
 
+                Log.i(TAG, "onClick: Set Text for fAmount");
+                Log.i(TAG, "onClick: Setting Text for sAmount");
+
                 // Setting text for sAmount
                 sAmount = iAmount - fAmount;
                 etSAmount.setText("" + sAmount);
+
+                Log.i(TAG, "onClick: Set Text for sAmount");
+                Log.i(TAG, "onClick: Pulling Additional Text");
 
                 // Pulling new text
                 fAmount = Double.parseDouble(etFAmount.getText().toString());
@@ -141,12 +148,19 @@ public class BuyActivity extends AppCompatActivity
                 card = etCard.getText().toString();
                 cardNo = etCardNo.getText().toString();
 
+                Log.i(TAG, "onClick: Successfully Pulled All Text");
+                Log.i(TAG, "onClick: Checking for any Blank Fields");
+
                 if (etFAmount.length() != 0 && etLocation.length() != 0 &&
-                        etSAmount.length() != 0 && etCategory.length() != 0)
+                        etSAmount.length() != 0 && etCategory.length() != 0 &&
+                        etSpent.length() != 0 && etCard.length() != 0 && etCardNo.length() != 0)
                 {
+                    Log.i(TAG, "onClick: Fields Are Not Empty");
+
                     addData(fAmount, location, sAmount, category, iAmount, date, card,
                             cardNo);
-                    Log.i(TAG, "onClick: Data adding to db");
+
+                    Log.i(TAG, "onClick: Data Adding to Database");
 
                     etIAmount.setText(null);
                     etFAmount.setText(null);
@@ -158,17 +172,22 @@ public class BuyActivity extends AppCompatActivity
                     etCardNo.setText(null);
 
                     Log.i(TAG, "onClick: Fields Emptied");
+                    Log.i(TAG, "onClick: Closing All Old Activities");
 
-                    // view();
+//                    Intent intent = new Intent
+//                        (BuyActivity.this, MainActivity.class);
+//                    startActivity(intent);
 
-                    // Log.i(TAG, "onClick: List View Updated again");
-
-                    Intent intent = new Intent
-                            (BuyActivity.this, MainActivity.class);
+                    // Intent to close all other activities except for main and login
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("EXIT", true);
                     startActivity(intent);
                 }
                 else
                 {
+                    Log.i(TAG, "onClick: Some Fields Were Empty");
+
                     Toast.makeText
                             (BuyActivity.this, "Fields are empty!",
                                     Toast.LENGTH_SHORT).show();
@@ -188,18 +207,20 @@ public class BuyActivity extends AppCompatActivity
             Toast.makeText
                     (this, "Successful",
                             Toast.LENGTH_SHORT).show();
-            Log.i(TAG, "addData: Data was inserted");
+
+            Log.i(TAG, "addData: The Data Was Added Successfully to the Database");
         }
         else
         {
             Toast.makeText
                     (this, "Unsuccessful",
                             Toast.LENGTH_SHORT).show();
-            Log.i(TAG, "addData: Data failed to insert");
+
+            Log.i(TAG, "addData: The Data Could Not Be Added to the Database");
         }
     }
 
-    public void spinnerCard()
+    public void spinnerCardSelection()
     {
         adapterForSpinnerCard.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinOptionsCard.setAdapter(adapterForSpinnerCard);
@@ -211,10 +232,14 @@ public class BuyActivity extends AppCompatActivity
 
                 if (parent.getItemIdAtPosition(position) == 0)
                 {
-
+                    Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
+                            + " selected");
                 }
                 else if (parent.getItemIdAtPosition(position) == 1)
                 {
+                    Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
+                            + " selected");
+
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
@@ -222,10 +247,9 @@ public class BuyActivity extends AppCompatActivity
                     Bundle extras = getIntent().getExtras();
                     if (extras != null)
                     {
+                        Log.i(TAG, "onItemSelected: Got Values From Intent Extra");
+
                         String cardNoCheque = extras.getString("cardNoCheque");
-                        String cardNoCredit = extras.getString("cardNoCredit");
-                        String cardNoSavings = extras.getString("cardNoSavings");
-                        String cardNoBusiness = extras.getString("cardNoBusiness");
 
                         etCardNo.setText(cardNoCheque);
 
@@ -236,13 +260,15 @@ public class BuyActivity extends AppCompatActivity
                 }
                 else if (parent.getItemIdAtPosition(position) == 2)
                 {
+                    Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
+                            + " selected");
+
                     Bundle extras = getIntent().getExtras();
                     if (extras != null)
                     {
-                        String cardNoCheque = extras.getString("cardNoCheque");
+                        Log.i(TAG, "onItemSelected: Got Values From Intent Extra");
+
                         String cardNoCredit = extras.getString("cardNoCredit");
-                        String cardNoSavings = extras.getString("cardNoSavings");
-                        String cardNoBusiness = extras.getString("cardNoBusiness");
 
                         etCardNo.setText(cardNoCredit);
 
@@ -253,13 +279,15 @@ public class BuyActivity extends AppCompatActivity
                 }
                 else if (parent.getItemIdAtPosition(position) == 3)
                 {
+                    Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
+                            + " selected");
+
                     Bundle extras = getIntent().getExtras();
                     if (extras != null)
                     {
-                        String cardNoCheque = extras.getString("cardNoCheque");
-                        String cardNoCredit = extras.getString("cardNoCredit");
+                        Log.i(TAG, "onItemSelected: Got Values From Intent Extra");
+
                         String cardNoSavings = extras.getString("cardNoSavings");
-                        String cardNoBusiness = extras.getString("cardNoBusiness");
 
                         etCardNo.setText(cardNoSavings);
 
@@ -270,12 +298,14 @@ public class BuyActivity extends AppCompatActivity
                 }
                 else if (parent.getItemIdAtPosition(position) == 4)
                 {
+                    Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
+                            + " selected");
+
                     Bundle extras = getIntent().getExtras();
                     if (extras != null)
                     {
-                        String cardNoCheque = extras.getString("cardNoCheque");
-                        String cardNoCredit = extras.getString("cardNoCredit");
-                        String cardNoSavings = extras.getString("cardNoSavings");
+                        Log.i(TAG, "onItemSelected: Got Values From Intent Extra");
+
                         String cardNoBusiness = extras.getString("cardNoBusiness");
 
                         etCardNo.setText(cardNoBusiness);
@@ -295,7 +325,7 @@ public class BuyActivity extends AppCompatActivity
         });
     }
 
-    public void spinner()
+    public void spinnerPurchaseSelection()
     {
         adapterForSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinOptions.setAdapter(adapterForSpinner);
@@ -307,16 +337,24 @@ public class BuyActivity extends AppCompatActivity
 
                 if (parent.getItemIdAtPosition(position) == 0)
                 {
+                    Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
+                            + " selected");
+
                     parent.setSelection(0);
                 }
                 else if (parent.getItemIdAtPosition(position) == 1)
                 {
+                    Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
+                            + " selected");
+                    Log.i(TAG, "onItemSelected: Getting Category");
 
                     etCategory.setText(""+ parent.getItemAtPosition(position));
 
                     Intent intent = new Intent
                             (BuyActivity.this, BuyAirtimeActivity.class);
                     Bundle extras = new Bundle();
+
+                    Log.i(TAG, "onItemSelected: Starting BuyAirtimeActivity");
 
                     extras.putString("category", etCategory.getText().toString());
                     extras.putString("card", etCard.getText().toString());
@@ -337,11 +375,17 @@ public class BuyActivity extends AppCompatActivity
                 }
                 else if (parent.getItemIdAtPosition(position) == 2)
                 {
+                    Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
+                            + " selected");
+                    Log.i(TAG, "onItemSelected: Getting Category");
+
                     etCategory.setText(""+ parent.getItemAtPosition(position));
 
                     Intent intent = new Intent
                             (BuyActivity.this, BuyAirtimeActivity.class);
                     Bundle extras = new Bundle();
+
+                    Log.i(TAG, "onItemSelected: Starting BuyAirtimeActivity");
 
                     extras.putString("category", etCategory.getText().toString());
                     extras.putString("card", etCard.getText().toString());
@@ -362,11 +406,17 @@ public class BuyActivity extends AppCompatActivity
                 }
                 else if (parent.getItemIdAtPosition(position) == 3)
                 {
+                    Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
+                            + " selected");
+                    Log.i(TAG, "onItemSelected: Getting Category");
+
                     etCategory.setText(""+ parent.getItemAtPosition(position));
 
                     Intent intent = new Intent
                             (BuyActivity.this, BuyAirtimeActivity.class);
                     Bundle extras = new Bundle();
+
+                    Log.i(TAG, "onItemSelected: Starting BuyAirtimeActivity");
 
                     extras.putString("category", etCategory.getText().toString());
                     extras.putString("card", etCard.getText().toString());
@@ -387,11 +437,17 @@ public class BuyActivity extends AppCompatActivity
                 }
                 else if (parent.getItemIdAtPosition(position) == 4)
                 {
+                    Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
+                            + " selected");
+                    Log.i(TAG, "onItemSelected: Getting Category");
+
                     etCategory.setText(""+ parent.getItemAtPosition(position));
 
                     Intent intent = new Intent
                             (BuyActivity.this, BuyAirtimeActivity.class);
                     Bundle extras = new Bundle();
+
+                    Log.i(TAG, "onItemSelected: Starting BuyAirtimeActivity");
 
                     extras.putString("category", etCategory.getText().toString());
                     extras.putString("card", etCard.getText().toString());
@@ -444,6 +500,8 @@ public class BuyActivity extends AppCompatActivity
 
     public void getThings()
     {
+        Log.i(TAG, "getThings: Attempting to get Extras from MainActivity");
+
         Bundle extras = getIntent().getExtras();
         if (extras != null)
         {
@@ -462,14 +520,26 @@ public class BuyActivity extends AppCompatActivity
             tvConfirmation.setText("Are you sure you want to purchase " +
                     category + " worth R" + spent + "?");
 
+            Log.i(TAG, "getThings: Receiving Extras Successful");
+
+            // Check to see if requirements were met to activate the Buy button
             if (btnOn == 9999)
             {
-                btnAdd.setVisibility(View.VISIBLE);
+                Log.i(TAG, "getThings: btnBuy Requirements Were Met");
+
+                btnBuy.setVisibility(View.VISIBLE);
                 tvConfirmation.setVisibility(View.VISIBLE);
             }
+            else
+            {
+                // Does nothing
+                Log.i(TAG, "getThings: btnBuy Requirements Were Not Met");
+            }
 
+            // Sets the default Initial Amount to R99999.99 if db was empty
             if (etIAmount.length() == 0)
             {
+                Log.i(TAG, "getThings: Initial Amount Set to R99999.99 for Database");
                 etIAmount.setText("" + 99999.99);
             }
         }
