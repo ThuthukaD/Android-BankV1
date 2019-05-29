@@ -98,7 +98,7 @@ public class BuyActivity extends AppCompatActivity
         etCardNo = findViewById(R.id.etCaardNo);
 
         // Buttons
-        btnBuy = findViewById(R.id.btnAdd);
+        btnBuy = findViewById(R.id.btnBuy);
 
         add();
         spinnerCardSelection();

@@ -45,9 +45,10 @@ public class RegisterActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        Log.d(TAG, "onCreate: Register - Starting");
 
-        // INSTANCING
+        Log.i(TAG, "onCreate: Register - Starting");
+
+        // INITIALISING
 
         // Edit Texts
         etUser = findViewById(R.id.etUser);
@@ -67,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity
 
     public void Register (View view)
     {
-        Log.d(TAG, "Register: Register - Button Clicked");
+        Log.i(TAG, "Register: Button Clicked");
 
         // Instance Declaration
         String user = etUser.getText().toString().trim();
@@ -76,13 +77,15 @@ public class RegisterActivity extends AppCompatActivity
         String conPin = etConPin.getText().toString().trim();
         String number = etNumber.getText().toString().trim();
 
-        Log.d(TAG, "Register: Register - Checking Credentials");
+        Log.d(TAG, "Register: Checking Credentials");
+
         // Checks if email and pin is empty
         if (TextUtils.isEmpty(user) && TextUtils.isEmpty(email)
                 && TextUtils.isEmpty(pin) && TextUtils.isEmpty(conPin) &&
                 TextUtils.isEmpty(number))
         {
-            Log.d(TAG, "Register: Register - No Fields Detected");
+            Log.i(TAG, "Register: Fields Were Empty");
+
             Toast.makeText(this, "Please fill in the required fields",
                     Toast.LENGTH_SHORT).show();
 
@@ -96,7 +99,8 @@ public class RegisterActivity extends AppCompatActivity
         }
         if (TextUtils.isEmpty(user))
         {
-            Log.d(TAG, "Register: Register - User Field Not Detected");
+            Log.i(TAG, "Register: User Field Not Detected");
+
             Toast.makeText(this, "Please enter your new username",
                     Toast.LENGTH_LONG).show();
             etUser.requestFocus();
@@ -104,7 +108,8 @@ public class RegisterActivity extends AppCompatActivity
         }
         if (TextUtils.isEmpty(email))
         {
-            Log.d(TAG, "Register: Register - Email Field Not Detected");
+            Log.i(TAG, "Register: Email Field Not Detected");
+
             Toast.makeText(this, "Please enter your new email address",
                     Toast.LENGTH_LONG).show();
             etEmail.requestFocus();
@@ -112,7 +117,8 @@ public class RegisterActivity extends AppCompatActivity
         }
         if (TextUtils.isEmpty(pin))
         {
-            Log.d(TAG, "Register: Register - Pin Field Not Detected");
+            Log.i(TAG, "Register: Pin Field Not Detected");
+
             Toast.makeText(this, "Please enter your new pin",
                     Toast.LENGTH_LONG).show();
             etPin.requestFocus();
@@ -120,7 +126,8 @@ public class RegisterActivity extends AppCompatActivity
         }
         if (TextUtils.isEmpty(conPin))
         {
-            Log.d(TAG, "Register: Register - ConPin Field Not Detected");
+            Log.i(TAG, "Register: ConPin Field Not Detected");
+
             Toast.makeText(this, "Please enter your confirmation pin",
                     Toast.LENGTH_LONG).show();
             etConPin.requestFocus();
@@ -128,7 +135,8 @@ public class RegisterActivity extends AppCompatActivity
         }
         if (TextUtils.isEmpty(number))
         {
-            Log.d(TAG, "Register: Register - Number Field Not Detected");
+            Log.i(TAG, "Register: Number Field Not Detected");
+
             Toast.makeText(this, "Please enter your phone number",
                     Toast.LENGTH_LONG).show();
             etNumber.requestFocus();
@@ -138,7 +146,8 @@ public class RegisterActivity extends AppCompatActivity
         // Constraint for phone number length
         if (number.length() != 10)
         {
-            Log.d(TAG, "Register: Register - Number Field Did Not Meet Requirements");
+            Log.i(TAG, "Register: Number Field Did Not Meet Requirements");
+
             Toast.makeText(this,
                     "Phone number must be 10 digits, REQUIRED for verification",
                     Toast.LENGTH_LONG).show();
@@ -149,7 +158,8 @@ public class RegisterActivity extends AppCompatActivity
         // Constraint for pin length
         if (pin.length() != 6 || conPin.length() != 6)
         {
-            Log.d(TAG, "Register: Register - Pin Or ConPin Did Not Meet Requirements");
+            Log.i(TAG, "Register: Pin Or ConPin Did Not Meet Requirements");
+
             Toast.makeText(this, "Pin and Confirmation Pin must be 6 digits",
                     Toast.LENGTH_LONG).show();
             etConPin.requestFocus();
@@ -166,7 +176,8 @@ public class RegisterActivity extends AppCompatActivity
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task)
                         {
-                            Log.d(TAG, "onComplete: Register - Access Granted");
+                            Log.i(TAG, "onComplete: Access Granted");
+
                             if (task.isSuccessful())
                             {
                                 AutoLogin();
@@ -175,7 +186,8 @@ public class RegisterActivity extends AppCompatActivity
                             }
                             else
                             {
-                                Log.d(TAG, "onComplete: Register - Access Declined");
+                                Log.i(TAG, "onComplete: Access Declined");
+
                                 emptyInputs();
                                 Toast.makeText(RegisterActivity.this,
                                         "Authentication Failed, please try again",
@@ -186,7 +198,7 @@ public class RegisterActivity extends AppCompatActivity
         }
         else
         {
-            Log.d(TAG, "Register: Register - Pin Or ConPin Did Not Match");
+            Log.i(TAG, "Register: Pin Or ConPin Did Not Match");
 
             etPin.setText(null);
             etConPin.setText(null);
@@ -197,7 +209,8 @@ public class RegisterActivity extends AppCompatActivity
 
     public void Login(View view)
     {
-        Log.d(TAG, "Login: Register - Starting Login Activity");
+        Log.i(TAG, "Login: Register - Starting Login Activity");
+
         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
         finish();
     }
@@ -205,7 +218,8 @@ public class RegisterActivity extends AppCompatActivity
     // Empties the text fields
     private void emptyInputs()
     {
-        Log.d(TAG, "emptyInputs: Register - Clearing Fields");
+        Log.i(TAG, "emptyInputs: Register - Clearing Fields");
+
         etUser.setText(null);
         etEmail.setText(null);
         etPin.setText(null);
@@ -216,7 +230,7 @@ public class RegisterActivity extends AppCompatActivity
     // Method uses prefs to send data to LoginActivity, and also auto "logs" in the user
     public void AutoLogin()
     {
-        Log.d(TAG, "AutoLogin: Register - Setting up shared preferences and auto login");
+        Log.i(TAG, "AutoLogin: Register - Setting up shared preferences and auto login");
 
         // Initialising strings to store user data
         String uname = etUser.getText().toString();
