@@ -74,7 +74,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Amount Spent"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:visibility="invisible"/>
 
 
     <LinearLayout

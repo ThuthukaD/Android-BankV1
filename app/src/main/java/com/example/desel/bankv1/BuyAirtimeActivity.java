@@ -37,11 +37,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
     Button btnOption9;
     Button btnOption10;
 
-    // Other
-    LinearLayout llOptions;
+    // String
     String category;
     String card;
     String cardNo;
+
+    // Other
+    LinearLayout llOptions;
 
     private static final String TAG = "BuyAirtimeActivity";
 
@@ -85,6 +87,8 @@ public class BuyAirtimeActivity extends AppCompatActivity
 
     public void selection()
     {
+        Log.i(TAG, "selection: Selected a Carrier");
+
         CellC();
         MTN();
         Telkom();
@@ -95,6 +99,8 @@ public class BuyAirtimeActivity extends AppCompatActivity
 
     public void CellC()
     {
+        Log.i(TAG, "CellC: Selected This Carrier");
+
         ibtnCellC.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -106,6 +112,9 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 final double opt4 = 100.00;
                 final double opt5 = 200.00;
 
+                Log.i(TAG, "onClick: Setting Button Texts");
+
+                // Setting Text for the user
                 btnOption1.setText("R" + opt1);
                 btnOption2.setText("R" + opt2);
                 btnOption3.setText("R" + opt3);
@@ -115,6 +124,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 etSpent.setText(null);
                 llOptions.setVisibility(View.VISIBLE);
 
+                // Setting the visibility of some buttons
                 btnOption1.setVisibility(View.VISIBLE);
                 btnOption2.setVisibility(View.VISIBLE);
                 btnOption3.setVisibility(View.VISIBLE);
@@ -125,6 +135,9 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 btnOption8.setVisibility(View.GONE);
                 btnOption9.setVisibility(View.GONE);
                 btnOption10.setVisibility(View.GONE);
+
+                Log.i(TAG, "onClick: Cell C Buttons Set and " +
+                        "Made Visible");
 
                 btnOption1.setOnClickListener(new View.OnClickListener()
                 {
@@ -144,8 +157,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt1);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -167,8 +185,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt2);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -190,8 +213,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt3);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -213,8 +241,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt4);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -236,8 +269,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt5);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
             }
@@ -246,6 +284,8 @@ public class BuyAirtimeActivity extends AppCompatActivity
 
     public void MTN()
     {
+        Log.i(TAG, "MTN: Selected This Carrier");
+
         ibtnMTN.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -257,6 +297,9 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 final double opt4 = 100.00;
                 final double opt5 = 200.00;
 
+                Log.i(TAG, "onClick: Setting Button Texts");
+
+                // Setting Text for the user
                 btnOption1.setText("R" + opt1);
                 btnOption2.setText("R" + opt2);
                 btnOption3.setText("R" + opt3);
@@ -266,6 +309,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 etSpent.setText(null);
                 llOptions.setVisibility(View.VISIBLE);
 
+                // Setting the visibility of some buttons
                 btnOption1.setVisibility(View.VISIBLE);
                 btnOption2.setVisibility(View.VISIBLE);
                 btnOption3.setVisibility(View.VISIBLE);
@@ -276,6 +320,9 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 btnOption8.setVisibility(View.GONE);
                 btnOption9.setVisibility(View.GONE);
                 btnOption10.setVisibility(View.GONE);
+
+                Log.i(TAG, "onClick: MTN Buttons Set and " +
+                        "Made Visible");
 
                 btnOption1.setOnClickListener(new View.OnClickListener()
                 {
@@ -295,8 +342,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt1);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -318,8 +370,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt2);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -341,8 +398,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt3);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -364,8 +426,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt4);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -387,8 +454,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt5);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
             }
@@ -397,6 +469,8 @@ public class BuyAirtimeActivity extends AppCompatActivity
 
     public void Telkom()
     {
+        Log.i(TAG, "Telkom: Selected This Carrier");
+
         ibtnTelkom.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -407,6 +481,9 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 final double opt3 = 100.00;
                 final double opt4 = 200.00;
 
+                Log.i(TAG, "onClick: Setting Button Texts");
+
+                // Setting Text for the user
                 btnOption1.setText("R" + opt1);
                 btnOption2.setText("R" + opt2);
                 btnOption3.setText("R" + opt3);
@@ -415,6 +492,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 etSpent.setText(null);
                 llOptions.setVisibility(View.VISIBLE);
 
+                // Setting the visibility of some buttons
                 btnOption1.setVisibility(View.VISIBLE);
                 btnOption2.setVisibility(View.VISIBLE);
                 btnOption3.setVisibility(View.VISIBLE);
@@ -426,6 +504,9 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 btnOption9.setVisibility(View.GONE);
                 btnOption10.setVisibility(View.GONE);
 
+                Log.i(TAG, "onClick: Telkom Buttons Set and " +
+                        "Made Visible");
+
                 btnOption1.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
@@ -444,8 +525,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt1);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -467,8 +553,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt2);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -490,8 +581,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt3);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -513,8 +609,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt4);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
             }
@@ -523,6 +624,8 @@ public class BuyAirtimeActivity extends AppCompatActivity
 
     public void Vodacom()
     {
+        Log.i(TAG, "Vodacom: Selected This Carrier");
+
         ibtnVodacom.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -534,6 +637,9 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 final double opt4 = 100.00;
                 final double opt5 = 200.00;
 
+                Log.i(TAG, "onClick: Setting Button Texts");
+
+                // Setting Text for the user
                 btnOption1.setText("R" + opt1);
                 btnOption2.setText("R" + opt2);
                 btnOption3.setText("R" + opt3);
@@ -543,6 +649,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 etSpent.setText(null);
                 llOptions.setVisibility(View.VISIBLE);
 
+                // Setting the visibility of some buttons
                 btnOption1.setVisibility(View.VISIBLE);
                 btnOption2.setVisibility(View.VISIBLE);
                 btnOption3.setVisibility(View.VISIBLE);
@@ -553,6 +660,9 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 btnOption8.setVisibility(View.GONE);
                 btnOption9.setVisibility(View.GONE);
                 btnOption10.setVisibility(View.GONE);
+
+                Log.i(TAG, "onClick: Vodacom Buttons Set and " +
+                        "Made Visible");
 
                 btnOption1.setOnClickListener(new View.OnClickListener()
                 {
@@ -572,8 +682,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt1);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -595,8 +710,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt2);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -618,8 +738,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt3);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -641,8 +766,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt4);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -664,8 +794,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt5);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
             }
@@ -674,6 +809,8 @@ public class BuyAirtimeActivity extends AppCompatActivity
 
     public void VirginMobile()
     {
+        Log.i(TAG, "VirginMobile: Selected This Carrier");
+
         ibtnVirginMobile.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -685,6 +822,9 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 final double opt4 = 100.00;
                 final double opt5 = 200.00;
 
+                Log.i(TAG, "onClick: Setting Button Texts");
+
+                // Setting Text for the user
                 btnOption1.setText("R" + opt1);
                 btnOption2.setText("R" + opt2);
                 btnOption3.setText("R" + opt3);
@@ -694,6 +834,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 etSpent.setText(null);
                 llOptions.setVisibility(View.VISIBLE);
 
+                // Setting the visibility of some buttons
                 btnOption1.setVisibility(View.VISIBLE);
                 btnOption2.setVisibility(View.VISIBLE);
                 btnOption3.setVisibility(View.VISIBLE);
@@ -704,6 +845,9 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 btnOption8.setVisibility(View.GONE);
                 btnOption9.setVisibility(View.GONE);
                 btnOption10.setVisibility(View.GONE);
+
+                Log.i(TAG, "onClick: Virgin Mobile Buttons Set and " +
+                        "Made Visible");
 
 
                 btnOption1.setOnClickListener(new View.OnClickListener()
@@ -724,8 +868,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt1);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -747,8 +896,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt2);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -770,8 +924,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt3);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -793,8 +952,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt4);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -816,8 +980,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt5);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
             }
@@ -826,6 +995,8 @@ public class BuyAirtimeActivity extends AppCompatActivity
 
     public void TelkomMobile()
     {
+        Log.i(TAG, "TelkomMobile: Selected This Carrier");
+
         ibtnTelkomMobile.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -841,6 +1012,9 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 final double opt8 = 250.00;
                 final double opt9 = 1000.00;
 
+                Log.i(TAG, "onClick: Setting Button Texts");
+
+                // Setting Text for the user
                 btnOption1.setText("R" + opt1);
                 btnOption2.setText("R" + opt2);
                 btnOption3.setText("R" + opt3);
@@ -854,6 +1028,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 etSpent.setText(null);
                 llOptions.setVisibility(View.VISIBLE);
 
+                // Setting the visibility of some buttons
                 btnOption1.setVisibility(View.VISIBLE);
                 btnOption2.setVisibility(View.VISIBLE);
                 btnOption3.setVisibility(View.VISIBLE);
@@ -864,6 +1039,9 @@ public class BuyAirtimeActivity extends AppCompatActivity
                 btnOption8.setVisibility(View.VISIBLE);
                 btnOption9.setVisibility(View.VISIBLE);
                 btnOption10.setVisibility(View.GONE);
+
+                Log.i(TAG, "onClick: Telkom Mobile Buttons Set and " +
+                        "Made Visible");
 
                 btnOption1.setOnClickListener(new View.OnClickListener()
                 {
@@ -883,8 +1061,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt1);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -906,8 +1089,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt2);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -929,8 +1117,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt3);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -952,8 +1145,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt4);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -975,8 +1173,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt5);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -998,8 +1201,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt6);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -1021,8 +1229,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt7);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -1044,8 +1257,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt8);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
 
@@ -1067,8 +1285,13 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
 
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt9);
+
                         intent.putExtras(extras);
                         startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
                     }
                 });
             }
@@ -1077,6 +1300,8 @@ public class BuyAirtimeActivity extends AppCompatActivity
 
     public void getStuff()
     {
+        Log.i(TAG, "getStuff: Getting Extras from BuyActivity");
+
         Bundle extras = getIntent().getExtras();
         if (extras != null)
         {
