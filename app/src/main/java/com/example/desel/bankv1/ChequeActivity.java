@@ -33,6 +33,8 @@ public class ChequeActivity extends AppCompatActivity
 
     // Other
     ListView lvList;
+
+    // Debugging
     private static final String TAG = "ChequeActivity";
 
     @Override
@@ -55,15 +57,15 @@ public class ChequeActivity extends AppCompatActivity
         // Other
         lvList = findViewById(R.id.lvChequeTransactions);
 
-        view();
+        viewTransactionHistory();
         Log.i(TAG, "onCreate: List View Viewing");
         viewAmount();
     }
 
-    private void view()
+    private void viewTransactionHistory()
     {
         ArrayList<String> theList = new ArrayList<>();
-        Cursor data = myDB.getListContent();
+        Cursor data = myDB.getListContentCheque();
 
         if (data.getCount() == 0)
         {
@@ -97,7 +99,7 @@ public class ChequeActivity extends AppCompatActivity
 
     private void viewAmount()
     {
-        Cursor data = myDB.getLastValue();
+        Cursor data = myDB.getLastValueCheque();
 
         if (data.getCount() == 0)
         {

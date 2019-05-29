@@ -46,7 +46,10 @@ public class MainActivity extends AppCompatActivity
     TextView tvCardNumberBusiness;
 
     // Edit Text
-    EditText etIAmount;
+    EditText etIAmountCheque;
+    EditText etIAmountCredit;
+    EditText etIAmountSavings;
+    EditText etIAmountBusiness;
 
     // Database Related
     DatabaseHelper myDB;
@@ -92,7 +95,10 @@ public class MainActivity extends AppCompatActivity
         tvCardNumberBusiness = findViewById(R.id.tvCardNumber4);
 
         // Edit Text
-        etIAmount = findViewById(R.id.etIAmount);
+        etIAmountCheque = findViewById(R.id.etIAmountCheque);
+        etIAmountCredit = findViewById(R.id.etIAmountCredit);
+        etIAmountSavings = findViewById(R.id.etIAmountSavings);
+        etIAmountBusiness = findViewById(R.id.etIAmountBusiness);
 
         Log.i(TAG, "onCreate: MainActivity Loading");
         Log.i(TAG, "onCreate: Fetching Text");
@@ -108,7 +114,10 @@ public class MainActivity extends AppCompatActivity
 
         floatButtons();
         cardViewClicks();
-        viewChequeAvailableBalance();
+        viewAvailableBalanceCheque();
+        viewAvailableBalanceCredit();
+        viewAvailableBalanceSavings();
+        viewAvailableBalanceBusiness();
     }
 
     private void floatButtons()
@@ -255,10 +264,10 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    // Method to view the correct amount for the phone
-    private void viewChequeAvailableBalance()
+    // Methods to view the correct amount for the phone
+    private void viewAvailableBalanceCheque()
     {
-        Cursor data = myDB.getLastValue();
+        Cursor data = myDB.getLastValueCheque();
 
         if (data.getCount() == 0)
         {
@@ -266,42 +275,195 @@ public class MainActivity extends AppCompatActivity
                     (this, "The database is empty",
                             Toast.LENGTH_SHORT).show();
 
-            Log.i(TAG, "viewChequeAvailableBalance: No Data found in the DB");
+            Log.i(TAG, "viewAvailableBalanceCheque: No Data found in the DB");
         }
         else
         {
             while(data.moveToNext())
             {
                 // This value is the column ID for the Items
-                etIAmount.setText("" + data.getString(3));
+                etIAmountCheque.setText("" + data.getString(3));
 
-                Log.i(TAG, "viewChequeAvailableBalance: The Amount Found is " +
+                Log.i(TAG, "viewAvailableBalanceCheque: The Amount Found is " +
                         data.getString(3));
 
-                Double chequeAmount = Double.parseDouble(etIAmount.getText().toString());
+                Double amount = Double.parseDouble(etIAmountCheque.getText().toString());
 
-                if (chequeAmount == null)
+                if (amount == null)
                 {
                     // Used to set the Initial AMount to this value if DB is empty
-                    chequeAmount = 99999.99;
+                    amount = 99999.99;
 
                     // To make decimal in 2 places, use (String.format("%.2f"), value);
-                    tvMoneyCheque.setText(String.format("R%.2f", chequeAmount));
+                    tvMoneyCheque.setText(String.format("R%.2f", amount));
 
-                    Log.i(TAG, "viewChequeAvailableBalance: Formatted Text to Have " +
+                    Log.i(TAG, "viewAvailableBalanceCheque: Formatted Text to Have " +
                             "Decimal Places");
-                    Log.i(TAG, "viewChequeAvailableBalance: Cheque Available Amount is "
-                            + String.format("R%.2f", chequeAmount));
+                    Log.i(TAG, "viewAvailableBalanceCheque: Cheque Available Amount is "
+                            + String.format("R%.2f", amount));
                 }
                 else
                 {
                     // To make decimal in 2 places, use (String.format("%.2f"), value);
-                    tvMoneyCheque.setText(String.format("R%.2f", chequeAmount));
+                    tvMoneyCheque.setText(String.format("R%.2f", amount));
 
-                    Log.i(TAG, "viewChequeAvailableBalance: Formatted Text to Have " +
+                    Log.i(TAG, "viewAvailableBalanceCheque: Formatted Text to Have " +
                             "Decimal Places");
-                    Log.i(TAG, "viewChequeAvailableBalance: Cheque Available Amount is "
-                            + String.format("R%.2f", chequeAmount));
+                    Log.i(TAG, "viewAvailableBalanceCheque: Cheque Available Amount is "
+                            + String.format("R%.2f", amount));
+                }
+            }
+        }
+    }
+
+    private void viewAvailableBalanceCredit()
+    {
+        Cursor data = myDB.getLastValueCredit();
+
+        if (data.getCount() == 0)
+        {
+            Toast.makeText
+                    (this, "The database is empty",
+                            Toast.LENGTH_SHORT).show();
+
+            Log.i(TAG, "viewAvailableBalanceCredit: No Data found in the DB");
+        }
+        else
+        {
+            while(data.moveToNext())
+            {
+                // This value is the column ID for the Items
+                etIAmountCredit.setText("" + data.getString(3));
+
+                Log.i(TAG, "viewAvailableBalanceCredit: The Amount Found is " +
+                        data.getString(3));
+
+                Double amount = Double.parseDouble(etIAmountCredit.getText().toString());
+
+                if (amount == null)
+                {
+                    // Used to set the Initial AMount to this value if DB is empty
+                    amount = 99999.99;
+
+                    // To make decimal in 2 places, use (String.format("%.2f"), value);
+                    tvMoneyCredit.setText(String.format("R%.2f", amount));
+
+                    Log.i(TAG, "viewAvailableBalanceCredit: Formatted Text to Have " +
+                            "Decimal Places");
+                    Log.i(TAG, "viewAvailableBalanceCredit: Credit Available Amount is "
+                            + String.format("R%.2f", amount));
+                }
+                else
+                {
+                    // To make decimal in 2 places, use (String.format("%.2f"), value);
+                    tvMoneyCredit.setText(String.format("R%.2f", amount));
+
+                    Log.i(TAG, "viewAvailableBalanceCredit: Formatted Text to Have " +
+                            "Decimal Places");
+                    Log.i(TAG, "viewAvailableBalanceCredit: Cheque Available Amount is "
+                            + String.format("R%.2f", amount));
+                }
+            }
+        }
+    }
+
+    private void viewAvailableBalanceSavings()
+    {
+        Cursor data = myDB.getLastValueSavings();
+
+        if (data.getCount() == 0)
+        {
+            Toast.makeText
+                    (this, "The database is empty",
+                            Toast.LENGTH_SHORT).show();
+
+            Log.i(TAG, "viewAvailableBalanceSavings: No Data found in the DB");
+        }
+        else
+        {
+            while(data.moveToNext())
+            {
+                // This value is the column ID for the Items
+                etIAmountSavings.setText("" + data.getString(3));
+
+                Log.i(TAG, "viewAvailableBalanceSavings: The Amount Found is " +
+                        data.getString(3));
+
+                Double amount = Double.parseDouble(etIAmountSavings.getText().toString());
+
+                if (amount == null)
+                {
+                    // Used to set the Initial AMount to this value if DB is empty
+                    amount = 99999.99;
+
+                    // To make decimal in 2 places, use (String.format("%.2f"), value);
+                    tvMoneySavings.setText(String.format("R%.2f", amount));
+
+                    Log.i(TAG, "viewAvailableBalanceSavings: Formatted Text to Have " +
+                            "Decimal Places");
+                    Log.i(TAG, "viewAvailableBalanceSavings: Cheque Available Amount is "
+                            + String.format("R%.2f", amount));
+                }
+                else
+                {
+                    // To make decimal in 2 places, use (String.format("%.2f"), value);
+                    tvMoneySavings.setText(String.format("R%.2f", amount));
+
+                    Log.i(TAG, "viewAvailableBalanceSavings: Formatted Text to Have " +
+                            "Decimal Places");
+                    Log.i(TAG, "viewAvailableBalanceSavings: Cheque Available Amount is "
+                            + String.format("R%.2f", amount));
+                }
+            }
+        }
+    }
+
+    private void viewAvailableBalanceBusiness()
+    {
+        Cursor data = myDB.getLastValueBusiness();
+
+        if (data.getCount() == 0)
+        {
+            Toast.makeText
+                    (this, "The database is empty",
+                            Toast.LENGTH_SHORT).show();
+
+            Log.i(TAG, "viewAvailableBalanceBusiness: No Data found in the DB");
+        }
+        else
+        {
+            while(data.moveToNext())
+            {
+                // This value is the column ID for the Items
+                etIAmountBusiness.setText("" + data.getString(3));
+
+                Log.i(TAG, "viewAvailableBalanceBusiness: The Amount Found is " +
+                        data.getString(3));
+
+                Double amount = Double.parseDouble(etIAmountBusiness.getText().toString());
+
+                if (amount == null)
+                {
+                    // Used to set the Initial AMount to this value if DB is empty
+                    amount = 99999.99;
+
+                    // To make decimal in 2 places, use (String.format("%.2f"), value);
+                    tvMoneyBusiness.setText(String.format("R%.2f", amount));
+
+                    Log.i(TAG, "viewAvailableBalanceBusiness: Formatted Text to Have " +
+                            "Decimal Places");
+                    Log.i(TAG, "viewAvailableBalanceBusiness: Cheque Available Amount is "
+                            + String.format("R%.2f", amount));
+                }
+                else
+                {
+                    // To make decimal in 2 places, use (String.format("%.2f"), value);
+                    tvMoneyBusiness.setText(String.format("R%.2f", amount));
+
+                    Log.i(TAG, "viewAvailableBalanceBusiness: Formatted Text to Have " +
+                            "Decimal Places");
+                    Log.i(TAG, "viewAvailableBalanceBusiness: Cheque Available Amount is "
+                            + String.format("R%.2f", amount));
                 }
             }
         }

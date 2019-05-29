@@ -103,7 +103,7 @@ public class BuyActivity extends AppCompatActivity
         add();
         spinnerCardSelection();
         spinnerPurchaseSelection();
-        view();
+        //viewChequeAmount();
         getThings();
 
         etDate.setText(date);
@@ -157,32 +157,128 @@ public class BuyActivity extends AppCompatActivity
                 {
                     Log.i(TAG, "onClick: Fields Are Not Empty");
 
-                    addData(fAmount, location, sAmount, category, iAmount, date, card,
-                            cardNo);
+                    if (etCard.getText().toString().equals("Cheque"))
+                    {
+                        addDataCheque(fAmount, location, sAmount, category, iAmount, date, card,
+                                cardNo);
 
-                    Log.i(TAG, "onClick: Data Adding to Database");
+                        Log.i(TAG, "onClick: Data Adding to Database");
 
-                    etIAmount.setText(null);
-                    etFAmount.setText(null);
-                    etLocation.setText(null);
-                    etSAmount.setText(null);
-                    etCategory.setText(null);
-                    etSpent.setText(null);
-                    etCard.setText(null);
-                    etCardNo.setText(null);
+                        etIAmount.setText(null);
+                        etFAmount.setText(null);
+                        etLocation.setText(null);
+                        etSAmount.setText(null);
+                        etCategory.setText(null);
+                        etSpent.setText(null);
+                        etCard.setText(null);
+                        etCardNo.setText(null);
 
-                    Log.i(TAG, "onClick: Fields Emptied");
-                    Log.i(TAG, "onClick: Closing All Old Activities");
+                        Log.i(TAG, "onClick: Fields Emptied");
+                        Log.i(TAG, "onClick: Closing All Old Activities");
 
 //                    Intent intent = new Intent
 //                        (BuyActivity.this, MainActivity.class);
 //                    startActivity(intent);
 
-                    // Intent to close all other activities except for main and login
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    intent.putExtra("EXIT", true);
-                    startActivity(intent);
+                        // Intent to close all other activities except for main and login
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.putExtra("EXIT", true);
+                        startActivity(intent);
+                    }
+                    else if (etCard.getText().toString().equals("Credit"))
+                    {
+                        addDataCredit(fAmount, location, sAmount, category, iAmount, date, card,
+                                cardNo);
+
+                        Log.i(TAG, "onClick: Data Adding to Database");
+
+                        etIAmount.setText(null);
+                        etFAmount.setText(null);
+                        etLocation.setText(null);
+                        etSAmount.setText(null);
+                        etCategory.setText(null);
+                        etSpent.setText(null);
+                        etCard.setText(null);
+                        etCardNo.setText(null);
+
+                        Log.i(TAG, "onClick: Fields Emptied");
+                        Log.i(TAG, "onClick: Closing All Old Activities");
+
+//                    Intent intent = new Intent
+//                        (BuyActivity.this, MainActivity.class);
+//                    startActivity(intent);
+
+                        // Intent to close all other activities except for main and login
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.putExtra("EXIT", true);
+                        startActivity(intent);
+                    }
+                    else if (etCard.getText().toString().equals("Savings"))
+                    {
+                        addDataSavings(fAmount, location, sAmount, category, iAmount, date, card,
+                                cardNo);
+
+                        Log.i(TAG, "onClick: Data Adding to Database");
+
+                        etIAmount.setText(null);
+                        etFAmount.setText(null);
+                        etLocation.setText(null);
+                        etSAmount.setText(null);
+                        etCategory.setText(null);
+                        etSpent.setText(null);
+                        etCard.setText(null);
+                        etCardNo.setText(null);
+
+                        Log.i(TAG, "onClick: Fields Emptied");
+                        Log.i(TAG, "onClick: Closing All Old Activities");
+
+//                    Intent intent = new Intent
+//                        (BuyActivity.this, MainActivity.class);
+//                    startActivity(intent);
+
+                        // Intent to close all other activities except for main and login
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.putExtra("EXIT", true);
+                        startActivity(intent);
+                    }
+                    else if (etCard.getText().toString().equals("Business"))
+                    {
+                        addDataBusiness(fAmount, location, sAmount, category, iAmount, date, card,
+                                cardNo);
+
+                        Log.i(TAG, "onClick: Data Adding to Database");
+
+                        etIAmount.setText(null);
+                        etFAmount.setText(null);
+                        etLocation.setText(null);
+                        etSAmount.setText(null);
+                        etCategory.setText(null);
+                        etSpent.setText(null);
+                        etCard.setText(null);
+                        etCardNo.setText(null);
+
+                        Log.i(TAG, "onClick: Fields Emptied");
+                        Log.i(TAG, "onClick: Closing All Old Activities");
+
+//                    Intent intent = new Intent
+//                        (BuyActivity.this, MainActivity.class);
+//                    startActivity(intent);
+
+                        // Intent to close all other activities except for main and login
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        intent.putExtra("EXIT", true);
+                        startActivity(intent);
+                    }
+                    else
+                    {
+                        Toast.makeText(BuyActivity.this,
+                                "No matching cards were found",
+                                Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else
                 {
@@ -196,10 +292,82 @@ public class BuyActivity extends AppCompatActivity
         });
     }
 
-    public void addData(double fAmount, String location, double sAmount, String category,
+    public void addDataCheque(double fAmount, String location, double sAmount, String category,
                         double iAmount, String date, String card, String cardNo)
     {
-        boolean isInserted = myDB.addData(fAmount, location, sAmount, category,
+        boolean isInserted = myDB.addDataCheque(fAmount, location, sAmount, category,
+                iAmount, date, card, cardNo);
+
+        if (isInserted)
+        {
+            Toast.makeText
+                    (this, "Successful",
+                            Toast.LENGTH_SHORT).show();
+
+            Log.i(TAG, "addData: The Data Was Added Successfully to the Database");
+        }
+        else
+        {
+            Toast.makeText
+                    (this, "Unsuccessful",
+                            Toast.LENGTH_SHORT).show();
+
+            Log.i(TAG, "addData: The Data Could Not Be Added to the Database");
+        }
+    }
+
+    public void addDataCredit(double fAmount, String location, double sAmount, String category,
+                              double iAmount, String date, String card, String cardNo)
+    {
+        boolean isInserted = myDB.addDataCredit(fAmount, location, sAmount, category,
+                iAmount, date, card, cardNo);
+
+        if (isInserted)
+        {
+            Toast.makeText
+                    (this, "Successful",
+                            Toast.LENGTH_SHORT).show();
+
+            Log.i(TAG, "addData: The Data Was Added Successfully to the Database");
+        }
+        else
+        {
+            Toast.makeText
+                    (this, "Unsuccessful",
+                            Toast.LENGTH_SHORT).show();
+
+            Log.i(TAG, "addData: The Data Could Not Be Added to the Database");
+        }
+    }
+
+    public void addDataSavings(double fAmount, String location, double sAmount, String category,
+                              double iAmount, String date, String card, String cardNo)
+    {
+        boolean isInserted = myDB.addDataSavings(fAmount, location, sAmount, category,
+                iAmount, date, card, cardNo);
+
+        if (isInserted)
+        {
+            Toast.makeText
+                    (this, "Successful",
+                            Toast.LENGTH_SHORT).show();
+
+            Log.i(TAG, "addData: The Data Was Added Successfully to the Database");
+        }
+        else
+        {
+            Toast.makeText
+                    (this, "Unsuccessful",
+                            Toast.LENGTH_SHORT).show();
+
+            Log.i(TAG, "addData: The Data Could Not Be Added to the Database");
+        }
+    }
+
+    public void addDataBusiness(double fAmount, String location, double sAmount, String category,
+                              double iAmount, String date, String card, String cardNo)
+    {
+        boolean isInserted = myDB.addDataBusiness(fAmount, location, sAmount, category,
                 iAmount, date, card, cardNo);
 
         if (isInserted)
@@ -240,6 +408,8 @@ public class BuyActivity extends AppCompatActivity
                     Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
                             + " selected");
 
+                    viewChequeAmount();
+
                     Toast.makeText
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
@@ -263,6 +433,8 @@ public class BuyActivity extends AppCompatActivity
                     Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
                             + " selected");
 
+                    viewCreditAmount();
+
                     Bundle extras = getIntent().getExtras();
                     if (extras != null)
                     {
@@ -282,6 +454,8 @@ public class BuyActivity extends AppCompatActivity
                     Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
                             + " selected");
 
+                    viewSavingsAmount();
+
                     Bundle extras = getIntent().getExtras();
                     if (extras != null)
                     {
@@ -300,6 +474,8 @@ public class BuyActivity extends AppCompatActivity
                 {
                     Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
                             + " selected");
+
+                    viewBusinessAmount();
 
                     Bundle extras = getIntent().getExtras();
                     if (extras != null)
@@ -476,9 +652,75 @@ public class BuyActivity extends AppCompatActivity
         });
     }
 
-    private void view()
+    private void viewChequeAmount()
     {
-        Cursor data = myDB.getLastValue();
+        Cursor data = myDB.getLastValueCheque();
+
+        if (data.getCount() == 0)
+        {
+            Toast.makeText
+                    (this, "The database is empty",
+                            Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            while(data.moveToNext())
+            {
+                // This value is the column ID for the Items
+                etIAmount.setText("" + data.getString(3));
+
+                tvAmount.setText("R" + etIAmount.getText().toString());
+            }
+        }
+    }
+
+    private void viewCreditAmount()
+    {
+        Cursor data = myDB.getLastValueCredit();
+
+        if (data.getCount() == 0)
+        {
+            Toast.makeText
+                    (this, "The database is empty",
+                            Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            while(data.moveToNext())
+            {
+                // This value is the column ID for the Items
+                etIAmount.setText("" + data.getString(3));
+
+                tvAmount.setText("R" + etIAmount.getText().toString());
+            }
+        }
+    }
+
+    private void viewSavingsAmount()
+    {
+        Cursor data = myDB.getLastValueSavings();
+
+        if (data.getCount() == 0)
+        {
+            Toast.makeText
+                    (this, "The database is empty",
+                            Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            while(data.moveToNext())
+            {
+                // This value is the column ID for the Items
+                etIAmount.setText("" + data.getString(3));
+
+                tvAmount.setText("R" + etIAmount.getText().toString());
+            }
+        }
+    }
+
+    private void viewBusinessAmount()
+    {
+        Cursor data = myDB.getLastValueBusiness();
 
         if (data.getCount() == 0)
         {

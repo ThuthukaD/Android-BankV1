@@ -1,9 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreditActivity">
+    tools:context=".CreditActivity"
+    android:orientation="vertical"
+    android:weightSum="10">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvAmount"
+            android:layout_width="340dp"
+            android:layout_height="90dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:elevation="10dp"
+            app:cardBackgroundColor="#0E3C6E"
+            app:cardCornerRadius="5dp"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="320dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Placeholder Amount"
+                    android:textColor="@color/cardview_light_background"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tvAccountName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/tvAmount"
+                    android:layout_marginTop="45dp"
+                    android:text="Remaining Amount"
+                    android:textColor="@color/cardview_light_background" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/etIAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Initial Amount"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_weight="5">
+
+    </com.github.mikephil.charting.charts.LineChart>
+
+    <ListView
+        android:id="@+id/lvChequeTransactions"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="5"/>
+</LinearLayout>
