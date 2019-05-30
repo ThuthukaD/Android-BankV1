@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class BuyDataActivity extends AppCompatActivity
 {
@@ -471,16 +472,16 @@ public class BuyDataActivity extends AppCompatActivity
                 Log.i(TAG, "onClick: Setting Button Texts");
 
                 // Setting Text for the user
-                btnOption1.setText("20MB");
-                btnOption2.setText("50MB");
-                btnOption3.setText("100MB");
-                btnOption4.setText("300MB");
-                btnOption5.setText("600MB");
-                btnOption6.setText("750MB");
-                btnOption7.setText("1GB");
-                btnOption8.setText("1,5GB");
-                btnOption9.setText("3GB");
-                btnOption10.setText("6GB");
+                btnOption1.setText("20MB for R10");
+                btnOption2.setText("50MB for R20");
+                btnOption3.setText("100MB for R29");
+                btnOption4.setText("300MB for R60");
+                btnOption5.setText("600MB for R99");
+                btnOption6.setText("750MB for R120");
+                btnOption7.setText("1GB for R149");
+                btnOption8.setText("1,5GB for R189");
+                btnOption9.setText("3GB for R299");
+                btnOption10.setText("6GB for R399");
 
                 etSpent.setText(null);
                 llOptions.setVisibility(View.VISIBLE);
@@ -807,151 +808,21 @@ public class BuyDataActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                final double opt1 = 40.00;
-                final double opt2 = 50.00;
-                final double opt3 = 100.00;
-                final double opt4 = 200.00;
-
-                Log.i(TAG, "onClick: Setting Button Texts");
-
-                // Setting Text for the user
-                btnOption1.setText("R" + opt1);
-                btnOption2.setText("R" + opt2);
-                btnOption3.setText("R" + opt3);
-                btnOption4.setText("R" + opt4);
-
-                etSpent.setText(null);
-                llOptions.setVisibility(View.VISIBLE);
+                Toast.makeText(BuyDataActivity.this,
+                        "No Data Options available for this carrier",
+                        Toast.LENGTH_SHORT).show();
 
                 // Setting the visibility of some buttons
-                btnOption1.setVisibility(View.VISIBLE);
-                btnOption2.setVisibility(View.VISIBLE);
-                btnOption3.setVisibility(View.VISIBLE);
-                btnOption4.setVisibility(View.VISIBLE);
+                btnOption1.setVisibility(View.GONE);
+                btnOption2.setVisibility(View.GONE);
+                btnOption3.setVisibility(View.GONE);
+                btnOption4.setVisibility(View.GONE);
                 btnOption5.setVisibility(View.GONE);
                 btnOption6.setVisibility(View.GONE);
                 btnOption7.setVisibility(View.GONE);
                 btnOption8.setVisibility(View.GONE);
                 btnOption9.setVisibility(View.GONE);
                 btnOption10.setVisibility(View.GONE);
-
-                Log.i(TAG, "onClick: Telkom Buttons Set and " +
-                        "Made Visible");
-
-                btnOption1.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt1);
-
-                        Intent intent = new Intent
-                                (BuyDataActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Telkom");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt1);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt1);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                btnOption2.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt2);
-
-                        Intent intent = new Intent
-                                (BuyDataActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Telkom");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt2);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt2);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                btnOption3.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt3);
-
-                        Intent intent = new Intent
-                                (BuyDataActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Telkom");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt3);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt3);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                btnOption4.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt4);
-
-                        Intent intent = new Intent
-                                (BuyDataActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Telkom");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt4);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt4);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
             }
         });
     }
@@ -965,20 +836,30 @@ public class BuyDataActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                final double opt1 = 5.00;
-                final double opt2 = 29.00;
-                final double opt3 = 50.00;
-                final double opt4 = 100.00;
-                final double opt5 = 200.00;
+                final double opt1 = 10.00;
+                final double opt2 = 12.00;
+                final double opt3 = 25.00;
+                final double opt4 = 29.00;
+                final double opt5 = 63.00;
+                final double opt6 = 100.00;
+                final double opt7 = 149.00;
+                final double opt8 = 249.00;
+                final double opt9 = 299.00;
+                final double opt10 = 405.00;
 
                 Log.i(TAG, "onClick: Setting Button Texts");
 
                 // Setting Text for the user
-                btnOption1.setText("R" + opt1);
-                btnOption2.setText("R" + opt2);
-                btnOption3.setText("R" + opt3);
-                btnOption4.setText("R" + opt4);
-                btnOption5.setText("R" + opt5);
+                btnOption1.setText("15MB for R10");
+                btnOption2.setText("30MB for R12");
+                btnOption3.setText("55MB for R25");
+                btnOption4.setText("100MB for R29");
+                btnOption5.setText("250MB for R63");
+                btnOption6.setText("500MB for R100");
+                btnOption7.setText("1GB for R149");
+                btnOption8.setText("2GB for R249");
+                btnOption9.setText("3GB for R299");
+                btnOption10.setText("5GB for R405");
 
                 etSpent.setText(null);
                 llOptions.setVisibility(View.VISIBLE);
@@ -989,11 +870,11 @@ public class BuyDataActivity extends AppCompatActivity
                 btnOption3.setVisibility(View.VISIBLE);
                 btnOption4.setVisibility(View.VISIBLE);
                 btnOption5.setVisibility(View.VISIBLE);
-                btnOption6.setVisibility(View.GONE);
-                btnOption7.setVisibility(View.GONE);
-                btnOption8.setVisibility(View.GONE);
-                btnOption9.setVisibility(View.GONE);
-                btnOption10.setVisibility(View.GONE);
+                btnOption6.setVisibility(View.VISIBLE);
+                btnOption7.setVisibility(View.VISIBLE);
+                btnOption8.setVisibility(View.VISIBLE);
+                btnOption9.setVisibility(View.VISIBLE);
+                btnOption10.setVisibility(View.VISIBLE);
 
                 Log.i(TAG, "onClick: Vodacom Buttons Set and " +
                         "Made Visible");
@@ -1015,10 +896,11 @@ public class BuyDataActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putString("data", "15MB");
                         extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt1);
+                                "with value of R" + opt1 + " with data of 15MB");
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -1044,10 +926,11 @@ public class BuyDataActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putString("data", "30MB");
                         extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt2);
+                                "with value of R" + opt2 + " with data of 30MB");
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -1073,10 +956,11 @@ public class BuyDataActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putString("data", "55MB");
                         extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt3);
+                                "with value of R" + opt3 + " with data of 55MB");
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -1102,10 +986,11 @@ public class BuyDataActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putString("data", "100MB");
                         extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt4);
+                                "with value of R" + opt4 + " with data of 100MB");
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -1131,10 +1016,156 @@ public class BuyDataActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putString("data", "250MB");
                         extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt5);
+                                "with value of R" + opt5 + " with data of 250MB");
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
+                    }
+                });
+                btnOption6.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        etSpent.setText("" + opt6);
+
+                        Intent intent = new Intent
+                                (BuyDataActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Vodacom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt6);
+                        extras.putString("card2", card);
+                        extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
+                        extras.putString("data", "500MB");
+                        extras.putDouble("iamount2", iamount);
+
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt6 + " with data of 500MB");
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
+                    }
+                });
+                btnOption7.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        etSpent.setText("" + opt7);
+
+                        Intent intent = new Intent
+                                (BuyDataActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Vodacom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt7);
+                        extras.putString("card2", card);
+                        extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
+                        extras.putString("data", "1GB");
+                        extras.putDouble("iamount2", iamount);
+
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt7 + " with data of 1GB");
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
+                    }
+                });
+                btnOption8.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        etSpent.setText("" + opt8);
+
+                        Intent intent = new Intent
+                                (BuyDataActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Vodacom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt8);
+                        extras.putString("card2", card);
+                        extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
+                        extras.putString("data", "2GB");
+                        extras.putDouble("iamount2", iamount);
+
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt8 + " with data of 2GB");
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
+                    }
+                });
+                btnOption9.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        etSpent.setText("" + opt9);
+
+                        Intent intent = new Intent
+                                (BuyDataActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Vodacom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt9);
+                        extras.putString("card2", card);
+                        extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
+                        extras.putString("data", "3GB");
+                        extras.putDouble("iamount2", iamount);
+
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt9 + " with data of 3GB");
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
+                    }
+                });
+                btnOption10.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        etSpent.setText("" + opt10);
+
+                        Intent intent = new Intent
+                                (BuyDataActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Vodacom");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt10);
+                        extras.putString("card2", card);
+                        extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
+                        extras.putString("data", "5GB");
+                        extras.putDouble("iamount2", iamount);
+
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt10 + " with data of 5GB");
 
                         intent.putExtras(extras);
                         startActivity(intent);
