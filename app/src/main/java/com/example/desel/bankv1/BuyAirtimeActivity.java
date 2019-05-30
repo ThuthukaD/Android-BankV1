@@ -37,10 +37,11 @@ public class BuyAirtimeActivity extends AppCompatActivity
     Button btnOption9;
     Button btnOption10;
 
-    // String
+    // Storage
     String category;
     String card;
     String cardNo;
+    double iamount;
 
     // Other
     LinearLayout llOptions;
@@ -156,6 +157,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt1);
@@ -184,6 +186,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt2);
@@ -212,6 +215,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt3);
@@ -240,6 +244,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt4);
@@ -268,6 +273,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt5);
@@ -341,6 +347,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt1);
@@ -369,6 +376,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt2);
@@ -397,6 +405,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt3);
@@ -425,6 +434,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt4);
@@ -453,6 +463,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt5);
@@ -524,6 +535,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt1);
@@ -552,6 +564,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt2);
@@ -580,6 +593,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt3);
@@ -608,6 +622,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt4);
@@ -681,6 +696,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt1);
@@ -709,6 +725,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt2);
@@ -737,6 +754,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt3);
@@ -765,6 +783,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt4);
@@ -793,6 +812,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt5);
@@ -867,6 +887,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt1);
@@ -895,6 +916,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt2);
@@ -923,6 +945,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt3);
@@ -951,6 +974,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt4);
@@ -979,6 +1003,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt5);
@@ -1060,6 +1085,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt1);
@@ -1088,6 +1114,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt2);
@@ -1116,6 +1143,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt3);
@@ -1144,6 +1172,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt4);
@@ -1172,6 +1201,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt5);
@@ -1200,6 +1230,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt6);
@@ -1228,6 +1259,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt7);
@@ -1256,6 +1288,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt8);
@@ -1284,6 +1317,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
                         extras.putString("card2", card);
                         extras.putInt("buttonOn", 9999);
                         extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt9);
@@ -1308,6 +1342,7 @@ public class BuyAirtimeActivity extends AppCompatActivity
             category = extras.getString("category");
             card = extras.getString("card");
             cardNo = extras.getString("cardNo2");
+            iamount = extras.getDouble("iamount");
 
             Log.i(TAG, "getStuff: Category is stored as: " + category);
             Log.i(TAG, "getStuff: card is stored as: " + card);

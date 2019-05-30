@@ -535,7 +535,9 @@ public class BuyActivity extends AppCompatActivity
                     extras.putString("category", etCategory.getText().toString());
                     extras.putString("card", etCard.getText().toString());
                     extras.putString("cardNo2", etCardNo.getText().toString());
+                    extras.putDouble("iamount", Double.parseDouble(etIAmount.getText().toString()));
 
+                    Log.i(TAG, "onItemSelected: Sending IAmount as " + Double.parseDouble(etIAmount.getText().toString()));
                     Log.i(TAG, "onItemSelected: Sending Category as: " + etCategory.getText().toString());
                     Log.i(TAG, "onItemSelected: Sending Card as: " + etCard.getText().toString());
 
@@ -558,7 +560,7 @@ public class BuyActivity extends AppCompatActivity
                     etCategory.setText(""+ parent.getItemAtPosition(position));
 
                     Intent intent = new Intent
-                            (BuyActivity.this, BuyAirtimeActivity.class);
+                            (BuyActivity.this, BuyDataActivity.class);
                     Bundle extras = new Bundle();
 
                     Log.i(TAG, "onItemSelected: Starting BuyAirtimeActivity");
@@ -566,7 +568,9 @@ public class BuyActivity extends AppCompatActivity
                     extras.putString("category", etCategory.getText().toString());
                     extras.putString("card", etCard.getText().toString());
                     extras.putString("cardNo2", etCardNo.getText().toString());
+                    extras.putDouble("iamount", Double.parseDouble(etIAmount.getText().toString()));
 
+                    Log.i(TAG, "onItemSelected: Sending IAmount as " + Double.parseDouble(etIAmount.getText().toString()));
                     Log.i(TAG, "onItemSelected: Sending Category as: " + etCategory.getText().toString());
                     Log.i(TAG, "onItemSelected: Sending Card as: " + etCard.getText().toString());
 
@@ -589,7 +593,7 @@ public class BuyActivity extends AppCompatActivity
                     etCategory.setText(""+ parent.getItemAtPosition(position));
 
                     Intent intent = new Intent
-                            (BuyActivity.this, BuyAirtimeActivity.class);
+                            (BuyActivity.this, BuyElectricityActivity.class);
                     Bundle extras = new Bundle();
 
                     Log.i(TAG, "onItemSelected: Starting BuyAirtimeActivity");
@@ -597,7 +601,9 @@ public class BuyActivity extends AppCompatActivity
                     extras.putString("category", etCategory.getText().toString());
                     extras.putString("card", etCard.getText().toString());
                     extras.putString("cardNo2", etCardNo.getText().toString());
+                    extras.putDouble("iamount", Double.parseDouble(etIAmount.getText().toString()));
 
+                    Log.i(TAG, "onItemSelected: Sending IAmount as " + Double.parseDouble(etIAmount.getText().toString()));
                     Log.i(TAG, "onItemSelected: Sending Category as: " + etCategory.getText().toString());
                     Log.i(TAG, "onItemSelected: Sending Card as: " + etCard.getText().toString());
 
@@ -620,7 +626,7 @@ public class BuyActivity extends AppCompatActivity
                     etCategory.setText(""+ parent.getItemAtPosition(position));
 
                     Intent intent = new Intent
-                            (BuyActivity.this, BuyAirtimeActivity.class);
+                            (BuyActivity.this, BuyFoodActivity.class);
                     Bundle extras = new Bundle();
 
                     Log.i(TAG, "onItemSelected: Starting BuyAirtimeActivity");
@@ -628,7 +634,9 @@ public class BuyActivity extends AppCompatActivity
                     extras.putString("category", etCategory.getText().toString());
                     extras.putString("card", etCard.getText().toString());
                     extras.putString("cardNo2", etCardNo.getText().toString());
+                    extras.putDouble("iamount", Double.parseDouble(etIAmount.getText().toString()));
 
+                    Log.i(TAG, "onItemSelected: Sending IAmount as " + Double.parseDouble(etIAmount.getText().toString()));
                     Log.i(TAG, "onItemSelected: Sending Category as: " + etCategory.getText().toString());
                     Log.i(TAG, "onItemSelected: Sending Card as: " + etCard.getText().toString());
 
@@ -753,14 +761,42 @@ public class BuyActivity extends AppCompatActivity
             String card = extras.getString("card2");
             int btnOn = extras.getInt("buttonOn");
             String cardNo = extras.getString("cardNo3");
+            String data = extras.getString("data", "nothing selected yet");
+            double iamount = extras.getDouble("iamount2");
 
             etLocation.setText(location);
             etCategory.setText(category);
             etSpent.setText("" + spent);
             etCard.setText(card);
             etCardNo.setText(cardNo);
-            tvConfirmation.setText("Are you sure you want to purchase " +
-                    category + " worth R" + spent + "?");
+            etIAmount.setText("" + iamount);
+
+            if (etCategory.getText().toString().equals("Airtime"))
+            {
+                tvConfirmation.setText("Are you sure you want to purchase " +
+                        category + " worth " + String.format("R%.2f", spent) + " on your " +
+                        card + " account?");
+            }
+            else if (etCategory.getText().toString().equals("Data"))
+            {
+                tvConfirmation.setText("Are you sure you want to purchase " +
+                        category + " of " + data + " worth " + String.format("R%.2f", spent) +
+                        " on your " + card + " account?");
+            }
+            else if (etCategory.getText().toString().equals("Electricity"))
+            {
+                Toast.makeText(this, "WIP", Toast.LENGTH_SHORT).show();
+            }
+            else if (etCategory.getText().toString().equals("Food"))
+            {
+                Toast.makeText(this, "WIP", Toast.LENGTH_SHORT).show();
+            }
+            else
+            {
+                // does nothing
+                Log.i(TAG, "getThings: No Data Found in data Yet");
+            }
+
 
             Log.i(TAG, "getThings: Receiving Extras Successful");
 
@@ -779,7 +815,7 @@ public class BuyActivity extends AppCompatActivity
             }
 
             // Sets the default Initial Amount to R99999.99 if db was empty
-            if (etIAmount.length() == 0)
+            if (etIAmount.getText().toString().equals("0.0"))
             {
                 Log.i(TAG, "getThings: Initial Amount Set to R99999.99 for Database");
                 etIAmount.setText("" + 99999.99);
