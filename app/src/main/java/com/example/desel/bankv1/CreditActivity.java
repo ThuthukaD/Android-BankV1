@@ -73,10 +73,10 @@ public class CreditActivity extends AppCompatActivity
             while(data.moveToNext())
             {
                 // This value is the column ID for the Items
-                theList.add("\n    R" + data.getString(5) + " WAS HOW MUCH YOU HAD\n" +
-                        "    R" + data.getString(1) + " PURCHASE MADE TO '" +
+                theList.add("\n    " + String.format("R%.2f", data.getDouble(5)) + " WAS HOW MUCH YOU HAD\n" +
+                        "    " + String.format("R%.2f", data.getDouble(1)) + " PURCHASE MADE TO '" +
                         data.getString(2) + "\'\n" +
-                        "'   R" + data.getString(3) + " IS THE REMAINING AMOUNT \n" +
+                        "'   " + String.format("R%.2f", data.getDouble(3)) + " IS THE REMAINING AMOUNT \n" +
                         "    SPEND CATEGORY IS \'" +
                         data.getString(4) + "\'\n" +
                         "    ON \'" + data.getString(7) + "\' ACCOUNT\n" +
@@ -107,9 +107,9 @@ public class CreditActivity extends AppCompatActivity
             while (data.moveToNext())
             {
                 // This value is the column ID for the Items
-                etIAmount.setText("" + data.getString(3));
+                etIAmount.setText("" + String.format("R%.2f", data.getDouble(3)));
 
-                tvAmount.setText("R" + etIAmount.getText().toString());
+                tvAmount.setText("" + etIAmount.getText().toString());
             }
         }
     }
