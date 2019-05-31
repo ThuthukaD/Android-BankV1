@@ -12,7 +12,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
     // VARIABLES
 
     // Database Created
-    public static final String DATABASE_NAME = "bank15.db";
+    public static final String DATABASE_NAME = "bank16.db";
     public static final String TABLE_NAME_CHEQUE = "cheque_data";
     public static final String TABLE_NAME_CREDIT = "credit_data";
     public static final String TABLE_NAME_SAVINGS = "savings_data";

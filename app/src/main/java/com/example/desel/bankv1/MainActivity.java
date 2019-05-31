@@ -282,7 +282,7 @@ public class MainActivity extends AppCompatActivity
             while(data.moveToNext())
             {
                 // This value is the column ID for the Items
-                etIAmountCheque.setText("" + data.getString(3));
+                etIAmountCheque.setText("" + data.getDouble(3));
 
                 Log.i(TAG, "viewAvailableBalanceCheque: The Amount Found is " +
                         data.getString(3));
@@ -333,7 +333,7 @@ public class MainActivity extends AppCompatActivity
             while(data.moveToNext())
             {
                 // This value is the column ID for the Items
-                etIAmountCredit.setText("" + data.getString(3));
+                etIAmountCredit.setText("" + data.getDouble(3));
 
                 Log.i(TAG, "viewAvailableBalanceCredit: The Amount Found is " +
                         data.getString(3));
@@ -384,7 +384,7 @@ public class MainActivity extends AppCompatActivity
             while(data.moveToNext())
             {
                 // This value is the column ID for the Items
-                etIAmountSavings.setText("" + data.getString(3));
+                etIAmountSavings.setText("" + data.getDouble(3));
 
                 Log.i(TAG, "viewAvailableBalanceSavings: The Amount Found is " +
                         data.getString(3));
@@ -435,7 +435,7 @@ public class MainActivity extends AppCompatActivity
             while(data.moveToNext())
             {
                 // This value is the column ID for the Items
-                etIAmountBusiness.setText("" + data.getString(3));
+                etIAmountBusiness.setText("" + data.getDouble(3));
 
                 Log.i(TAG, "viewAvailableBalanceBusiness: The Amount Found is " +
                         data.getString(3));
