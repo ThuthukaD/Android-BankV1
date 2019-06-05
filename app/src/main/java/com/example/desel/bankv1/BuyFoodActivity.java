@@ -99,7 +99,7 @@ public class BuyFoodActivity extends AppCompatActivity
 
     public void BurgerKing()
     {
-        Log.i(TAG, "CellC: Selected This Carrier");
+        Log.i(TAG, "BurgerKing: Selected This Restaurant");
 
         ibtnBurgerKing.setOnClickListener(new View.OnClickListener()
         {
@@ -115,389 +115,10 @@ public class BuyFoodActivity extends AppCompatActivity
                 Log.i(TAG, "onClick: Setting Button Texts");
 
                 // Setting Text for the user
-                ibtnOption1.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption2.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption3.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption4.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption5.setBackgroundResource(R.drawable.bank_logo_cellc);
-
-                etSpent.setText(null);
-                llOptions.setVisibility(View.VISIBLE);
-
-                // Setting the visibility of some buttons
-                ibtnOption1.setVisibility(View.VISIBLE);
-                ibtnOption2.setVisibility(View.VISIBLE);
-                ibtnOption3.setVisibility(View.VISIBLE);
-                ibtnOption4.setVisibility(View.VISIBLE);
-                ibtnOption5.setVisibility(View.VISIBLE);
-                ibtnOption6.setVisibility(View.GONE);
-                ibtnOption7.setVisibility(View.GONE);
-                ibtnOption8.setVisibility(View.GONE);
-                ibtnOption9.setVisibility(View.GONE);
-                ibtnOption10.setVisibility(View.GONE);
-
-                Log.i(TAG, "onClick: Cell C Buttons Set and " +
-                        "Made Visible");
-
-                ibtnOption1.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt1);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Cell C");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt1);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt1);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption2.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt2);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Cell C");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt2);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt2);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption3.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt3);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Cell C");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt3);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt3);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption4.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt4);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Cell C");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt4);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt4);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption5.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt5);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Cell C");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt5);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt5);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-            }
-        });
-    }
-
-    public void ChickenLicken()
-    {
-        Log.i(TAG, "MTN: Selected This Carrier");
-
-        ibtnChickenLicken.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                final double opt1 = 5.00;
-                final double opt2 = 29.00;
-                final double opt3 = 50.00;
-                final double opt4 = 100.00;
-                final double opt5 = 200.00;
-
-                Log.i(TAG, "onClick: Setting Button Texts");
-
-                // Setting Text for the user
-                ibtnOption1.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption2.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption3.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption4.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption5.setBackgroundResource(R.drawable.bank_logo_cellc);
-
-                etSpent.setText(null);
-                llOptions.setVisibility(View.VISIBLE);
-
-                // Setting the visibility of some buttons
-                ibtnOption1.setVisibility(View.VISIBLE);
-                ibtnOption2.setVisibility(View.VISIBLE);
-                ibtnOption3.setVisibility(View.VISIBLE);
-                ibtnOption4.setVisibility(View.VISIBLE);
-                ibtnOption5.setVisibility(View.VISIBLE);
-                ibtnOption6.setVisibility(View.GONE);
-                ibtnOption7.setVisibility(View.GONE);
-                ibtnOption8.setVisibility(View.GONE);
-                ibtnOption9.setVisibility(View.GONE);
-                ibtnOption10.setVisibility(View.GONE);
-
-                Log.i(TAG, "onClick: MTN Buttons Set and " +
-                        "Made Visible");
-
-                ibtnOption1.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt1);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "MTN");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt1);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt1);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption2.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt2);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "MTN");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt2);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt2);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption3.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt3);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "MTN");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt3);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt3);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption4.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt4);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "MTN");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt4);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt4);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption5.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt5);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "MTN");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt5);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt5);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-            }
-        });
-    }
-
-    public void Fishaways()
-    {
-        Log.i(TAG, "Telkom: Selected This Carrier");
-
-        ibtnFishaways.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                final double opt1 = 40.00;
-                final double opt2 = 50.00;
-                final double opt3 = 100.00;
-                final double opt4 = 200.00;
-
-                Log.i(TAG, "onClick: Setting Button Texts");
-
-                // Setting Text for the user
-                ibtnOption1.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption2.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption3.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption4.setBackgroundResource(R.drawable.bank_logo_cellc);
+                ibtnOption1.setBackgroundResource(R.drawable.bk_1_whopper);
+                ibtnOption2.setBackgroundResource(R.drawable.bk_2_big_king);
+                ibtnOption3.setBackgroundResource(R.drawable.bk_3_bk_crunch);
+                ibtnOption4.setBackgroundResource(R.drawable.bk_4_chicken_wings);
 
                 etSpent.setText(null);
                 llOptions.setVisibility(View.VISIBLE);
@@ -514,7 +135,7 @@ public class BuyFoodActivity extends AppCompatActivity
                 ibtnOption9.setVisibility(View.GONE);
                 ibtnOption10.setVisibility(View.GONE);
 
-                Log.i(TAG, "onClick: Telkom Buttons Set and " +
+                Log.i(TAG, "onClick: BurgerKing Buttons Set and " +
                         "Made Visible");
 
                 ibtnOption1.setOnClickListener(new View.OnClickListener()
@@ -528,7 +149,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Telkom");
+                        extras.putString("location", "Burger King");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt1);
                         extras.putString("card2", card);
@@ -557,7 +178,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Telkom");
+                        extras.putString("location", "Burger King");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt2);
                         extras.putString("card2", card);
@@ -586,7 +207,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Telkom");
+                        extras.putString("location", "Burger King");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt3);
                         extras.putString("card2", card);
@@ -615,7 +236,325 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Telkom");
+                        extras.putString("location", "Burger King");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt4);
+                        extras.putString("card2", card);
+                        extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
+
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt4);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
+                    }
+                });
+            }
+        });
+    }
+
+    public void ChickenLicken()
+    {
+        Log.i(TAG, "ChickenLicken: Selected This Restaurant");
+
+        ibtnChickenLicken.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                final double opt1 = 29.90;
+                final double opt2 = 129.90;
+                final double opt3 = 30.90;
+                final double opt4 = 48.90;
+
+                Log.i(TAG, "onClick: Setting Button Texts");
+
+                // Setting Text for the user
+                ibtnOption1.setBackgroundResource(R.drawable.cl_1_hot_wings);
+                ibtnOption2.setBackgroundResource(R.drawable.cl_2_family_full_house);
+                ibtnOption3.setBackgroundResource(R.drawable.cl_3_love_me_tender);
+                ibtnOption4.setBackgroundResource(R.drawable.cl_4_lunch);
+
+                etSpent.setText(null);
+                llOptions.setVisibility(View.VISIBLE);
+
+                // Setting the visibility of some buttons
+                ibtnOption1.setVisibility(View.VISIBLE);
+                ibtnOption2.setVisibility(View.VISIBLE);
+                ibtnOption3.setVisibility(View.VISIBLE);
+                ibtnOption4.setVisibility(View.VISIBLE);
+                ibtnOption5.setVisibility(View.GONE);
+                ibtnOption6.setVisibility(View.GONE);
+                ibtnOption7.setVisibility(View.GONE);
+                ibtnOption8.setVisibility(View.GONE);
+                ibtnOption9.setVisibility(View.GONE);
+                ibtnOption10.setVisibility(View.GONE);
+
+                Log.i(TAG, "onClick: ChickenLicken Buttons Set and " +
+                        "Made Visible");
+
+                ibtnOption1.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        etSpent.setText("" + opt1);
+
+                        Intent intent = new Intent
+                                (BuyFoodActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Chicken Licken");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt1);
+                        extras.putString("card2", card);
+                        extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
+
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt1);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
+                    }
+                });
+
+                ibtnOption2.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        etSpent.setText("" + opt2);
+
+                        Intent intent = new Intent
+                                (BuyFoodActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Chicken Licken");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt2);
+                        extras.putString("card2", card);
+                        extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
+
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt2);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
+                    }
+                });
+
+                ibtnOption3.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        etSpent.setText("" + opt3);
+
+                        Intent intent = new Intent
+                                (BuyFoodActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Chicken Licken");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt3);
+                        extras.putString("card2", card);
+                        extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
+
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt3);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
+                    }
+                });
+
+                ibtnOption4.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        etSpent.setText("" + opt4);
+
+                        Intent intent = new Intent
+                                (BuyFoodActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Chicken Licken");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt4);
+                        extras.putString("card2", card);
+                        extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
+
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt4);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
+                    }
+                });
+            }
+        });
+    }
+
+    public void Fishaways()
+    {
+        Log.i(TAG, "Fishaways: Selected This Carrier");
+
+        ibtnFishaways.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                final double opt1 = 36.90;
+                final double opt2 = 79.90;
+                final double opt3 = 40.90;
+                final double opt4 = 19.90;
+
+                Log.i(TAG, "onClick: Setting Button Texts");
+
+                // Setting Text for the user
+                ibtnOption1.setBackgroundResource(R.drawable.f_1_hake_meals);
+                ibtnOption2.setBackgroundResource(R.drawable.f_2_double_up_meal);
+                ibtnOption3.setBackgroundResource(R.drawable.f_3_sliders);
+                ibtnOption4.setBackgroundResource(R.drawable.f_4_sides);
+
+                etSpent.setText(null);
+                llOptions.setVisibility(View.VISIBLE);
+
+                // Setting the visibility of some buttons
+                ibtnOption1.setVisibility(View.VISIBLE);
+                ibtnOption2.setVisibility(View.VISIBLE);
+                ibtnOption3.setVisibility(View.VISIBLE);
+                ibtnOption4.setVisibility(View.VISIBLE);
+                ibtnOption5.setVisibility(View.GONE);
+                ibtnOption6.setVisibility(View.GONE);
+                ibtnOption7.setVisibility(View.GONE);
+                ibtnOption8.setVisibility(View.GONE);
+                ibtnOption9.setVisibility(View.GONE);
+                ibtnOption10.setVisibility(View.GONE);
+
+                Log.i(TAG, "onClick: Fishaways Buttons Set and " +
+                        "Made Visible");
+
+                ibtnOption1.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        etSpent.setText("" + opt1);
+
+                        Intent intent = new Intent
+                                (BuyFoodActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Fishaways");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt1);
+                        extras.putString("card2", card);
+                        extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
+
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt1);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
+                    }
+                });
+
+                ibtnOption2.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        etSpent.setText("" + opt2);
+
+                        Intent intent = new Intent
+                                (BuyFoodActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Fishaways");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt2);
+                        extras.putString("card2", card);
+                        extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
+
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt2);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
+                    }
+                });
+
+                ibtnOption3.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        etSpent.setText("" + opt3);
+
+                        Intent intent = new Intent
+                                (BuyFoodActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Fishaways");
+                        extras.putString("category2", category);
+                        extras.putDouble("spent", opt3);
+                        extras.putString("card2", card);
+                        extras.putInt("buttonOn", 9999);
+                        extras.putString("cardNo3", cardNo);
+                        extras.putDouble("iamount2", iamount);
+
+                        Log.i(TAG, "onClick: Button Clicked " +
+                                "with value of R" + opt3);
+
+                        intent.putExtras(extras);
+                        startActivity(intent);
+
+                        Log.i(TAG, "onClick: Starting BuyActivity");
+                    }
+                });
+
+                ibtnOption4.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        etSpent.setText("" + opt4);
+
+                        Intent intent = new Intent
+                                (BuyFoodActivity.this, BuyActivity.class);
+                        Bundle extras = new Bundle();
+
+                        extras.putString("location", "Fishaways");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt4);
                         extras.putString("card2", card);
@@ -638,27 +577,25 @@ public class BuyFoodActivity extends AppCompatActivity
 
     public void KFC()
     {
-        Log.i(TAG, "Vodacom: Selected This Carrier");
+        Log.i(TAG, "KFC: Selected This Carrier");
 
         ibtnKFC.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                final double opt1 = 5.00;
-                final double opt2 = 29.00;
-                final double opt3 = 50.00;
-                final double opt4 = 100.00;
-                final double opt5 = 200.00;
+                final double opt1 = 60.00;
+                final double opt2 = 50.00;
+                final double opt3 = 60.00;
+                final double opt4 = 65.00;
 
                 Log.i(TAG, "onClick: Setting Button Texts");
 
                 // Setting Text for the user
-                ibtnOption1.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption2.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption3.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption4.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption5.setBackgroundResource(R.drawable.bank_logo_cellc);
+                ibtnOption1.setBackgroundResource(R.drawable.k_1_wings);
+                ibtnOption2.setBackgroundResource(R.drawable.k_2_boundry_deal);
+                ibtnOption3.setBackgroundResource(R.drawable.k_3_rounders);
+                ibtnOption4.setBackgroundResource(R.drawable.k_4_twisters);
 
                 etSpent.setText(null);
                 llOptions.setVisibility(View.VISIBLE);
@@ -668,14 +605,14 @@ public class BuyFoodActivity extends AppCompatActivity
                 ibtnOption2.setVisibility(View.VISIBLE);
                 ibtnOption3.setVisibility(View.VISIBLE);
                 ibtnOption4.setVisibility(View.VISIBLE);
-                ibtnOption5.setVisibility(View.VISIBLE);
+                ibtnOption5.setVisibility(View.GONE);
                 ibtnOption6.setVisibility(View.GONE);
                 ibtnOption7.setVisibility(View.GONE);
                 ibtnOption8.setVisibility(View.GONE);
                 ibtnOption9.setVisibility(View.GONE);
                 ibtnOption10.setVisibility(View.GONE);
 
-                Log.i(TAG, "onClick: Vodacom Buttons Set and " +
+                Log.i(TAG, "onClick: KFC Buttons Set and " +
                         "Made Visible");
 
                 ibtnOption1.setOnClickListener(new View.OnClickListener()
@@ -689,7 +626,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Vodacom");
+                        extras.putString("location", "KFC");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt1);
                         extras.putString("card2", card);
@@ -718,7 +655,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Vodacom");
+                        extras.putString("location", "KFC");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt2);
                         extras.putString("card2", card);
@@ -747,7 +684,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Vodacom");
+                        extras.putString("location", "KFC");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt3);
                         extras.putString("card2", card);
@@ -776,7 +713,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Vodacom");
+                        extras.putString("location", "KFC");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt4);
                         extras.putString("card2", card);
@@ -786,35 +723,6 @@ public class BuyFoodActivity extends AppCompatActivity
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt4);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption5.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt5);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Vodacom");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt5);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt5);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -828,27 +736,25 @@ public class BuyFoodActivity extends AppCompatActivity
 
     public void McDonalds()
     {
-        Log.i(TAG, "VirginMobile: Selected This Carrier");
+        Log.i(TAG, "McDonalds: Selected This Carrier");
 
         ibtnMcDonalds.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                final double opt1 = 10.00;
-                final double opt2 = 29.00;
-                final double opt3 = 50.00;
-                final double opt4 = 100.00;
-                final double opt5 = 200.00;
+                final double opt1 = 59.00;
+                final double opt2 = 31.00;
+                final double opt3 = 32.50;
+                final double opt4 = 28.00;
 
                 Log.i(TAG, "onClick: Setting Button Texts");
 
                 // Setting Text for the user
-                ibtnOption1.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption2.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption3.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption4.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption5.setBackgroundResource(R.drawable.bank_logo_cellc);
+                ibtnOption1.setBackgroundResource(R.drawable.m_1_big_tasty);
+                ibtnOption2.setBackgroundResource(R.drawable.m_2_big_mac);
+                ibtnOption3.setBackgroundResource(R.drawable.m_3_cajun);
+                ibtnOption4.setBackgroundResource(R.drawable.m_4_mcchicken);
 
                 etSpent.setText(null);
                 llOptions.setVisibility(View.VISIBLE);
@@ -858,14 +764,14 @@ public class BuyFoodActivity extends AppCompatActivity
                 ibtnOption2.setVisibility(View.VISIBLE);
                 ibtnOption3.setVisibility(View.VISIBLE);
                 ibtnOption4.setVisibility(View.VISIBLE);
-                ibtnOption5.setVisibility(View.VISIBLE);
+                ibtnOption5.setVisibility(View.GONE);
                 ibtnOption6.setVisibility(View.GONE);
                 ibtnOption7.setVisibility(View.GONE);
                 ibtnOption8.setVisibility(View.GONE);
                 ibtnOption9.setVisibility(View.GONE);
                 ibtnOption10.setVisibility(View.GONE);
 
-                Log.i(TAG, "onClick: Virgin Mobile Buttons Set and " +
+                Log.i(TAG, "onClick: McDonalds Buttons Set and " +
                         "Made Visible");
 
 
@@ -880,7 +786,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Virgin Mobile");
+                        extras.putString("location", "McDonalds");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt1);
                         extras.putString("card2", card);
@@ -909,7 +815,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Virgin Mobile");
+                        extras.putString("location", "McDonalds");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt2);
                         extras.putString("card2", card);
@@ -938,7 +844,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Virgin Mobile");
+                        extras.putString("location", "McDonalds");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt3);
                         extras.putString("card2", card);
@@ -967,7 +873,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Virgin Mobile");
+                        extras.putString("location", "McDonalds");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt4);
                         extras.putString("card2", card);
@@ -977,35 +883,6 @@ public class BuyFoodActivity extends AppCompatActivity
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt4);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption5.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt5);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Virgin Mobile");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt5);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt5);
 
                         intent.putExtras(extras);
                         startActivity(intent);
@@ -1019,35 +896,25 @@ public class BuyFoodActivity extends AppCompatActivity
 
     public void Steers()
     {
-        Log.i(TAG, "TelkomMobile: Selected This Carrier");
+        Log.i(TAG, "Steers: Selected This Carrier");
 
         ibtnSteers.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                final double opt1 = 10.00;
-                final double opt2 = 20.00;
-                final double opt3 = 29.00;
-                final double opt4 = 30.00;
-                final double opt5 = 50.00;
-                final double opt6 = 100.00;
-                final double opt7 = 200.00;
-                final double opt8 = 250.00;
-                final double opt9 = 1000.00;
+                final double opt1 = 77.90;
+                final double opt2 = 87.90;
+                final double opt3 = 102.90;
+                final double opt4 = 47.90;
 
                 Log.i(TAG, "onClick: Setting Button Texts");
 
                 // Setting Text for the user
-                ibtnOption1.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption2.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption3.setBackgroundResource(R.drawable.bank_logo_cellc);;
-                ibtnOption4.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption5.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption6.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption7.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption8.setBackgroundResource(R.drawable.bank_logo_cellc);
-                ibtnOption9.setBackgroundResource(R.drawable.bank_logo_cellc);
+                ibtnOption1.setBackgroundResource(R.drawable.s_1_original);
+                ibtnOption2.setBackgroundResource(R.drawable.s_2_big_bacon);
+                ibtnOption3.setBackgroundResource(R.drawable.s_3_mighty);;
+                ibtnOption4.setBackgroundResource(R.drawable.s_4_chicken);
 
                 etSpent.setText(null);
                 llOptions.setVisibility(View.VISIBLE);
@@ -1057,14 +924,14 @@ public class BuyFoodActivity extends AppCompatActivity
                 ibtnOption2.setVisibility(View.VISIBLE);
                 ibtnOption3.setVisibility(View.VISIBLE);
                 ibtnOption4.setVisibility(View.VISIBLE);
-                ibtnOption5.setVisibility(View.VISIBLE);
-                ibtnOption6.setVisibility(View.VISIBLE);
-                ibtnOption7.setVisibility(View.VISIBLE);
-                ibtnOption8.setVisibility(View.VISIBLE);
-                ibtnOption9.setVisibility(View.VISIBLE);
+                ibtnOption5.setVisibility(View.GONE);
+                ibtnOption6.setVisibility(View.GONE);
+                ibtnOption7.setVisibility(View.GONE);
+                ibtnOption8.setVisibility(View.GONE);
+                ibtnOption9.setVisibility(View.GONE);
                 ibtnOption10.setVisibility(View.GONE);
 
-                Log.i(TAG, "onClick: Telkom Mobile Buttons Set and " +
+                Log.i(TAG, "onClick: Steers Buttons Set and " +
                         "Made Visible");
 
                 ibtnOption1.setOnClickListener(new View.OnClickListener()
@@ -1078,7 +945,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Telkom Mobile");
+                        extras.putString("location", "Steers");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt1);
                         extras.putString("card2", card);
@@ -1107,7 +974,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Telkom Mobile");
+                        extras.putString("location", "Steers");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt2);
                         extras.putString("card2", card);
@@ -1136,7 +1003,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Telkom Mobile");
+                        extras.putString("location", "Steers");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt3);
                         extras.putString("card2", card);
@@ -1165,7 +1032,7 @@ public class BuyFoodActivity extends AppCompatActivity
                                 (BuyFoodActivity.this, BuyActivity.class);
                         Bundle extras = new Bundle();
 
-                        extras.putString("location", "Telkom Mobile");
+                        extras.putString("location", "Steers");
                         extras.putString("category2", category);
                         extras.putDouble("spent", opt4);
                         extras.putString("card2", card);
@@ -1175,151 +1042,6 @@ public class BuyFoodActivity extends AppCompatActivity
 
                         Log.i(TAG, "onClick: Button Clicked " +
                                 "with value of R" + opt4);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption5.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt5);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Telkom Mobile");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt5);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt5);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption6.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt6);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Telkom Mobile");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt6);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt6);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption7.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt7);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Telkom Mobile");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt7);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt7);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption8.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt8);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Telkom Mobile");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt8);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt8);
-
-                        intent.putExtras(extras);
-                        startActivity(intent);
-
-                        Log.i(TAG, "onClick: Starting BuyActivity");
-                    }
-                });
-
-                ibtnOption9.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v)
-                    {
-                        etSpent.setText("" + opt9);
-
-                        Intent intent = new Intent
-                                (BuyFoodActivity.this, BuyActivity.class);
-                        Bundle extras = new Bundle();
-
-                        extras.putString("location", "Telkom Mobile");
-                        extras.putString("category2", category);
-                        extras.putDouble("spent", opt9);
-                        extras.putString("card2", card);
-                        extras.putInt("buttonOn", 9999);
-                        extras.putString("cardNo3", cardNo);
-                        extras.putDouble("iamount2", iamount);
-
-                        Log.i(TAG, "onClick: Button Clicked " +
-                                "with value of R" + opt9);
 
                         intent.putExtras(extras);
                         startActivity(intent);

@@ -678,7 +678,7 @@ public class BuyActivity extends AppCompatActivity
 
                 // This value is the column ID for the Items
                 // Sets the etIAmount and tvAmount
-                etIAmount.setText("" + data.getDouble(3));
+                etIAmount.setText("" + String.format("%.2f", data.getDouble(3)));
 
                 tvAmount.setText("R" + etIAmount.getText().toString());
             }
@@ -703,7 +703,7 @@ public class BuyActivity extends AppCompatActivity
 
                 // This value is the column ID for the Items
                 // Sets the etIAmount and tvAmount
-                etIAmount.setText("" + data.getDouble(3));
+                etIAmount.setText("" + String.format("%.2f", data.getDouble(3)));
 
                 tvAmount.setText("R" + etIAmount.getText().toString());
             }
@@ -728,7 +728,7 @@ public class BuyActivity extends AppCompatActivity
 
                 // This value is the column ID for the Items
                 // Sets the etIAmount and tvAmount
-                etIAmount.setText("" + data.getDouble(3));
+                etIAmount.setText("" + String.format("%.2f", data.getDouble(3)));
 
                 tvAmount.setText("R" + etIAmount.getText().toString());
             }
@@ -753,7 +753,7 @@ public class BuyActivity extends AppCompatActivity
 
                 // This value is the column ID for the Items
                 // Sets the etIAmount and tvAmount
-                etIAmount.setText("" + data.getDouble(3));
+                etIAmount.setText("" + String.format("%.2f", data.getDouble(3)));
 
                 tvAmount.setText("R" + etIAmount.getText().toString());
             }

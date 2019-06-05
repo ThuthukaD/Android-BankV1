@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:paddingBottom="10dp"
+        android:scrollbarSize="0dp"
         android:paddingTop="10dp">
 
         <LinearLayout
@@ -23,30 +24,31 @@
                 android:id="@+id/ibtnBurgerKing"
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="110dp"
-                android:background="@drawable/bank_logo_placeholder" />
+                android:layout_marginStart="100dp"
+                android:background="@drawable/bank_logo_burger_king"
+                android:scaleType="center" />
 
             <ImageButton
                 android:id="@+id/ibtnChickenLicken"
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="110dp"
-                android:background="@drawable/bank_logo_placeholder" />
+                android:background="@drawable/bank_logo_chicken_licken" />
 
             <ImageButton
                 android:id="@+id/ibtnFishaways"
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="110dp"
-                android:background="@drawable/bank_logo_placeholder"
-                android:scaleType="fitXY" />
+                android:background="@drawable/bank_logo_fishaways"
+                android:scaleType="center" />
 
             <ImageButton
                 android:id="@+id/ibtnKFC"
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="110dp"
-                android:background="@drawable/bank_logo_placeholder"
+                android:background="@drawable/bank_logo_kfc"
                 android:scaleType="fitXY" />
 
             <ImageButton
@@ -54,16 +56,16 @@
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="110dp"
-                android:background="@drawable/bank_logo_placeholder"
+                android:background="@drawable/bank_logo_mcdonalds"
                 android:scaleType="centerCrop" />
 
             <ImageButton
                 android:id="@+id/ibtnSteers"
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
-                android:layout_marginStart="110dp"
+                android:layout_marginStart="120dp"
                 android:layout_marginEnd="110dp"
-                android:background="@drawable/bank_logo_placeholder"
+                android:background="@drawable/bank_logo_steers"
                 android:scaleType="centerCrop" />
         </LinearLayout>
     </HorizontalScrollView>
