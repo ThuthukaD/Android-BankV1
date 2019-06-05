@@ -4,6 +4,9 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.AsyncTask;
+import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -51,6 +54,8 @@ public class LoginActivity extends AppCompatActivity
     private FirebaseAuth mAuth;
     private final int SEND_SMS_PERMISSION_REQUEST_CODE = 1;
 
+    private AsyncTask<Void, Void, Void> taskToasts;
+
     // Debugging
     private static final String TAG = "LoginActivity";
 
@@ -82,12 +87,89 @@ public class LoginActivity extends AppCompatActivity
         loginPermissions();
     }
 
+    public void delayedToasts()
+    {
+//        // Toast after 5 seconds
+//        new Handler().postDelayed(new Runnable()
+//        {
+//            @Override
+//            public void run()
+//            {
+//                Toast.makeText(LoginActivity.this, "Still Checking.",
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        },5000);
+//
+//        // Toast after 10 seconds
+//        new Handler().postDelayed(new Runnable()
+//        {
+//            @Override
+//            public void run()
+//            {
+//                Toast.makeText(LoginActivity.this, "Still Checking..",
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        },10000);
+//
+//        // Toast after 15 seconds
+//        new Handler().postDelayed(new Runnable()
+//        {
+//            @Override
+//            public void run()
+//            {
+//                Toast.makeText(LoginActivity.this, "Still Checking...",
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        },15000);
+//
+//        // Toast after 20 seconds
+//        new Handler().postDelayed(new Runnable()
+//        {
+//            @Override
+//            public void run()
+//            {
+//                Toast.makeText(LoginActivity.this, "Still Checking, " +
+//                                "Connection may be slow",
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        },20000);
+//
+//        // Toast after 25 seconds
+//        new Handler().postDelayed(new Runnable()
+//        {
+//            @Override
+//            public void run()
+//            {
+//                Toast.makeText(LoginActivity.this, "Still Checking.." +
+//                                "Connection may be slow, please wait",
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        },25000);
+//
+//        // Toast after 30 seconds
+//        new Handler().postDelayed(new Runnable()
+//        {
+//            @Override
+//            public void run()
+//            {
+//                Toast.makeText(LoginActivity.this, "Still Checking..." +
+//                                "There may be a problem and login will terminate if " +
+//                                "issue does not resolve itself",
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        },30000);
+    }
+
     // Login Method
     public void Login(View view)
     {
         Log.i(TAG, "Login: Button Clicked");
+
         final String email = etEmail.getText().toString().trim();
         String pin = etPin.getText().toString().trim();
+
+        Toast.makeText(this, "Verifying your details, this may take a while please be patient",
+                Toast.LENGTH_LONG).show();
 
         // Checks if email and password is empty
         Log.i(TAG, "Login: Checking Details");
@@ -120,6 +202,8 @@ public class LoginActivity extends AppCompatActivity
             etPin.requestFocus();
             return;
         }
+
+        delayedToasts();
 
         // Sign in allowed if all is good
         mAuth.signInWithEmailAndPassword(email,pin).addOnCompleteListener(this, new

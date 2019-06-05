@@ -674,8 +674,11 @@ public class BuyActivity extends AppCompatActivity
         {
             while(data.moveToNext())
             {
+                Log.i(TAG, "viewChequeAmount: Setting the initial amount");
+
                 // This value is the column ID for the Items
-                etIAmount.setText("" + data.getString(3));
+                // Sets the etIAmount and tvAmount
+                etIAmount.setText("" + data.getDouble(3));
 
                 tvAmount.setText("R" + etIAmount.getText().toString());
             }
@@ -696,8 +699,11 @@ public class BuyActivity extends AppCompatActivity
         {
             while(data.moveToNext())
             {
+                Log.i(TAG, "viewCreditAmount: Setting the initial amount");
+
                 // This value is the column ID for the Items
-                etIAmount.setText("" + data.getString(3));
+                // Sets the etIAmount and tvAmount
+                etIAmount.setText("" + data.getDouble(3));
 
                 tvAmount.setText("R" + etIAmount.getText().toString());
             }
@@ -718,8 +724,11 @@ public class BuyActivity extends AppCompatActivity
         {
             while(data.moveToNext())
             {
+                Log.i(TAG, "viewSavingsAmount: Setting the initial amount");
+
                 // This value is the column ID for the Items
-                etIAmount.setText("" + data.getString(3));
+                // Sets the etIAmount and tvAmount
+                etIAmount.setText("" + data.getDouble(3));
 
                 tvAmount.setText("R" + etIAmount.getText().toString());
             }
@@ -740,8 +749,11 @@ public class BuyActivity extends AppCompatActivity
         {
             while(data.moveToNext())
             {
+                Log.i(TAG, "viewBusinessAmount: Setting the initial amount");
+
                 // This value is the column ID for the Items
-                etIAmount.setText("" + data.getString(3));
+                // Sets the etIAmount and tvAmount
+                etIAmount.setText("" + data.getDouble(3));
 
                 tvAmount.setText("R" + etIAmount.getText().toString());
             }
@@ -769,7 +781,7 @@ public class BuyActivity extends AppCompatActivity
             etSpent.setText("" + spent);
             etCard.setText(card);
             etCardNo.setText(cardNo);
-            etIAmount.setText("" + iamount);
+            etIAmount.setText("" + String.format("%.2f", iamount));
 
             if (etCategory.getText().toString().equals("Airtime"))
             {
@@ -785,7 +797,9 @@ public class BuyActivity extends AppCompatActivity
             }
             else if (etCategory.getText().toString().equals("Electricity"))
             {
-                Toast.makeText(this, "WIP", Toast.LENGTH_SHORT).show();
+                tvConfirmation.setText("Are you sure you want to purchase " +
+                        category + " worth " + String.format("R%.2f", spent) + " on your " +
+                        card + " account?");
             }
             else if (etCategory.getText().toString().equals("Food"))
             {
@@ -815,7 +829,7 @@ public class BuyActivity extends AppCompatActivity
             }
 
             // Sets the default Initial Amount to R99999.99 if db was empty
-            if (etIAmount.getText().toString().equals("0.0"))
+            if (etIAmount.getText().toString().equals("0.00"))
             {
                 Log.i(TAG, "getThings: Initial Amount Set to R99999.99 for Database");
                 etIAmount.setText("" + 99999.99);

@@ -1,9 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BuyElectricityActivity">
+    tools:context=".BuyElectricityActivity"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <ImageButton
+                android:id="@+id/ibtnCellC"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="95dp"
+                android:background="@drawable/bank_logo_eskom" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <EditText
+        android:id="@+id/etSpent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Input how much you wish to buy in Rands"
+        android:textAlignment="center"
+        android:focusableInTouchMode="false"
+        android:visibility="visible"/>
+
+
+    <LinearLayout
+        android:id="@+id/llOptions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnOption1"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:text="Option 1" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnOption2"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:text="Option 2" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnOption3"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:text="Option 3" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnOption4"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:text="Option 4" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnOption5"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:text="Option 5" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnOption6"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:text="Option 6" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnOption7"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:text="Option 7" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnOption8"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:text="Option 8" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnOption9"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:text="Option 9" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btnOption10"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:text="Option 10" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
