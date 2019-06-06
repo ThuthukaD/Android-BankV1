@@ -803,7 +803,9 @@ public class BuyActivity extends AppCompatActivity
             }
             else if (etCategory.getText().toString().equals("Food"))
             {
-                Toast.makeText(this, "WIP", Toast.LENGTH_SHORT).show();
+                tvConfirmation.setText("Are you sure you want to purchase " +
+                        category + " worth " + String.format("R%.2f", spent) + " on your " +
+                        card + " account?");
             }
             else
             {
