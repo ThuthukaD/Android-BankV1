@@ -267,6 +267,20 @@ public class DatabaseHelper extends SQLiteOpenHelper
         // Future Tables can be placed here...
     }
 
+    public Cursor getGraphContentCheque()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Log.i(TAG, "Getting Content from " + TABLE_NAME_CHEQUE + " Table");
+
+        // Used for the Cheque Transaction History
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME_CHEQUE + " ORDER BY " +
+                COL1 + " ",null);
+        return data;
+
+        // Future Tables can be placed here...
+    }
+
     public Cursor getListContentCredit()
     {
         SQLiteDatabase db = this.getWritableDatabase();
