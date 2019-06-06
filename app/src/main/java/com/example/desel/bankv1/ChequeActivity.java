@@ -27,7 +27,9 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.ArrayList;
 
@@ -152,13 +154,14 @@ public class ChequeActivity extends AppCompatActivity
     private void executeShow()
     {
         lineDataSet.setValues(getDataValues());
-        lineDataSet.setLabel("Data Set 1");
+        lineDataSet.setLabel("Cheque Balance");
 
         // will refresh the chart to fill with new values
         dataSets.clear();
         dataSets.add(lineDataSet);
 
         lineData = new LineData(dataSets);
+        lineData.setValueFormatter(new myValueFormatter());
 
         lineChart.clear();
         lineChart.setData(lineData);
@@ -173,21 +176,22 @@ public class ChequeActivity extends AppCompatActivity
         lineChart.setDrawGridBackground(false);
         lineChart.setDrawBorders(false);
 
-        lineChart.setBackgroundColor(Color.rgb(0, 87, 75));
+        lineChart.setBackgroundColor(Color.rgb(16, 100, 147));
         lineChart.setNoDataTextColor(Color.BLACK);
         lineChart.setBorderColor(Color.YELLOW);
         lineChart.setBorderWidth(0);
 
         Description description = new Description();
-        description.setText("PlaceHolder Description");
+        description.setText("Available Balance Over Time");
         description.setTextColor(Color.WHITE);
         description.setTextSize(15);
         lineChart.setDescription(description);
 
         // These remove the background grid lines properly
-        lineChart.getXAxis().setDrawGridLines(true);
-        lineChart.getAxisLeft().setDrawGridLines(false);
+        lineChart.getXAxis().setDrawGridLines(false);
+        lineChart.getAxisLeft().setDrawGridLines(true);
         lineChart.getAxisRight().setDrawGridLines(false);
+        lineChart.getAxisRight().setEnabled(false);
 
         XAxis xAxis = lineChart.getXAxis();
         YAxis yAxisLeft = lineChart.getAxisLeft();
@@ -199,16 +203,23 @@ public class ChequeActivity extends AppCompatActivity
         xAxis.setTextColor(Color.WHITE);
         yAxisLeft.setTextColor(Color.WHITE);
         yAxisRight.setTextColor(Color.WHITE);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setSpaceMin(0.35f);
+        xAxis.setSpaceMax(0.35f);
+
+        lineChart.setExtraLeftOffset(10);
+        lineChart.setExtraRightOffset(10);
+        xAxis.setAvoidFirstLastClipping(true);
 
         // Line Styling used on lineDataSet1
         lineDataSet.setLineWidth(3);
-        lineDataSet.setColor(Color.RED);
+        lineDataSet.setColor(Color.rgb(102, 209, 253));
         lineDataSet.setDrawCircles(true);
         lineDataSet.setDrawCircleHole(true);
         lineDataSet.setValueTextColor(Color.WHITE);
-        lineDataSet.setValueTextSize(13);
-        lineDataSet.setCircleColor(Color.RED);
-        lineDataSet.setCircleHoleColor(Color.rgb(0, 87, 75));
+        lineDataSet.setValueTextSize(12);
+        lineDataSet.setCircleColor(Color.WHITE);
+        lineDataSet.setCircleHoleColor(Color.rgb(16, 100, 147));
         lineDataSet.setCircleRadius(5);
         lineDataSet.setCircleHoleRadius(3);
         lineDataSet.enableDashedLine(5, 10, 0);
@@ -223,6 +234,16 @@ public class ChequeActivity extends AppCompatActivity
             axis.setLabelCount(5, true);
 
             return "Day " + value;
+        }
+    }
+
+    private class myValueFormatter implements IValueFormatter
+    {
+        @Override
+        public String getFormattedValue(float value, Entry entry, int dataSetIndex,
+                                        ViewPortHandler viewPortHandler)
+        {
+            return "" + String.format("R%.2f", value);
         }
     }
 
