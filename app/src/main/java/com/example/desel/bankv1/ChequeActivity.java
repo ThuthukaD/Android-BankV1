@@ -180,9 +180,13 @@ public class ChequeActivity extends AppCompatActivity
         lineChart.setNoDataTextColor(Color.BLACK);
         lineChart.setBorderColor(Color.YELLOW);
         lineChart.setBorderWidth(0);
+        //lineChart.setViewPortOffsets(-10, 0, 0, 0);
+        lineChart.setVisibleXRangeMaximum(3);
+        lineChart.moveViewToX(0);
 
         Description description = new Description();
         description.setText("Available Balance Over Time");
+        description.setYOffset(-15f);
         description.setTextColor(Color.WHITE);
         description.setTextSize(15);
         lineChart.setDescription(description);
@@ -192,20 +196,26 @@ public class ChequeActivity extends AppCompatActivity
         lineChart.getAxisLeft().setDrawGridLines(true);
         lineChart.getAxisRight().setDrawGridLines(false);
         lineChart.getAxisRight().setEnabled(false);
+        lineChart.setExtraBottomOffset(20f);
+        lineChart.getXAxis().setDrawLabels(false);
+        lineChart.getLegend().setEnabled(false);
 
         XAxis xAxis = lineChart.getXAxis();
         YAxis yAxisLeft = lineChart.getAxisLeft();
         YAxis yAxisRight = lineChart.getAxisRight();
 
         xAxis.setValueFormatter(new MyAxisValueFormatter());
+        yAxisLeft.setValueFormatter(new MyYAxisValueFormatter());
         //yAxisLeft.setValueFormatter(new MyAxisValueFormatter());
         //yAxisRight.setValueFormatter(new MyAxisValueFormatter());
         xAxis.setTextColor(Color.WHITE);
         yAxisLeft.setTextColor(Color.WHITE);
         yAxisRight.setTextColor(Color.WHITE);
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-        xAxis.setSpaceMin(0.35f);
-        xAxis.setSpaceMax(0.35f);
+        xAxis.setSpaceMin(0.60f);
+        xAxis.setSpaceMax(0.40f);
+        xAxis.setCenterAxisLabels(true);
+        xAxis.setDrawLabels(false);
 
         lineChart.setExtraLeftOffset(10);
         lineChart.setExtraRightOffset(10);
@@ -234,6 +244,18 @@ public class ChequeActivity extends AppCompatActivity
             axis.setLabelCount(5, true);
 
             return "Day " + value;
+        }
+    }
+
+    private class MyYAxisValueFormatter implements IAxisValueFormatter
+    {
+        @Override
+        public String getFormattedValue(float value, AxisBase axis)
+        {
+            // Sets how many labels appear on x-axis
+            axis.setLabelCount(5, true);
+
+            return "" + String.format("R%.0f", value);
         }
     }
 
