@@ -295,6 +295,20 @@ public class DatabaseHelper extends SQLiteOpenHelper
         // Future Tables can be placed here...
     }
 
+    public Cursor getGraphContentCredit()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Log.i(TAG, "Getting Content from " + TABLE_NAME_CREDIT + " Table");
+
+        // Used for the Cheque Transaction History
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME_CREDIT + " ORDER BY " +
+                COL1 + " ",null);
+        return data;
+
+        // Future Tables can be placed here...
+    }
+
     public Cursor getListContentSavings()
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -309,6 +323,20 @@ public class DatabaseHelper extends SQLiteOpenHelper
         // Future Tables can be placed here...
     }
 
+    public Cursor getGraphContentSavings()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Log.i(TAG, "Getting Content from " + TABLE_NAME_SAVINGS + " Table");
+
+        // Used for the Cheque Transaction History
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME_SAVINGS + " ORDER BY " +
+                COL1 + " ",null);
+        return data;
+
+        // Future Tables can be placed here...
+    }
+
     public Cursor getListContentBusiness()
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -318,6 +346,20 @@ public class DatabaseHelper extends SQLiteOpenHelper
         // Used for the Cheque Transaction History
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME_BUSINESS + " ORDER BY " +
                 COL1 + " DESC",null);
+        return data;
+
+        // Future Tables can be placed here...
+    }
+
+    public Cursor getGraphContentBusiness()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Log.i(TAG, "Getting Content from " + TABLE_NAME_BUSINESS + " Table");
+
+        // Used for the Cheque Transaction History
+        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME_BUSINESS + " ORDER BY " +
+                COL1 + " ",null);
         return data;
 
         // Future Tables can be placed here...
