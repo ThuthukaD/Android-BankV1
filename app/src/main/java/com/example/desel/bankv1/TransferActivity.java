@@ -37,6 +37,8 @@ public class TransferActivity extends AppCompatActivity
     EditText etTransferAmount;
     EditText etIAmount1;
     EditText etIAmount2;
+    EditText etCard1;
+    EditText etCard2;
     EditText etCardNo1;
     EditText etCardNo2;
     EditText etFAmount;
@@ -45,7 +47,6 @@ public class TransferActivity extends AppCompatActivity
     EditText etCategory;
     EditText etDate;
     EditText etSpent;
-    EditText etCard;
 
     // Buttons
     Button btnBuy;
@@ -91,6 +92,8 @@ public class TransferActivity extends AppCompatActivity
         etTransferAmount = findViewById(R.id.etTransferAmount);
         etIAmount1 = findViewById(R.id.etIAmount1);
         etIAmount2 = findViewById(R.id.etIAmount2);
+        etCard1 = findViewById(R.id.etCard1);
+        etCard2 = findViewById(R.id.etCard2);
         etCardNo1 = findViewById(R.id.etCardNo1);
         etCardNo2 = findViewById(R.id.etCardNo2);
         etFAmount = findViewById(R.id.etFAmount);
@@ -99,7 +102,6 @@ public class TransferActivity extends AppCompatActivity
         etCategory = findViewById(R.id.etCategory);
         etDate = findViewById(R.id.etDate);
         etSpent = findViewById(R.id.etSpent);
-        etCard = findViewById(R.id.etCard);
 
         // Buttons
         btnBuy = findViewById(R.id.btnBuy);
@@ -108,6 +110,9 @@ public class TransferActivity extends AppCompatActivity
         spinnerCardSelection2();
 
         etDate.setText(date);
+        etCategory.setText("Transfer");
+
+        getThings();
     }
 
     public void spinnerCardSelection1()
@@ -137,19 +142,11 @@ public class TransferActivity extends AppCompatActivity
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
 
-                    Bundle extras = getIntent().getExtras();
-                    if (extras != null)
-                    {
-                        Log.i(TAG, "onItemSelected: Got Values From Intent Extra");
+                    etCard1.setText("" + parent.getItemAtPosition(position));
+                    etCardNo1.setText("6252 5166 0967 5245");
+                    etLocation.setText("" + parent.getItemAtPosition(position));
 
-                        String cardNoCheque = extras.getString("cardNoCheque");
-
-                        etCardNo1.setText(cardNoCheque);
-
-                        etCard.setText("" + parent.getItemAtPosition(position));
-
-                        spinOptionsCard2.setVisibility(View.VISIBLE);
-                    }
+                    spinOptionsCard2.setVisibility(View.VISIBLE);
                 }
                 else if (parent.getItemIdAtPosition(position) == 2)
                 {
@@ -158,19 +155,11 @@ public class TransferActivity extends AppCompatActivity
 
                     viewCreditAmount1();
 
-                    Bundle extras = getIntent().getExtras();
-                    if (extras != null)
-                    {
-                        Log.i(TAG, "onItemSelected: Got Values From Intent Extra");
+                    etCard1.setText("" + parent.getItemAtPosition(position));
+                    etCardNo1.setText("8763 4125 0069 7366");
+                    etLocation.setText("" + parent.getItemAtPosition(position));
 
-                        String cardNoCredit = extras.getString("cardNoCredit");
-
-                        etCardNo1.setText(cardNoCredit);
-
-                        etCard.setText("" + parent.getItemAtPosition(position));
-
-                        spinOptionsCard2.setVisibility(View.VISIBLE);
-                    }
+                    spinOptionsCard2.setVisibility(View.VISIBLE);
                 }
                 else if (parent.getItemIdAtPosition(position) == 3)
                 {
@@ -179,19 +168,11 @@ public class TransferActivity extends AppCompatActivity
 
                     viewSavingsAmount1();
 
-                    Bundle extras = getIntent().getExtras();
-                    if (extras != null)
-                    {
-                        Log.i(TAG, "onItemSelected: Got Values From Intent Extra");
+                    etCard1.setText("" + parent.getItemAtPosition(position));
+                    etCardNo1.setText("6564 7512 7984 7245");
+                    etLocation.setText("" + parent.getItemAtPosition(position));
 
-                        String cardNoSavings = extras.getString("cardNoSavings");
-
-                        etCardNo1.setText(cardNoSavings);
-
-                        etCard.setText("" + parent.getItemAtPosition(position));
-
-                        spinOptionsCard2.setVisibility(View.VISIBLE);
-                    }
+                    spinOptionsCard2.setVisibility(View.VISIBLE);
                 }
                 else if (parent.getItemIdAtPosition(position) == 4)
                 {
@@ -200,19 +181,11 @@ public class TransferActivity extends AppCompatActivity
 
                     viewBusinessAmount1();
 
-                    Bundle extras = getIntent().getExtras();
-                    if (extras != null)
-                    {
-                        Log.i(TAG, "onItemSelected: Got Values From Intent Extra");
+                    etCard1.setText("" + parent.getItemAtPosition(position));
+                    etCardNo1.setText("7152 5363 9541 5625");
+                    etLocation.setText("" + parent.getItemAtPosition(position));
 
-                        String cardNoBusiness = extras.getString("cardNoBusiness");
-
-                        etCardNo1.setText(cardNoBusiness);
-
-                        etCard.setText("" + parent.getItemAtPosition(position));
-
-                        spinOptionsCard2.setVisibility(View.VISIBLE);
-                    }
+                    spinOptionsCard2.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -251,19 +224,10 @@ public class TransferActivity extends AppCompatActivity
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
 
-                    Bundle extras = getIntent().getExtras();
-                    if (extras != null)
-                    {
-                        Log.i(TAG, "onItemSelected: Got Values From Intent Extra");
+                    etCard2.setText("" + parent.getItemAtPosition(position));
+                    etCardNo2.setText("6252 5166 0967 5245");
 
-                        String cardNoCheque = extras.getString("cardNoCheque");
-
-                        etCardNo2.setText(cardNoCheque);
-
-                        etCard.setText("" + parent.getItemAtPosition(position));
-
-                        btnBuy.setVisibility(View.VISIBLE);
-                    }
+                    btnBuy.setVisibility(View.VISIBLE);
                 }
                 else if (parent.getItemIdAtPosition(position) == 2)
                 {
@@ -272,19 +236,10 @@ public class TransferActivity extends AppCompatActivity
 
                     viewCreditAmount2();
 
-                    Bundle extras = getIntent().getExtras();
-                    if (extras != null)
-                    {
-                        Log.i(TAG, "onItemSelected: Got Values From Intent Extra");
+                    etCard2.setText("" + parent.getItemAtPosition(position));
+                    etCardNo2.setText("8763 4125 0069 7366");
 
-                        String cardNoCredit = extras.getString("cardNoCredit");
-
-                        etCardNo2.setText(cardNoCredit);
-
-                        etCard.setText("" + parent.getItemAtPosition(position));
-
-                        btnBuy.setVisibility(View.VISIBLE);
-                    }
+                    btnBuy.setVisibility(View.VISIBLE);
                 }
                 else if (parent.getItemIdAtPosition(position) == 3)
                 {
@@ -293,19 +248,10 @@ public class TransferActivity extends AppCompatActivity
 
                     viewSavingsAmount2();
 
-                    Bundle extras = getIntent().getExtras();
-                    if (extras != null)
-                    {
-                        Log.i(TAG, "onItemSelected: Got Values From Intent Extra");
+                    etCard2.setText("" + parent.getItemAtPosition(position));
+                    etCardNo2.setText("6564 7512 7984 7245");
 
-                        String cardNoSavings = extras.getString("cardNoSavings");
-
-                        etCardNo2.setText(cardNoSavings);
-
-                        etCard.setText("" + parent.getItemAtPosition(position));
-
-                        btnBuy.setVisibility(View.VISIBLE);
-                    }
+                    btnBuy.setVisibility(View.VISIBLE);
                 }
                 else if (parent.getItemIdAtPosition(position) == 4)
                 {
@@ -314,19 +260,10 @@ public class TransferActivity extends AppCompatActivity
 
                     viewBusinessAmount2();
 
-                    Bundle extras = getIntent().getExtras();
-                    if (extras != null)
-                    {
-                        Log.i(TAG, "onItemSelected: Got Values From Intent Extra");
+                    etCard2.setText("" + parent.getItemAtPosition(position));
+                    etCardNo2.setText("7152 5363 9541 5625");
 
-                        String cardNoBusiness = extras.getString("cardNoBusiness");
-
-                        etCardNo2.setText(cardNoBusiness);
-
-                        etCard.setText("" + parent.getItemAtPosition(position));
-
-                        btnBuy.setVisibility(View.VISIBLE);
-                    }
+                    btnBuy.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -557,7 +494,7 @@ public class TransferActivity extends AppCompatActivity
             etLocation.setText(location);
             etCategory.setText(category);
             etSpent.setText("" + spent);
-            etCard.setText(card);
+            etCard1.setText(card);
             etCardNo1.setText(cardNo);
             etCardNo2.setText(cardNo);
             etIAmount1.setText("" + String.format("%.2f", iamount));

@@ -169,6 +169,38 @@
                 android:visibility="visible"/>
 
             <EditText
+                android:id="@+id/etCard1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="First Card"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="visible"/>
+
+            <EditText
+                android:id="@+id/etCard2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="Second Card"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="visible"/>
+
+            <EditText
                 android:id="@+id/etCardNo1"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -192,6 +224,22 @@
                 android:layout_marginEnd="8dp"
                 android:ems="10"
                 android:hint="Card No 2"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etCategory"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="Category"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
                 android:visibility="visible"
@@ -233,22 +281,6 @@
                 android:visibility="visible"/>
 
             <EditText
-                android:id="@+id/etCategory"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:ems="10"
-                android:hint="Category"
-                android:inputType="textPersonName"
-                android:textAlignment="center"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
                 android:id="@+id/etDate"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -272,22 +304,6 @@
                 android:layout_marginEnd="8dp"
                 android:ems="10"
                 android:hint="Spent"
-                android:inputType="textPersonName"
-                android:textAlignment="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:visibility="visible"/>
-
-            <EditText
-                android:id="@+id/etCard"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:ems="10"
-                android:hint="Chosen Card"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
