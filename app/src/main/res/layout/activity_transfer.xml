@@ -99,7 +99,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="50dp"
-        android:visibility="visible"/>
+        android:visibility="invisible"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -265,13 +265,61 @@
                 android:visibility="visible"/>
 
             <EditText
-                android:id="@+id/etSAmount"
+                android:id="@+id/etFAmount1"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:ems="10"
-                android:hint="Second Amount"
+                android:hint="Second Amount 1"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="visible"/>
+
+            <EditText
+                android:id="@+id/etFAmount2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="Second Amount 1"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="visible"/>
+
+            <EditText
+                android:id="@+id/etSAmount1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="Second Amount 1"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="visible"/>
+
+            <EditText
+                android:id="@+id/etSAmount2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:ems="10"
+                android:hint="Second Amount 2"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toBottomOf="parent"
