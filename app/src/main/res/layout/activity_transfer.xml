@@ -1,9 +1,288 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TransferActivity">
+    tools:context=".TransferActivity"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvCard1"
+            android:layout_width="340dp"
+            android:layout_height="90dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:elevation="10dp"
+            app:cardBackgroundColor="#0E3C6E"
+            app:cardCornerRadius="5dp"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="320dp"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvAmount1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Select First Card"
+                    android:textColor="@color/cardview_light_background"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tvAccountName1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/tvAmount1"
+                    android:layout_marginTop="45dp"
+                    android:text="Remaining Amount"
+                    android:textColor="@color/cardview_light_background" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvCard2"
+            android:layout_width="340dp"
+            android:layout_height="90dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="110dp"
+            android:elevation="10dp"
+            app:cardBackgroundColor="#0E3C6E"
+            app:cardCornerRadius="5dp"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="320dp"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvAmount2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="20dp"
+                    android:text="Select Second Card"
+                    android:textColor="@color/cardview_light_background"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/tvAccountName2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/tvAmount2"
+                    android:layout_marginTop="45dp"
+                    android:text="Remaining Amount"
+                    android:textColor="@color/cardview_light_background" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+
+    <Spinner
+        android:id="@+id/spinOptionsCard1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"/>
+
+    <Spinner
+        android:id="@+id/spinOptionsCard2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:visibility="visible"/>
+
+    <EditText
+        android:id="@+id/etTransferingAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="First Amount"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/tvConfirmation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="placeholder"
+        android:textAlignment="center"
+        android:textSize="24dp"
+        android:layout_marginTop="0dp"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:id="@+id/etIAmount1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Initial Amount 1"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible"/>
+
+    <EditText
+        android:id="@+id/etIAmount12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Initial Amount 1"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible"/>
+
+    <EditText
+        android:id="@+id/etLocation"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Location"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/etSAmount"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Second Amount"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/etCategory"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Category"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etDate"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Date"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:id="@+id/etSpent"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Spent"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:id="@+id/etCard"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Chosen Card"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/etCaardNo"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Card No"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnBuy"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Buy"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</LinearLayout>
