@@ -78,7 +78,7 @@ public class TransferActivity extends AppCompatActivity
             .format(new Date());
 
     // Debugging
-    private static final String TAG = "BuyActivity";
+    private static final String TAG = "TransferActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -126,6 +126,7 @@ public class TransferActivity extends AppCompatActivity
         // Buttons
         btnBuy = findViewById(R.id.btnBuy);
 
+        add();
         spinnerCardSelection1();
         spinnerCardSelection2();
 
@@ -142,315 +143,322 @@ public class TransferActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Log.i(TAG, "add: btnAdd Clicked");
-                Log.i(TAG, "onClick: Pulling Initial Text");
-
-                // Pulling initial text
-                iAmount1 = Double.parseDouble(etIAmount1.getText().toString());
-                iAmount2 = Double.parseDouble(etIAmount2.getText().toString());
-                location = etLocation.getText().toString();
-                category = etCategory.getText().toString();
-                tAmount = Double.parseDouble(etTransferAmount.getText().toString());
-                spent = tAmount;
-                spent = Double.parseDouble(etSpent.getText().toString());
-
-                Log.i(TAG, "onClick: Pulled Initial Text");
-                Log.i(TAG, "onClick: Setting Text for fAmount");
-
-                // Setting text for fAmount
-                fAmount1 = iAmount1 - spent;
-                fAmount2 = iAmount2 + spent;
-                etFAmount1.setText("" + fAmount1);
-                etFAmount2.setText("" + fAmount2);
-
-                Log.i(TAG, "onClick: Set Text for fAmount");
-                Log.i(TAG, "onClick: Setting Text for sAmount");
-
-                // Setting text for sAmount
-                sAmount1 = iAmount1 - fAmount1;
-                sAmount2 = iAmount2 - fAmount2;
-                etSAmount1.setText("" + sAmount1);
-                etSAmount2.setText("" + sAmount2);
-
-                Log.i(TAG, "onClick: Set Text for sAmount");
-                Log.i(TAG, "onClick: Pulling Additional Text");
-
-                // Pulling new text
-                fAmount1 = Double.parseDouble(etFAmount1.getText().toString());
-                fAmount2 = Double.parseDouble(etFAmount2.getText().toString());
-                sAmount1 = Double.parseDouble(etSAmount1.getText().toString());
-                sAmount2 = Double.parseDouble(etSAmount2.getText().toString());
-                card1 = etCard1.getText().toString();
-                card2 = etCard2.getText().toString();
-                cardNo1 = etCardNo1.getText().toString();
-                cardNo2 = etCardNo2.getText().toString();
-
-                Log.i(TAG, "onClick: Successfully Pulled All Text");
-                Log.i(TAG, "onClick: Checking for any Blank Fields");
-
-                if (etFAmount1.length() != 0 && etFAmount2.length() != 0 &&
-                        etSAmount1.length() != 0 && etSAmount1.length() != 0 &&
-                        etCard1.length() != 0 && etCard2.length() != 0 &&
-                        etLocation.length() != 0 && etCategory.length() != 0 &&
-                        etCardNo1.length() != 0 && etCardNo2.length() != 0 &&
-                        etSpent.length() != 0)
+                if (etSpent.length() == 0)
                 {
-                    Log.i(TAG, "onClick: Fields Are Not Empty");
+                    Log.i(TAG, "add: btnAdd Clicked");
+                    Log.i(TAG, "onClick: Pulling Initial Text");
 
-                    if (etCard1.getText().toString().equals("Cheque"))
-                    {
-                        addDataCheque(fAmount1, location, sAmount1, category, iAmount1, date, card1,
-                                cardNo1);
+                    // Pulling initial text
+                    tAmount = Double.parseDouble(etTransferAmount.getText().toString());
+                    iAmount1 = Double.parseDouble(etIAmount1.getText().toString());
+                    iAmount2 = Double.parseDouble(etIAmount2.getText().toString());
+                    location = etLocation.getText().toString();
+                    category = etCategory.getText().toString();
+                    spent = tAmount;
 
-                        if (etCard2.getText().toString().equals("Cheque"))
-                        {
-                            Toast.makeText(TransferActivity.this,
-                                    "You cant transfer to the same account", Toast.LENGTH_SHORT).show();
-                        }
-                        else if (etCard2.getText().toString().equals("Credit"))
-                        {
-                            addDataCredit(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                    cardNo1);
-                        }
-                        else if (etCard2.getText().toString().equals("Savings"))
-                        {
-                            addDataSavings(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                    cardNo1);
-                        }
-                        else if (etCard2.getText().toString().equals("Business"))
-                        {
-                            addDataBusiness(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                    cardNo1);
-                        }
-                        else
-                        {
-                            Toast.makeText(TransferActivity.this,
-                                    "Couldn't detect 2nd card", Toast.LENGTH_SHORT).show();
-                        }
+                    Log.i(TAG, "onClick: Pulled Initial Text");
+                    Log.i(TAG, "onClick: Setting Text for fAmount");
 
-                        Log.i(TAG, "onClick: Data Adding to Database");
+                    // Setting text for fAmount
+                    etSpent.setText("" + Double.parseDouble(etTransferAmount.getText().toString()));
+                    fAmount1 = spent;
+                    fAmount2 = spent;
+                    etFAmount1.setText("" + fAmount1);
+                    etFAmount2.setText("" + fAmount2);
 
-                        etIAmount1.setText(null);
-                        etIAmount2.setText(null);
-                        etFAmount1.setText(null);
-                        etFAmount2.setText(null);
-                        etSAmount1.setText(null);
-                        etSAmount2.setText(null);
-                        etCard1.setText(null);
-                        etCard2.setText(null);
-                        etCardNo1.setText(null);
-                        etCardNo2.setText(null);
-                        etLocation.setText(null);
-                        etCategory.setText(null);
-                        etSpent.setText(null);
+                    Log.i(TAG, "onClick: Set Text for fAmount");
+                    Log.i(TAG, "onClick: Setting Text for sAmount");
 
-                        Log.i(TAG, "onClick: Fields Emptied");
-                        Log.i(TAG, "onClick: Closing All Old Activities");
+                    // Setting text for sAmount
+                    sAmount1 = iAmount1 - fAmount1;
+                    sAmount2 = iAmount2 + fAmount2;
+                    etSAmount1.setText("" + sAmount1);
+                    etSAmount2.setText("" + sAmount2);
 
-                        Intent intent = new Intent
-                                (TransferActivity.this, MainActivity.class);
-                        startActivity(intent);
+                    Log.i(TAG, "onClick: Set Text for sAmount");
+                    Log.i(TAG, "onClick: Pulling Additional Text");
 
-//                        // Intent to close all other activities except for main and login
-//                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                        intent.putExtra("EXIT", true);
-//                        startActivity(intent);
-                    }
-                    else if (etCard1.getText().toString().equals("Credit"))
-                    {
-                        addDataCredit(fAmount1, location, sAmount1, category, iAmount1, date, card1,
-                                cardNo1);
+                    // Pulling new text
+                    fAmount1 = Double.parseDouble(etFAmount1.getText().toString());
+                    fAmount2 = Double.parseDouble(etFAmount2.getText().toString());
+                    sAmount1 = Double.parseDouble(etSAmount1.getText().toString());
+                    sAmount2 = Double.parseDouble(etSAmount2.getText().toString());
+                    card1 = etCard1.getText().toString();
+                    card2 = etCard2.getText().toString();
+                    cardNo1 = etCardNo1.getText().toString();
+                    cardNo2 = etCardNo2.getText().toString();
 
-                        if (etCard2.getText().toString().equals("Cheque"))
-                        {
-                            addDataCheque(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                    cardNo1);
-                        }
-                        else if (etCard2.getText().toString().equals("Credit"))
-                        {
-                            Toast.makeText(TransferActivity.this,
-                                    "You cant transfer to the same account", Toast.LENGTH_SHORT).show();
-                        }
-                        else if (etCard2.getText().toString().equals("Savings"))
-                        {
-                            addDataSavings(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                    cardNo1);
-                        }
-                        else if (etCard2.getText().toString().equals("Business"))
-                        {
-                            addDataBusiness(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                    cardNo1);
-                        }
-                        else
-                        {
-                            Toast.makeText(TransferActivity.this,
-                                    "Couldn't detect 2nd card", Toast.LENGTH_SHORT).show();
-                        }
+                    Log.i(TAG, "onClick: Successfully Pulled All Text");
+                    Log.i(TAG, "onClick: Checking for any Blank Fields");
 
-                        Log.i(TAG, "onClick: Data Adding to Database");
-
-                        etIAmount1.setText(null);
-                        etIAmount2.setText(null);
-                        etFAmount1.setText(null);
-                        etFAmount2.setText(null);
-                        etSAmount1.setText(null);
-                        etSAmount2.setText(null);
-                        etCard1.setText(null);
-                        etCard2.setText(null);
-                        etCardNo1.setText(null);
-                        etCardNo2.setText(null);
-                        etLocation.setText(null);
-                        etCategory.setText(null);
-                        etSpent.setText(null);
-
-                        Log.i(TAG, "onClick: Fields Emptied");
-                        Log.i(TAG, "onClick: Closing All Old Activities");
-
-                        Intent intent = new Intent
-                                (TransferActivity.this, MainActivity.class);
-                        startActivity(intent);
-
-//                        // Intent to close all other activities except for main and login
-//                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                        intent.putExtra("EXIT", true);
-//                        startActivity(intent);
-                    }
-                    else if (etCard1.getText().toString().equals("Savings"))
-                    {
-                        addDataSavings(fAmount1, location, sAmount1, category, iAmount1, date, card1,
-                                cardNo1);
-
-                        if (etCard2.getText().toString().equals("Cheque"))
-                        {
-                            addDataCheque(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                    cardNo1);
-                        }
-                        else if (etCard2.getText().toString().equals("Credit"))
-                        {
-                            addDataCredit(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                    cardNo1);
-                        }
-                        else if (etCard2.getText().toString().equals("Savings"))
-                        {
-                            Toast.makeText(TransferActivity.this,
-                                    "You cant transfer to the same account", Toast.LENGTH_SHORT).show();
-                        }
-                        else if (etCard2.getText().toString().equals("Business"))
-                        {
-                            addDataBusiness(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                    cardNo1);
-                        }
-                        else
-                        {
-                            Toast.makeText(TransferActivity.this,
-                                    "Couldn't detect 2nd card", Toast.LENGTH_SHORT).show();
-                        }
-
-                        Log.i(TAG, "onClick: Data Adding to Database");
-
-                        etIAmount1.setText(null);
-                        etIAmount2.setText(null);
-                        etFAmount1.setText(null);
-                        etFAmount2.setText(null);
-                        etSAmount1.setText(null);
-                        etSAmount2.setText(null);
-                        etCard1.setText(null);
-                        etCard2.setText(null);
-                        etCardNo1.setText(null);
-                        etCardNo2.setText(null);
-                        etLocation.setText(null);
-                        etCategory.setText(null);
-                        etSpent.setText(null);
-
-                        Log.i(TAG, "onClick: Fields Emptied");
-                        Log.i(TAG, "onClick: Closing All Old Activities");
-
-                        Intent intent = new Intent
-                                (TransferActivity.this, MainActivity.class);
-                        startActivity(intent);
-
-//                        // Intent to close all other activities except for main and login
-//                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                        intent.putExtra("EXIT", true);
-//                        startActivity(intent);
-                    }
-                    else if (etCard1.getText().toString().equals("Business"))
-                    {
-                        addDataBusiness(fAmount1, location, sAmount1, category, iAmount1, date, card1,
-                                cardNo1);
-
-                        if (etCard2.getText().toString().equals("Cheque"))
-                        {
-                            addDataCheque(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                    cardNo1);
-                        }
-                        else if (etCard2.getText().toString().equals("Credit"))
-                        {
-                            addDataCredit(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                    cardNo1);
-                        }
-                        else if (etCard2.getText().toString().equals("Savings"))
-                        {
-                            addDataSavings(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                    cardNo1);
-                        }
-                        else if (etCard2.getText().toString().equals("Business"))
-                        {
-                            Toast.makeText(TransferActivity.this,
-                                    "You cant transfer to the same account", Toast.LENGTH_SHORT).show();
-                        }
-                        else
-                        {
-                            Toast.makeText(TransferActivity.this,
-                                    "Couldn't detect 2nd card", Toast.LENGTH_SHORT).show();
-                        }
-
-                        Log.i(TAG, "onClick: Data Adding to Database");
-
-                        etIAmount1.setText(null);
-                        etIAmount2.setText(null);
-                        etFAmount1.setText(null);
-                        etFAmount2.setText(null);
-                        etSAmount1.setText(null);
-                        etSAmount2.setText(null);
-                        etCard1.setText(null);
-                        etCard2.setText(null);
-                        etCardNo1.setText(null);
-                        etCardNo2.setText(null);
-                        etLocation.setText(null);
-                        etCategory.setText(null);
-                        etSpent.setText(null);
-
-                        Log.i(TAG, "onClick: Fields Emptied");
-                        Log.i(TAG, "onClick: Closing All Old Activities");
-
-                        Intent intent = new Intent
-                                (TransferActivity.this, MainActivity.class);
-                        startActivity(intent);
-
-//                        // Intent to close all other activities except for main and login
-//                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                        intent.putExtra("EXIT", true);
-//                        startActivity(intent);
-                    }
-                    else
-                    {
-                        Toast.makeText(TransferActivity.this,
-                                "No matching cards were found",
-                                Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(TransferActivity.this, "You Sure?", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    Log.i(TAG, "onClick: Some Fields Were Empty");
+                    if (etFAmount1.length() != 0 && etFAmount2.length() != 0 &&
+                            etSAmount1.length() != 0 && etSAmount1.length() != 0 &&
+                            etCard1.length() != 0 && etCard2.length() != 0 &&
+                            etLocation.length() != 0 && etCategory.length() != 0 &&
+                            etCardNo1.length() != 0 && etCardNo2.length() != 0 &&
+                            etSpent.length() != 0)
+                    {
+                        Log.i(TAG, "onClick: Fields Are Not Empty");
 
-                    Toast.makeText
-                            (TransferActivity.this, "Fields are empty!",
+                        if (etCard1.getText().toString().equals("Cheque"))
+                        {
+                            addDataCheque(fAmount1, location, sAmount1, category, iAmount1, date, card1,
+                                    cardNo1);
+
+                            if (etCard2.getText().toString().equals("Cheque"))
+                            {
+                                Toast.makeText(TransferActivity.this,
+                                        "You cant transfer to the same account", Toast.LENGTH_SHORT).show();
+                            }
+                            else if (etCard2.getText().toString().equals("Credit"))
+                            {
+                                addDataCredit(fAmount2, location, sAmount2, category, iAmount2, date, card2,
+                                        cardNo1);
+                            }
+                            else if (etCard2.getText().toString().equals("Savings"))
+                            {
+                                addDataSavings(fAmount2, location, sAmount2, category, iAmount2, date, card2,
+                                        cardNo1);
+                            }
+                            else if (etCard2.getText().toString().equals("Business"))
+                            {
+                                addDataBusiness(fAmount2, location, sAmount2, category, iAmount2, date, card2,
+                                        cardNo1);
+                            }
+                            else
+                            {
+                                Toast.makeText(TransferActivity.this,
+                                        "Couldn't detect 2nd card", Toast.LENGTH_SHORT).show();
+                            }
+
+                            Log.i(TAG, "onClick: Data Adding to Database");
+
+                            etIAmount1.setText(null);
+                            etIAmount2.setText(null);
+                            etFAmount1.setText(null);
+                            etFAmount2.setText(null);
+                            etSAmount1.setText(null);
+                            etSAmount2.setText(null);
+                            etCard1.setText(null);
+                            etCard2.setText(null);
+                            etCardNo1.setText(null);
+                            etCardNo2.setText(null);
+                            etLocation.setText(null);
+                            etCategory.setText(null);
+                            etSpent.setText(null);
+
+                            Log.i(TAG, "onClick: Fields Emptied");
+                            Log.i(TAG, "onClick: Closing All Old Activities");
+
+                            Intent intent = new Intent
+                                    (TransferActivity.this, MainActivity.class);
+                            startActivity(intent);
+
+//                        // Intent to close all other activities except for main and login
+//                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        intent.putExtra("EXIT", true);
+//                        startActivity(intent);
+                        }
+                        else if (etCard1.getText().toString().equals("Credit"))
+                        {
+                            addDataCredit(fAmount1, location, sAmount1, category, iAmount1, date, card1,
+                                    cardNo1);
+
+                            if (etCard2.getText().toString().equals("Cheque"))
+                            {
+                                addDataCheque(fAmount2, location, sAmount2, category, iAmount2, date, card2,
+                                        cardNo1);
+                            }
+                            else if (etCard2.getText().toString().equals("Credit"))
+                            {
+                                Toast.makeText(TransferActivity.this,
+                                        "You cant transfer to the same account", Toast.LENGTH_SHORT).show();
+                            }
+                            else if (etCard2.getText().toString().equals("Savings"))
+                            {
+                                addDataSavings(fAmount2, location, sAmount2, category, iAmount2, date, card2,
+                                        cardNo1);
+                            }
+                            else if (etCard2.getText().toString().equals("Business"))
+                            {
+                                addDataBusiness(fAmount2, location, sAmount2, category, iAmount2, date, card2,
+                                        cardNo1);
+                            }
+                            else
+                            {
+                                Toast.makeText(TransferActivity.this,
+                                        "Couldn't detect 2nd card", Toast.LENGTH_SHORT).show();
+                            }
+
+                            Log.i(TAG, "onClick: Data Adding to Database");
+
+                            etIAmount1.setText(null);
+                            etIAmount2.setText(null);
+                            etFAmount1.setText(null);
+                            etFAmount2.setText(null);
+                            etSAmount1.setText(null);
+                            etSAmount2.setText(null);
+                            etCard1.setText(null);
+                            etCard2.setText(null);
+                            etCardNo1.setText(null);
+                            etCardNo2.setText(null);
+                            etLocation.setText(null);
+                            etCategory.setText(null);
+                            etSpent.setText(null);
+
+                            Log.i(TAG, "onClick: Fields Emptied");
+                            Log.i(TAG, "onClick: Closing All Old Activities");
+
+                            Intent intent = new Intent
+                                    (TransferActivity.this, MainActivity.class);
+                            startActivity(intent);
+
+//                        // Intent to close all other activities except for main and login
+//                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        intent.putExtra("EXIT", true);
+//                        startActivity(intent);
+                        }
+                        else if (etCard1.getText().toString().equals("Savings"))
+                        {
+                            addDataSavings(fAmount1, location, sAmount1, category, iAmount1, date, card1,
+                                    cardNo1);
+
+                            if (etCard2.getText().toString().equals("Cheque"))
+                            {
+                                addDataCheque(fAmount2, location, sAmount2, category, iAmount2, date, card2,
+                                        cardNo1);
+                            }
+                            else if (etCard2.getText().toString().equals("Credit"))
+                            {
+                                addDataCredit(fAmount2, location, sAmount2, category, iAmount2, date, card2,
+                                        cardNo1);
+                            }
+                            else if (etCard2.getText().toString().equals("Savings"))
+                            {
+                                Toast.makeText(TransferActivity.this,
+                                        "You cant transfer to the same account", Toast.LENGTH_SHORT).show();
+                            }
+                            else if (etCard2.getText().toString().equals("Business"))
+                            {
+                                addDataBusiness(fAmount2, location, sAmount2, category, iAmount2, date, card2,
+                                        cardNo1);
+                            }
+                            else
+                            {
+                                Toast.makeText(TransferActivity.this,
+                                        "Couldn't detect 2nd card", Toast.LENGTH_SHORT).show();
+                            }
+
+                            Log.i(TAG, "onClick: Data Adding to Database");
+
+                            etIAmount1.setText(null);
+                            etIAmount2.setText(null);
+                            etFAmount1.setText(null);
+                            etFAmount2.setText(null);
+                            etSAmount1.setText(null);
+                            etSAmount2.setText(null);
+                            etCard1.setText(null);
+                            etCard2.setText(null);
+                            etCardNo1.setText(null);
+                            etCardNo2.setText(null);
+                            etLocation.setText(null);
+                            etCategory.setText(null);
+                            etSpent.setText(null);
+
+                            Log.i(TAG, "onClick: Fields Emptied");
+                            Log.i(TAG, "onClick: Closing All Old Activities");
+
+                            Intent intent = new Intent
+                                    (TransferActivity.this, MainActivity.class);
+                            startActivity(intent);
+
+//                        // Intent to close all other activities except for main and login
+//                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        intent.putExtra("EXIT", true);
+//                        startActivity(intent);
+                        }
+                        else if (etCard1.getText().toString().equals("Business"))
+                        {
+                            addDataBusiness(fAmount1, location, sAmount1, category, iAmount1, date, card1,
+                                    cardNo1);
+
+                            if (etCard2.getText().toString().equals("Cheque"))
+                            {
+                                addDataCheque(fAmount2, location, sAmount2, category, iAmount2, date, card2,
+                                        cardNo1);
+                            }
+                            else if (etCard2.getText().toString().equals("Credit"))
+                            {
+                                addDataCredit(fAmount2, location, sAmount2, category, iAmount2, date, card2,
+                                        cardNo1);
+                            }
+                            else if (etCard2.getText().toString().equals("Savings"))
+                            {
+                                addDataSavings(fAmount2, location, sAmount2, category, iAmount2, date, card2,
+                                        cardNo1);
+                            }
+                            else if (etCard2.getText().toString().equals("Business"))
+                            {
+                                Toast.makeText(TransferActivity.this,
+                                        "You cant transfer to the same account", Toast.LENGTH_SHORT).show();
+                            }
+                            else
+                            {
+                                Toast.makeText(TransferActivity.this,
+                                        "Couldn't detect 2nd card", Toast.LENGTH_SHORT).show();
+                            }
+
+                            Log.i(TAG, "onClick: Data Adding to Database");
+
+                            etIAmount1.setText(null);
+                            etIAmount2.setText(null);
+                            etFAmount1.setText(null);
+                            etFAmount2.setText(null);
+                            etSAmount1.setText(null);
+                            etSAmount2.setText(null);
+                            etCard1.setText(null);
+                            etCard2.setText(null);
+                            etCardNo1.setText(null);
+                            etCardNo2.setText(null);
+                            etLocation.setText(null);
+                            etCategory.setText(null);
+                            etSpent.setText(null);
+
+                            Log.i(TAG, "onClick: Fields Emptied");
+                            Log.i(TAG, "onClick: Closing All Old Activities");
+
+                            Intent intent = new Intent
+                                    (TransferActivity.this, MainActivity.class);
+                            startActivity(intent);
+
+//                        // Intent to close all other activities except for main and login
+//                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        intent.putExtra("EXIT", true);
+//                        startActivity(intent);
+                        }
+                        else
+                        {
+                            Toast.makeText(TransferActivity.this,
+                                    "No matching cards were found",
                                     Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else
+                    {
+                        Log.i(TAG, "onClick: Some Fields Were Empty");
+
+                        Toast.makeText
+                                (TransferActivity.this, "Fields are empty!",
+                                        Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
