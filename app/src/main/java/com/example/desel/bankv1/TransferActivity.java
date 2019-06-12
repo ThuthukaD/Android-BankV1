@@ -134,6 +134,27 @@ public class TransferActivity extends AppCompatActivity
         etCategory.setText("Transfer");
 
         getThings();
+
+        if (etTransferAmount.isFocusableInTouchMode() == false)
+        {
+            etSpent.setOnClickListener(new View.OnClickListener()
+            {
+                boolean clicked = false;
+                @Override
+                public void onClick(View v)
+                {
+                    clicked = true;
+
+                    if (clicked)
+                    {
+                        Toast.makeText(TransferActivity.this,
+                                "Select it again", Toast.LENGTH_SHORT).show();
+                    }
+
+                    etSpent.setFocusableInTouchMode(true);
+                }
+            });
+        }
     }
 
     private void add()
@@ -143,7 +164,7 @@ public class TransferActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                if (etSpent.length() == 0)
+                if (etSpent.length() == 0 || Double.parseDouble(etSpent.getText().toString()) != spent)
                 {
                     Log.i(TAG, "add: btnAdd Clicked");
                     Log.i(TAG, "onClick: Pulling Initial Text");
@@ -191,7 +212,12 @@ public class TransferActivity extends AppCompatActivity
                     Log.i(TAG, "onClick: Successfully Pulled All Text");
                     Log.i(TAG, "onClick: Checking for any Blank Fields");
 
-                    Toast.makeText(TransferActivity.this, "You Sure?", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(TransferActivity.this, "You Sure?", Toast.LENGTH_SHORT).show();
+
+                    tvConfirmation.setVisibility(View.VISIBLE);
+                    tvConfirmation.setText("Are you sure you want to transfer " +
+                            String.format("R%.2f", spent) + " from your " + card1 + " account " +
+                            "to your " + card2 + " account?");
                 }
                 else
                 {
@@ -676,6 +702,7 @@ public class TransferActivity extends AppCompatActivity
                     etCard2.setText("" + parent.getItemAtPosition(position));
                     etCardNo2.setText("6252 5166 0967 5245");
 
+                    etTransferAmount.setVisibility(View.VISIBLE);
                     btnBuy.setVisibility(View.VISIBLE);
                 }
                 else if (parent.getItemIdAtPosition(position) == 2)
@@ -688,6 +715,7 @@ public class TransferActivity extends AppCompatActivity
                     etCard2.setText("" + parent.getItemAtPosition(position));
                     etCardNo2.setText("8763 4125 0069 7366");
 
+                    etTransferAmount.setVisibility(View.VISIBLE);
                     btnBuy.setVisibility(View.VISIBLE);
                 }
                 else if (parent.getItemIdAtPosition(position) == 3)
@@ -700,6 +728,7 @@ public class TransferActivity extends AppCompatActivity
                     etCard2.setText("" + parent.getItemAtPosition(position));
                     etCardNo2.setText("6564 7512 7984 7245");
 
+                    etTransferAmount.setVisibility(View.VISIBLE);
                     btnBuy.setVisibility(View.VISIBLE);
                 }
                 else if (parent.getItemIdAtPosition(position) == 4)
@@ -712,6 +741,7 @@ public class TransferActivity extends AppCompatActivity
                     etCard2.setText("" + parent.getItemAtPosition(position));
                     etCardNo2.setText("7152 5363 9541 5625");
 
+                    etTransferAmount.setVisibility(View.VISIBLE);
                     btnBuy.setVisibility(View.VISIBLE);
                 }
             }
@@ -948,29 +978,12 @@ public class TransferActivity extends AppCompatActivity
             etCardNo2.setText(cardNo);
             etIAmount1.setText("" + String.format("%.2f", iamount));
 
-            if (etCategory.getText().toString().equals("Airtime"))
+            if (etCategory.getText().toString().equals("Transfer"))
             {
-                tvConfirmation.setText("Are you sure you want to purchase " +
-                        category + " worth " + String.format("R%.2f", spent) + " on your " +
-                        card + " account?");
-            }
-            else if (etCategory.getText().toString().equals("Data"))
-            {
-                tvConfirmation.setText("Are you sure you want to purchase " +
-                        category + " of " + data + " worth " + String.format("R%.2f", spent) +
-                        " on your " + card + " account?");
-            }
-            else if (etCategory.getText().toString().equals("Electricity"))
-            {
-                tvConfirmation.setText("Are you sure you want to purchase " +
-                        category + " worth " + String.format("R%.2f", spent) + " on your " +
-                        card + " account?");
-            }
-            else if (etCategory.getText().toString().equals("Food"))
-            {
-                tvConfirmation.setText("Are you sure you want to purchase " +
-                        category + " worth " + String.format("R%.2f", spent) + " on your " +
-                        card + " account?");
+                tvConfirmation.setVisibility(View.VISIBLE);
+                tvConfirmation.setText("Are you sure you want to transfer " +
+                        String.format("R%.2f", spent) + " from your " + card1 + " account " +
+                        "to your " + card2 + "account?");
             }
             else
             {
