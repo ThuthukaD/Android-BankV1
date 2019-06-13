@@ -110,21 +110,40 @@ public class ChequeActivity extends AppCompatActivity
         {
             while(data.moveToNext())
             {
-                // This value is the column ID for the Items
-                theList.add("\n    " + String.format("R%.2f", data.getDouble(5)) + " WAS HOW MUCH YOU HAD\n" +
-                        "    " + String.format("R%.2f", data.getDouble(1)) + " PURCHASE MADE TO '" +
-                        data.getString(2) + "\'\n" +
-                        "'   " + String.format("R%.2f", data.getDouble(3)) + " IS THE REMAINING AMOUNT \n" +
-                        "    SPEND CATEGORY IS \'" + data.getString(4) + "\'\n" +
-                        "    ON \'" + data.getString(7) + "\' ACCOUNT\n" +
-                        "    ACCOUNT NO. '" + data.getString(8) + "\'\n" +
-                        "    TIMESTAMP WAS \'" + data.getString(6) + "\'\n");
+                if (data.getString(4).equals("Transfer"))
+                {
+                    // This value is the column ID for the Items
+                    theList.add("\n    " + String.format("R%.2f", data.getDouble(5)) + " WAS HOW MUCH YOU HAD\n" +
+                            "    " + String.format("R%.2f", data.getDouble(1)) + " TRANSFER MADE WITH '" + data.getString(2) + "\'\n" +
+                            "'   " + String.format("R%.2f", data.getDouble(3)) + " IS THE REMAINING AMOUNT \n" +
+                            "    SPEND CATEGORY IS \'" + data.getString(4) + "\'\n" +
+                            "    ON \'" + data.getString(7) + "\' ACCOUNT\n" +
+                            "    ACCOUNT NO. '" + data.getString(8) + "\'\n" +
+                            "    TIMESTAMP WAS \'" + data.getString(6) + "\'\n");
 
-                ListAdapter listAdapter = new ArrayAdapter<>
-                        // the list style which  is changeable
-                        (this, android.R.layout.simple_list_item_1, theList);
+                    ListAdapter listAdapter = new ArrayAdapter<>
+                            // the list style which  is changeable
+                            (this, android.R.layout.simple_list_item_1, theList);
 
-                lvList.setAdapter(listAdapter);
+                    lvList.setAdapter(listAdapter);
+                }
+                else
+                {
+                    // This value is the column ID for the Items
+                    theList.add("\n    " + String.format("R%.2f", data.getDouble(5)) + " WAS HOW MUCH YOU HAD\n" +
+                            "    " + String.format("R%.2f", data.getDouble(1)) + " PURCHASE MADE TO '" + data.getString(2) + "\'\n" +
+                            "'   " + String.format("R%.2f", data.getDouble(3)) + " IS THE REMAINING AMOUNT \n" +
+                            "    SPEND CATEGORY IS \'" + data.getString(4) + "\'\n" +
+                            "    ON \'" + data.getString(7) + "\' ACCOUNT\n" +
+                            "    ACCOUNT NO. '" + data.getString(8) + "\'\n" +
+                            "    TIMESTAMP WAS \'" + data.getString(6) + "\'\n");
+
+                    ListAdapter listAdapter = new ArrayAdapter<>
+                            // the list style which  is changeable
+                            (this, android.R.layout.simple_list_item_1, theList);
+
+                    lvList.setAdapter(listAdapter);
+                }
             }
         }
     }
