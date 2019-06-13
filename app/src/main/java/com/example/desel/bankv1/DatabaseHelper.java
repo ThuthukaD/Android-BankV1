@@ -12,7 +12,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
     // VARIABLES
 
     // Database Created
-    public static final String DATABASE_NAME = "bank16.db";
+    public static final String DATABASE_NAME = "bank17.db";
     public static final String TABLE_NAME_CHEQUE = "cheque_data";
     public static final String TABLE_NAME_CREDIT = "credit_data";
     public static final String TABLE_NAME_SAVINGS = "savings_data";
@@ -28,6 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
     public static final String COL7 = "Date";
     public static final String COL8 = "Card";
     public static final String COL9 = "CardNo";
+    public static final String COL10 = "CardTransferredTo";
 
     // Debugging
     private static final String TAG = "DatabaseHelper";
@@ -54,7 +55,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
                 "InitialAmount REAL," +
                 "Date TEXT," +
                 "Card TEXT," +
-                "CardNo TEXT)");
+                "CardNo TEXT," +
+                "CardTransferredTo TEXT)");
         db.execSQL(createTableCheque);
 
         String createTableCredit = ("CREATE TABLE " + TABLE_NAME_CREDIT +
@@ -66,7 +68,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
                 "InitialAmount REAL," +
                 "Date TEXT," +
                 "Card TEXT," +
-                "CardNo TEXT)");
+                "CardNo TEXT," +
+                "CardTransferredTo TEXT)");
         db.execSQL(createTableCredit);
 
         String createTableSavings = ("CREATE TABLE " + TABLE_NAME_SAVINGS +
@@ -78,7 +81,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
                 "InitialAmount REAL," +
                 "Date TEXT," +
                 "Card TEXT," +
-                "CardNo TEXT)");
+                "CardNo TEXT," +
+                "CardTransferredTo TEXT)");
         db.execSQL(createTableSavings);
 
         String createTableBusiness = ("CREATE TABLE " + TABLE_NAME_BUSINESS +
@@ -90,7 +94,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
                 "InitialAmount REAL," +
                 "Date TEXT," +
                 "Card TEXT," +
-                "CardNo TEXT)");
+                "CardNo TEXT," +
+                "CardTransferredTo TEXT)");
         db.execSQL(createTableBusiness);
 
         Log.i(TAG, TABLE_NAME_CHEQUE + " Table Created");
@@ -126,7 +131,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
     // Methods for adding data to database
     public boolean addDataCheque(double fAmount, String location, double sAmount,
                            String category, double iAmount, String date, String card,
-                           String cardNo)
+                           String cardNo, String cardTransferredTo)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -141,6 +146,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         contentValues.put(COL7, date);
         contentValues.put(COL8, card);
         contentValues.put(COL9, cardNo);
+        contentValues.put(COL10, cardTransferredTo);
 
         long result = db.insert(TABLE_NAME_CHEQUE, null, contentValues);
 
@@ -158,7 +164,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
     public boolean addDataCredit(double fAmount, String location, double sAmount,
                                  String category, double iAmount, String date, String card,
-                                 String cardNo)
+                                 String cardNo, String cardTransferredTo)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -173,6 +179,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         contentValues.put(COL7, date);
         contentValues.put(COL8, card);
         contentValues.put(COL9, cardNo);
+        contentValues.put(COL10, cardTransferredTo);
 
         long result = db.insert(TABLE_NAME_CREDIT, null, contentValues);
 
@@ -190,7 +197,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
     public boolean addDataSavings(double fAmount, String location, double sAmount,
                                  String category, double iAmount, String date, String card,
-                                 String cardNo)
+                                 String cardNo, String cardTransferredTo)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -205,6 +212,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         contentValues.put(COL7, date);
         contentValues.put(COL8, card);
         contentValues.put(COL9, cardNo);
+        contentValues.put(COL10, cardTransferredTo);
 
         long result = db.insert(TABLE_NAME_SAVINGS, null, contentValues);
 
@@ -222,7 +230,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
     public boolean addDataBusiness(double fAmount, String location, double sAmount,
                                  String category, double iAmount, String date, String card,
-                                 String cardNo)
+                                 String cardNo, String cardTransferredTo)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -237,6 +245,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         contentValues.put(COL7, date);
         contentValues.put(COL8, card);
         contentValues.put(COL9, cardNo);
+        contentValues.put(COL10, cardTransferredTo);
 
         long result = db.insert(TABLE_NAME_BUSINESS, null, contentValues);
 

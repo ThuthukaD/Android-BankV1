@@ -59,6 +59,7 @@ public class BuyActivity extends AppCompatActivity
             .format(new Date());
     String card;
     String cardNo;
+    String cardTransferredTo = "null";
 
     // Debugging
     private static final String TAG = "BuyActivity";
@@ -160,7 +161,7 @@ public class BuyActivity extends AppCompatActivity
                     if (etCard.getText().toString().equals("Cheque"))
                     {
                         addDataCheque(fAmount, location, sAmount, category, iAmount, date, card,
-                                cardNo);
+                                cardNo, cardTransferredTo);
 
                         Log.i(TAG, "onClick: Data Adding to Database");
 
@@ -189,7 +190,7 @@ public class BuyActivity extends AppCompatActivity
                     else if (etCard.getText().toString().equals("Credit"))
                     {
                         addDataCredit(fAmount, location, sAmount, category, iAmount, date, card,
-                                cardNo);
+                                cardNo, cardTransferredTo);
 
                         Log.i(TAG, "onClick: Data Adding to Database");
 
@@ -218,7 +219,7 @@ public class BuyActivity extends AppCompatActivity
                     else if (etCard.getText().toString().equals("Savings"))
                     {
                         addDataSavings(fAmount, location, sAmount, category, iAmount, date, card,
-                                cardNo);
+                                cardNo, cardTransferredTo);
 
                         Log.i(TAG, "onClick: Data Adding to Database");
 
@@ -247,7 +248,7 @@ public class BuyActivity extends AppCompatActivity
                     else if (etCard.getText().toString().equals("Business"))
                     {
                         addDataBusiness(fAmount, location, sAmount, category, iAmount, date, card,
-                                cardNo);
+                                cardNo, cardTransferredTo);
 
                         Log.i(TAG, "onClick: Data Adding to Database");
 
@@ -293,10 +294,10 @@ public class BuyActivity extends AppCompatActivity
     }
 
     public void addDataCheque(double fAmount, String location, double sAmount, String category,
-                        double iAmount, String date, String card, String cardNo)
+                        double iAmount, String date, String card, String cardNo, String cardTransferredTo)
     {
         boolean isInserted = myDB.addDataCheque(fAmount, location, sAmount, category,
-                iAmount, date, card, cardNo);
+                iAmount, date, card, cardNo, cardTransferredTo);
 
         if (isInserted)
         {
@@ -317,10 +318,10 @@ public class BuyActivity extends AppCompatActivity
     }
 
     public void addDataCredit(double fAmount, String location, double sAmount, String category,
-                              double iAmount, String date, String card, String cardNo)
+                              double iAmount, String date, String card, String cardNo, String cardTransferredTo)
     {
         boolean isInserted = myDB.addDataCredit(fAmount, location, sAmount, category,
-                iAmount, date, card, cardNo);
+                iAmount, date, card, cardNo, cardTransferredTo);
 
         if (isInserted)
         {
@@ -341,10 +342,10 @@ public class BuyActivity extends AppCompatActivity
     }
 
     public void addDataSavings(double fAmount, String location, double sAmount, String category,
-                              double iAmount, String date, String card, String cardNo)
+                              double iAmount, String date, String card, String cardNo, String cardTransferredTo)
     {
         boolean isInserted = myDB.addDataSavings(fAmount, location, sAmount, category,
-                iAmount, date, card, cardNo);
+                iAmount, date, card, cardNo, cardTransferredTo);
 
         if (isInserted)
         {
@@ -365,10 +366,10 @@ public class BuyActivity extends AppCompatActivity
     }
 
     public void addDataBusiness(double fAmount, String location, double sAmount, String category,
-                              double iAmount, String date, String card, String cardNo)
+                              double iAmount, String date, String card, String cardNo, String cardTransferredTo)
     {
         boolean isInserted = myDB.addDataBusiness(fAmount, location, sAmount, category,
-                iAmount, date, card, cardNo);
+                iAmount, date, card, cardNo, cardTransferredTo);
 
         if (isInserted)
         {

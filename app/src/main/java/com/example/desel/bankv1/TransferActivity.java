@@ -47,6 +47,7 @@ public class TransferActivity extends AppCompatActivity
     EditText etCard2;
     EditText etCardNo1;
     EditText etCardNo2;
+    EditText etCardTransferTo;
     EditText etLocation;
     EditText etCategory;
     EditText etSAmount1;
@@ -68,6 +69,7 @@ public class TransferActivity extends AppCompatActivity
     double sAmount2;
     String card1;
     String card2;
+    String cardTransferredTo;
     String cardNo1;
     String cardNo2;
     String location;
@@ -112,6 +114,7 @@ public class TransferActivity extends AppCompatActivity
         etIAmount2 = findViewById(R.id.etIAmount2);
         etCard1 = findViewById(R.id.etCard1);
         etCard2 = findViewById(R.id.etCard2);
+        etCardTransferTo = findViewById(R.id.etCardTransferredTo);
         etCardNo1 = findViewById(R.id.etCardNo1);
         etCardNo2 = findViewById(R.id.etCardNo2);
         etLocation = findViewById(R.id.etLocation);
@@ -206,6 +209,8 @@ public class TransferActivity extends AppCompatActivity
                     sAmount2 = Double.parseDouble(etSAmount2.getText().toString());
                     card1 = etCard1.getText().toString();
                     card2 = etCard2.getText().toString();
+                    etCardTransferTo.setText(card2);
+                    cardTransferredTo = etCardTransferTo.getText().toString();
                     cardNo1 = etCardNo1.getText().toString();
                     cardNo2 = etCardNo2.getText().toString();
 
@@ -226,14 +231,14 @@ public class TransferActivity extends AppCompatActivity
                             etCard1.length() != 0 && etCard2.length() != 0 &&
                             etLocation.length() != 0 && etCategory.length() != 0 &&
                             etCardNo1.length() != 0 && etCardNo2.length() != 0 &&
-                            etSpent.length() != 0)
+                            etSpent.length() != 0 && etCardTransferTo.length() != 0)
                     {
                         Log.i(TAG, "onClick: Fields Are Not Empty");
 
                         if (etCard1.getText().toString().equals("Cheque"))
                         {
                             addDataCheque(fAmount1, location, sAmount1, category, iAmount1, date, card1,
-                                    cardNo1);
+                                    cardNo1, cardTransferredTo);
 
                             if (etCard2.getText().toString().equals("Cheque"))
                             {
@@ -243,17 +248,17 @@ public class TransferActivity extends AppCompatActivity
                             else if (etCard2.getText().toString().equals("Credit"))
                             {
                                 addDataCredit(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                        cardNo1);
+                                        cardNo1, cardTransferredTo);
                             }
                             else if (etCard2.getText().toString().equals("Savings"))
                             {
                                 addDataSavings(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                        cardNo1);
+                                        cardNo1, cardTransferredTo);
                             }
                             else if (etCard2.getText().toString().equals("Business"))
                             {
                                 addDataBusiness(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                        cardNo1);
+                                        cardNo1, cardTransferredTo);
                             }
                             else
                             {
@@ -293,12 +298,12 @@ public class TransferActivity extends AppCompatActivity
                         else if (etCard1.getText().toString().equals("Credit"))
                         {
                             addDataCredit(fAmount1, location, sAmount1, category, iAmount1, date, card1,
-                                    cardNo1);
+                                    cardNo1, cardTransferredTo);
 
                             if (etCard2.getText().toString().equals("Cheque"))
                             {
                                 addDataCheque(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                        cardNo1);
+                                        cardNo1, cardTransferredTo);
                             }
                             else if (etCard2.getText().toString().equals("Credit"))
                             {
@@ -308,12 +313,12 @@ public class TransferActivity extends AppCompatActivity
                             else if (etCard2.getText().toString().equals("Savings"))
                             {
                                 addDataSavings(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                        cardNo1);
+                                        cardNo1, cardTransferredTo);
                             }
                             else if (etCard2.getText().toString().equals("Business"))
                             {
                                 addDataBusiness(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                        cardNo1);
+                                        cardNo1, cardTransferredTo);
                             }
                             else
                             {
@@ -353,17 +358,17 @@ public class TransferActivity extends AppCompatActivity
                         else if (etCard1.getText().toString().equals("Savings"))
                         {
                             addDataSavings(fAmount1, location, sAmount1, category, iAmount1, date, card1,
-                                    cardNo1);
+                                    cardNo1, cardTransferredTo);
 
                             if (etCard2.getText().toString().equals("Cheque"))
                             {
                                 addDataCheque(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                        cardNo1);
+                                        cardNo1, cardTransferredTo);
                             }
                             else if (etCard2.getText().toString().equals("Credit"))
                             {
                                 addDataCredit(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                        cardNo1);
+                                        cardNo1, cardTransferredTo);
                             }
                             else if (etCard2.getText().toString().equals("Savings"))
                             {
@@ -373,7 +378,7 @@ public class TransferActivity extends AppCompatActivity
                             else if (etCard2.getText().toString().equals("Business"))
                             {
                                 addDataBusiness(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                        cardNo1);
+                                        cardNo1, cardTransferredTo);
                             }
                             else
                             {
@@ -413,22 +418,22 @@ public class TransferActivity extends AppCompatActivity
                         else if (etCard1.getText().toString().equals("Business"))
                         {
                             addDataBusiness(fAmount1, location, sAmount1, category, iAmount1, date, card1,
-                                    cardNo1);
+                                    cardNo1, cardTransferredTo);
 
                             if (etCard2.getText().toString().equals("Cheque"))
                             {
                                 addDataCheque(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                        cardNo1);
+                                        cardNo1, cardTransferredTo);
                             }
                             else if (etCard2.getText().toString().equals("Credit"))
                             {
                                 addDataCredit(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                        cardNo1);
+                                        cardNo1, cardTransferredTo);
                             }
                             else if (etCard2.getText().toString().equals("Savings"))
                             {
                                 addDataSavings(fAmount2, location, sAmount2, category, iAmount2, date, card2,
-                                        cardNo1);
+                                        cardNo1, cardTransferredTo);
                             }
                             else if (etCard2.getText().toString().equals("Business"))
                             {
@@ -491,10 +496,10 @@ public class TransferActivity extends AppCompatActivity
     }
 
     public void addDataCheque(double fAmount, String location, double sAmount, String category,
-                              double iAmount, String date, String card, String cardNo)
+                              double iAmount, String date, String card, String cardNo, String cardTransferredTo)
     {
         boolean isInserted = myDB.addDataCheque(fAmount, location, sAmount, category,
-                iAmount, date, card, cardNo);
+                iAmount, date, card, cardNo, cardTransferredTo);
 
         if (isInserted)
         {
@@ -515,10 +520,10 @@ public class TransferActivity extends AppCompatActivity
     }
 
     public void addDataCredit(double fAmount, String location, double sAmount, String category,
-                              double iAmount, String date, String card, String cardNo)
+                              double iAmount, String date, String card, String cardNo, String cardTransferredTo)
     {
         boolean isInserted = myDB.addDataCredit(fAmount, location, sAmount, category,
-                iAmount, date, card, cardNo);
+                iAmount, date, card, cardNo, cardTransferredTo);
 
         if (isInserted)
         {
@@ -539,10 +544,10 @@ public class TransferActivity extends AppCompatActivity
     }
 
     public void addDataSavings(double fAmount, String location, double sAmount, String category,
-                               double iAmount, String date, String card, String cardNo)
+                               double iAmount, String date, String card, String cardNo, String cardTransferredTo)
     {
         boolean isInserted = myDB.addDataSavings(fAmount, location, sAmount, category,
-                iAmount, date, card, cardNo);
+                iAmount, date, card, cardNo, cardTransferredTo);
 
         if (isInserted)
         {
@@ -563,10 +568,10 @@ public class TransferActivity extends AppCompatActivity
     }
 
     public void addDataBusiness(double fAmount, String location, double sAmount, String category,
-                                double iAmount, String date, String card, String cardNo)
+                                double iAmount, String date, String card, String cardNo, String cardTransferredTo)
     {
         boolean isInserted = myDB.addDataBusiness(fAmount, location, sAmount, category,
-                iAmount, date, card, cardNo);
+                iAmount, date, card, cardNo, cardTransferredTo);
 
         if (isInserted)
         {
