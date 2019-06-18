@@ -117,7 +117,7 @@ public class ChequeActivity extends AppCompatActivity
                     // This value is the column ID for the Items
                     theList.add("\n    " + String.format("R%.2f", data.getDouble(5)) + " WAS HOW MUCH YOU HAD\n" +
                             "    " + String.format("R%.2f", data.getDouble(1)) + " TRANSFER FROM '" + data.getString(2) + "\' ACCOUNT\n" +
-                            "'   " + String.format("R%.2f", data.getDouble(3)) + " IS THE REMAINING AMOUNT \n" +
+                            "'   " + String.format("R%.2f", data.getDouble(3)) + " IS THE NEW AMOUNT \n" +
                             "    SPEND CATEGORY IS \'" + data.getString(4) + "\'\n" +
                             "    ON \'" + data.getString(7) + "\' ACCOUNT\n" +
                             "    ACCOUNT NO. '" + data.getString(8) + "\'\n" +
