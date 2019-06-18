@@ -13,7 +13,7 @@
 
     <string-array name="paymentOptions">
 
-        <item>Select Which Card to Use</item>
+        <item>Select Beneficiaries</item>
         <item>Person One</item>
         <item>Person Two</item>
         <item>Person Three</item>

@@ -120,178 +120,188 @@ public class PaymentActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Log.i(TAG, "add: btnAdd Clicked");
-                Log.i(TAG, "onClick: Pulling Initial Text");
-
-                // Pulling initial text
-                iAmount = Double.parseDouble(etIAmount.getText().toString());
-                location = etLocation.getText().toString();
-                category = etCategory.getText().toString();
-                spent = Double.parseDouble(etPaymentAmount.getText().toString());
-                etSpent.setText("" + spent);
-
-                Log.i(TAG, "onClick: Pulled Initial Text");
-                Log.i(TAG, "onClick: Setting Text for fAmount");
-
-                // Setting text for fAmount
-                fAmount = spent;
-                etFAmount.setText("" + fAmount);
-
-                Log.i(TAG, "onClick: Set Text for fAmount");
-                Log.i(TAG, "onClick: Setting Text for sAmount");
-
-                // Setting text for sAmount
-                sAmount = iAmount - fAmount;
-                etSAmount.setText("" + sAmount);
-
-                Log.i(TAG, "onClick: Set Text for sAmount");
-                Log.i(TAG, "onClick: Pulling Additional Text");
-
-                // Pulling new text
-                fAmount = Double.parseDouble(etFAmount.getText().toString());
-                sAmount = Double.parseDouble(etSAmount.getText().toString());
-                card = etCard.getText().toString();
-                cardNo = etCardNo.getText().toString();
-
-                Log.i(TAG, "onClick: Successfully Pulled All Text");
-                Log.i(TAG, "onClick: Checking for any Blank Fields");
-
-                if (etFAmount.length() != 0 && etLocation.length() != 0 &&
-                        etSAmount.length() != 0 && etCategory.length() != 0 &&
-                        etSpent.length() != 0 && etCard.length() != 0 && etCardNo.length() != 0)
+                if (etSpent.length() == 0 || Double.parseDouble(etSpent.getText().toString()) != spent)
                 {
-                    Log.i(TAG, "onClick: Fields Are Not Empty");
+                    Log.i(TAG, "add: btnAdd Clicked");
+                    Log.i(TAG, "onClick: Pulling Initial Text");
 
-                    if (etCard.getText().toString().equals("Cheque"))
-                    {
-                        addDataCheque(fAmount, location, sAmount, category, iAmount, date, card,
-                                cardNo, cardTransferredTo);
+                    // Pulling initial text
+                    iAmount = Double.parseDouble(etIAmount.getText().toString());
+                    location = etLocation.getText().toString();
+                    category = etCategory.getText().toString();
+                    spent = Double.parseDouble(etPaymentAmount.getText().toString());
+                    etSpent.setText("" + spent);
 
-                        Log.i(TAG, "onClick: Data Adding to Database");
+                    Log.i(TAG, "onClick: Pulled Initial Text");
+                    Log.i(TAG, "onClick: Setting Text for fAmount");
 
-                        etIAmount.setText(null);
-                        etFAmount.setText(null);
-                        etLocation.setText(null);
-                        etSAmount.setText(null);
-                        etCategory.setText(null);
-                        etSpent.setText(null);
-                        etCard.setText(null);
-                        etCardNo.setText(null);
+                    // Setting text for fAmount
+                    fAmount = spent;
+                    etFAmount.setText("" + fAmount);
 
-                        Log.i(TAG, "onClick: Fields Emptied");
-                        Log.i(TAG, "onClick: Closing All Old Activities");
+                    Log.i(TAG, "onClick: Set Text for fAmount");
+                    Log.i(TAG, "onClick: Setting Text for sAmount");
 
-//                    Intent intent = new Intent
-//                        (BuyActivity.this, MainActivity.class);
-//                    startActivity(intent);
+                    // Setting text for sAmount
+                    sAmount = iAmount - fAmount;
+                    etSAmount.setText("" + sAmount);
 
-                        // Intent to close all other activities except for main and login
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        intent.putExtra("EXIT", true);
-                        startActivity(intent);
-                    }
-                    else if (etCard.getText().toString().equals("Credit"))
-                    {
-                        addDataCredit(fAmount, location, sAmount, category, iAmount, date, card,
-                                cardNo, cardTransferredTo);
+                    Log.i(TAG, "onClick: Set Text for sAmount");
+                    Log.i(TAG, "onClick: Pulling Additional Text");
 
-                        Log.i(TAG, "onClick: Data Adding to Database");
+                    // Pulling new text
+                    fAmount = Double.parseDouble(etFAmount.getText().toString());
+                    sAmount = Double.parseDouble(etSAmount.getText().toString());
+                    card = etCard.getText().toString();
+                    cardNo = etCardNo.getText().toString();
 
-                        etIAmount.setText(null);
-                        etFAmount.setText(null);
-                        etLocation.setText(null);
-                        etSAmount.setText(null);
-                        etCategory.setText(null);
-                        etSpent.setText(null);
-                        etCard.setText(null);
-                        etCardNo.setText(null);
+                    tvConfirmation.setVisibility(View.VISIBLE);
+                    tvConfirmation.setText("Are you sure you want to perform a payment of " +
+                            String.format("R%.2f", spent) + " from your " + card + " account ");
 
-                        Log.i(TAG, "onClick: Fields Emptied");
-                        Log.i(TAG, "onClick: Closing All Old Activities");
-
-//                    Intent intent = new Intent
-//                        (BuyActivity.this, MainActivity.class);
-//                    startActivity(intent);
-
-                        // Intent to close all other activities except for main and login
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        intent.putExtra("EXIT", true);
-                        startActivity(intent);
-                    }
-                    else if (etCard.getText().toString().equals("Savings"))
-                    {
-                        addDataSavings(fAmount, location, sAmount, category, iAmount, date, card,
-                                cardNo, cardTransferredTo);
-
-                        Log.i(TAG, "onClick: Data Adding to Database");
-
-                        etIAmount.setText(null);
-                        etFAmount.setText(null);
-                        etLocation.setText(null);
-                        etSAmount.setText(null);
-                        etCategory.setText(null);
-                        etSpent.setText(null);
-                        etCard.setText(null);
-                        etCardNo.setText(null);
-
-                        Log.i(TAG, "onClick: Fields Emptied");
-                        Log.i(TAG, "onClick: Closing All Old Activities");
-
-//                    Intent intent = new Intent
-//                        (BuyActivity.this, MainActivity.class);
-//                    startActivity(intent);
-
-                        // Intent to close all other activities except for main and login
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        intent.putExtra("EXIT", true);
-                        startActivity(intent);
-                    }
-                    else if (etCard.getText().toString().equals("Business"))
-                    {
-                        addDataBusiness(fAmount, location, sAmount, category, iAmount, date, card,
-                                cardNo, cardTransferredTo);
-
-                        Log.i(TAG, "onClick: Data Adding to Database");
-
-                        etIAmount.setText(null);
-                        etFAmount.setText(null);
-                        etLocation.setText(null);
-                        etSAmount.setText(null);
-                        etCategory.setText(null);
-                        etSpent.setText(null);
-                        etCard.setText(null);
-                        etCardNo.setText(null);
-
-                        Log.i(TAG, "onClick: Fields Emptied");
-                        Log.i(TAG, "onClick: Closing All Old Activities");
-
-//                    Intent intent = new Intent
-//                        (BuyActivity.this, MainActivity.class);
-//                    startActivity(intent);
-
-                        // Intent to close all other activities except for main and login
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        intent.putExtra("EXIT", true);
-                        startActivity(intent);
-                    }
-                    else
-                    {
-                        Toast.makeText(PaymentActivity.this,
-                                "No matching cards were found",
-                                Toast.LENGTH_SHORT).show();
-                    }
+                    Log.i(TAG, "onClick: Successfully Pulled All Text");
+                    Log.i(TAG, "onClick: Checking for any Blank Fields");
                 }
                 else
                 {
-                    Log.i(TAG, "onClick: Some Fields Were Empty");
+                    if (etFAmount.length() != 0 && etLocation.length() != 0 &&
+                            etSAmount.length() != 0 && etCategory.length() != 0 &&
+                            etSpent.length() != 0 && etCard.length() != 0 &&
+                            etCardNo.length() != 0 && etPaymentAmount.length() != 0)
+                    {
+                        Log.i(TAG, "onClick: Fields Are Not Empty");
 
-                    Toast.makeText
-                            (PaymentActivity.this, "Fields are empty!",
+                        if (etCard.getText().toString().equals("Cheque"))
+                        {
+                            addDataCheque(fAmount, location, sAmount, category, iAmount, date, card,
+                                    cardNo, cardTransferredTo);
+
+                            Log.i(TAG, "onClick: Data Adding to Database");
+
+                            etIAmount.setText(null);
+                            etFAmount.setText(null);
+                            etLocation.setText(null);
+                            etSAmount.setText(null);
+                            etCategory.setText(null);
+                            etSpent.setText(null);
+                            etCard.setText(null);
+                            etCardNo.setText(null);
+
+                            Log.i(TAG, "onClick: Fields Emptied");
+                            Log.i(TAG, "onClick: Closing All Old Activities");
+
+//                    Intent intent = new Intent
+//                        (BuyActivity.this, MainActivity.class);
+//                    startActivity(intent);
+
+                            // Intent to close all other activities except for main and login
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.putExtra("EXIT", true);
+                            startActivity(intent);
+                        }
+                        else if (etCard.getText().toString().equals("Credit"))
+                        {
+                            addDataCredit(fAmount, location, sAmount, category, iAmount, date, card,
+                                    cardNo, cardTransferredTo);
+
+                            Log.i(TAG, "onClick: Data Adding to Database");
+
+                            etIAmount.setText(null);
+                            etFAmount.setText(null);
+                            etLocation.setText(null);
+                            etSAmount.setText(null);
+                            etCategory.setText(null);
+                            etSpent.setText(null);
+                            etCard.setText(null);
+                            etCardNo.setText(null);
+
+                            Log.i(TAG, "onClick: Fields Emptied");
+                            Log.i(TAG, "onClick: Closing All Old Activities");
+
+//                    Intent intent = new Intent
+//                        (BuyActivity.this, MainActivity.class);
+//                    startActivity(intent);
+
+                            // Intent to close all other activities except for main and login
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.putExtra("EXIT", true);
+                            startActivity(intent);
+                        }
+                        else if (etCard.getText().toString().equals("Savings"))
+                        {
+                            addDataSavings(fAmount, location, sAmount, category, iAmount, date, card,
+                                    cardNo, cardTransferredTo);
+
+                            Log.i(TAG, "onClick: Data Adding to Database");
+
+                            etIAmount.setText(null);
+                            etFAmount.setText(null);
+                            etLocation.setText(null);
+                            etSAmount.setText(null);
+                            etCategory.setText(null);
+                            etSpent.setText(null);
+                            etCard.setText(null);
+                            etCardNo.setText(null);
+
+                            Log.i(TAG, "onClick: Fields Emptied");
+                            Log.i(TAG, "onClick: Closing All Old Activities");
+
+//                    Intent intent = new Intent
+//                        (BuyActivity.this, MainActivity.class);
+//                    startActivity(intent);
+
+                            // Intent to close all other activities except for main and login
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.putExtra("EXIT", true);
+                            startActivity(intent);
+                        }
+                        else if (etCard.getText().toString().equals("Business"))
+                        {
+                            addDataBusiness(fAmount, location, sAmount, category, iAmount, date, card,
+                                    cardNo, cardTransferredTo);
+
+                            Log.i(TAG, "onClick: Data Adding to Database");
+
+                            etIAmount.setText(null);
+                            etFAmount.setText(null);
+                            etLocation.setText(null);
+                            etSAmount.setText(null);
+                            etCategory.setText(null);
+                            etSpent.setText(null);
+                            etCard.setText(null);
+                            etCardNo.setText(null);
+
+                            Log.i(TAG, "onClick: Fields Emptied");
+                            Log.i(TAG, "onClick: Closing All Old Activities");
+
+//                    Intent intent = new Intent
+//                        (BuyActivity.this, MainActivity.class);
+//                    startActivity(intent);
+
+                            // Intent to close all other activities except for main and login
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.putExtra("EXIT", true);
+                            startActivity(intent);
+                        }
+                        else
+                        {
+                            Toast.makeText(PaymentActivity.this,
+                                    "No matching cards were found",
                                     Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else
+                    {
+                        Log.i(TAG, "onClick: Some Fields Were Empty");
+
+                        Toast.makeText
+                                (PaymentActivity.this, "Fields are empty!",
+                                        Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -493,8 +503,6 @@ public class PaymentActivity extends AppCompatActivity
                 {
                     Log.i(TAG, "onItemSelected: " + parent.getItemAtPosition(position)
                             + " selected");
-
-                    parent.setSelection(0);
                 }
                 else if (parent.getItemIdAtPosition(position) == 1)
                 {
@@ -508,7 +516,8 @@ public class PaymentActivity extends AppCompatActivity
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
 
-                    parent.setSelection(0);
+                    etPaymentAmount.setVisibility(View.VISIBLE);
+                    btnBuy.setVisibility(View.VISIBLE);
                 }
                 else if (parent.getItemIdAtPosition(position) == 2)
                 {
@@ -522,7 +531,8 @@ public class PaymentActivity extends AppCompatActivity
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
 
-                    parent.setSelection(0);
+                    etPaymentAmount.setVisibility(View.VISIBLE);
+                    btnBuy.setVisibility(View.VISIBLE);
                 }
                 else if (parent.getItemIdAtPosition(position) == 3)
                 {
@@ -536,7 +546,8 @@ public class PaymentActivity extends AppCompatActivity
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
 
-                    parent.setSelection(0);
+                    etPaymentAmount.setVisibility(View.VISIBLE);
+                    btnBuy.setVisibility(View.VISIBLE);
                 }
                 else if (parent.getItemIdAtPosition(position) == 4)
                 {
@@ -550,7 +561,8 @@ public class PaymentActivity extends AppCompatActivity
                             (getBaseContext(), parent.getItemAtPosition(position) +
                                     " is selected", Toast.LENGTH_LONG).show();
 
-                    parent.setSelection(0);
+                    etPaymentAmount.setVisibility(View.VISIBLE);
+                    btnBuy.setVisibility(View.VISIBLE);
                 }
             }
 

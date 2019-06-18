@@ -231,7 +231,8 @@ public class TransferActivity extends AppCompatActivity
                             etCard1.length() != 0 && etCard2.length() != 0 &&
                             etLocation.length() != 0 && etCategory.length() != 0 &&
                             etCardNo1.length() != 0 && etCardNo2.length() != 0 &&
-                            etSpent.length() != 0 && etCardTransferTo.length() != 0)
+                            etSpent.length() != 0 && etCardTransferTo.length() != 0 &&
+                            etTransferAmount.length() != 0)
                     {
                         Log.i(TAG, "onClick: Fields Are Not Empty");
 
