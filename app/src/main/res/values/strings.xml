@@ -11,6 +11,15 @@
         <item>Food</item>
     </string-array>
 
+    <string-array name="paymentOptions">
+
+        <item>Select Which Card to Use</item>
+        <item>Person One</item>
+        <item>Person Two</item>
+        <item>Person Three</item>
+        <item>Person Four</item>
+    </string-array>
+
     <string-array name="cardOptions">
 
         <item>Select Which Card to Use</item>
