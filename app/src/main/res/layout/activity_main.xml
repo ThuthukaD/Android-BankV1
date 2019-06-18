@@ -93,50 +93,155 @@
             android:paddingBottom="5dp"
             android:clipToPadding="false">
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fbtnPay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:clickable="true"
-                app:backgroundTint="@android:color/white"
-                app:srcCompat="@drawable/pay" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fbtnTransfer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:clickable="true"
-                app:backgroundTint="@android:color/white"
-                app:srcCompat="@drawable/transfer" />
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fbtnPay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:clickable="true"
+                    app:backgroundTint="@android:color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/pay" />
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fbtnBuy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:clickable="true"
-                app:backgroundTint="@android:color/white"
-                app:srcCompat="@drawable/buy" />
+                <TextView
+                    android:id="@+id/tvPayments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:elevation="50dp"
+                    android:text="Payments"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fbtnBudget"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:clickable="true"
-                app:backgroundTint="@android:color/white"
-                app:srcCompat="@drawable/budget" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fbtnTBD"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:clickable="true"
-                app:backgroundTint="@android:color/white"
-                app:srcCompat="@drawable/warning" />
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fbtnTransfer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:clickable="true"
+                    app:backgroundTint="@android:color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/transfer" />
+
+                <TextView
+                    android:id="@+id/tvTransfers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:elevation="50dp"
+                    android:text="Transfers"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/fbtnTransfer"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fbtnBuy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:clickable="true"
+                    app:backgroundTint="@android:color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/buy" />
+
+                <TextView
+                    android:id="@+id/tvBuy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:elevation="50dp"
+                    android:text="Buy"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/fbtnBuy"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fbtnBudget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:clickable="true"
+                    app:backgroundTint="@android:color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/budget" />
+
+                <TextView
+                    android:id="@+id/tvBudget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:elevation="50dp"
+                    android:text="Budget"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/fbtnBudget"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fbtnTBD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:clickable="true"
+                    app:backgroundTint="@android:color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/warning" />
+
+                <TextView
+                    android:id="@+id/tvUpcoming"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:elevation="50dp"
+                    android:text="Budget"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/fbtnTBD"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
         </LinearLayout>
     </HorizontalScrollView>
 
