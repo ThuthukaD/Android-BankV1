@@ -125,10 +125,26 @@ public class BusinessActivity extends AppCompatActivity
 
                     lvList.setAdapter(listAdapter);
                 }
+                else if (data.getString(4).equals("Payment")) {
+                    // This value is the column ID for the Items
+                    theList.add("\n    " + String.format("R%.2f", data.getDouble(5)) + " WAS HOW MUCH YOU HAD\n" +
+                            "    " + String.format("R%.2f", data.getDouble(1)) + " PAYMENT MADE TO '" + data.getString(2) + "\'\n" +
+                            "'   " + String.format("R%.2f", data.getDouble(3)) + " IS THE REMAINING AMOUNT \n" +
+                            "    SPEND CATEGORY IS \'" + data.getString(4) + "\'\n" +
+                            "    ON \'" + data.getString(7) + "\' ACCOUNT\n" +
+                            "    ACCOUNT NO. '" + data.getString(8) + "\'\n" +
+                            "    TIMESTAMP WAS \'" + data.getString(6) + "\'\n");
+
+                    ListAdapter listAdapter = new ArrayAdapter<>
+                            // the list style which  is changeable
+                            (this, android.R.layout.simple_list_item_1, theList);
+
+                    lvList.setAdapter(listAdapter);
+                }
                 else if (data.getString(2).equals("Business")) {
                     // This value is the column ID for the Items
                     theList.add("\n    " + String.format("R%.2f", data.getDouble(5)) + " WAS HOW MUCH YOU HAD\n" +
-                            "    " + String.format("R%.2f", data.getDouble(1)) + " TRANSFER MADE TO '" + data.getString(9) + "\' ACCOUNT \n" +
+                            "    " + String.format("R%.2f", data.getDouble(1)) + " TRANSFER TO '" + data.getString(9) + "\' ACCOUNT \n" +
                             "'   " + String.format("R%.2f", data.getDouble(3)) + " IS THE REMAINING AMOUNT \n" +
                             "    SPEND CATEGORY IS \'" + data.getString(4) + "\'\n" +
                             "    ON \'" + data.getString(7) + "\' ACCOUNT\n" +

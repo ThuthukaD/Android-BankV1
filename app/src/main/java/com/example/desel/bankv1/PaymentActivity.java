@@ -35,6 +35,7 @@ public class PaymentActivity extends AppCompatActivity
     TextView tvConfirmation;
 
     // Edit Texts
+    EditText etPaymentAmount;
     EditText etIAmount;
     EditText etFAmount;
     EditText etLocation;
@@ -88,6 +89,7 @@ public class PaymentActivity extends AppCompatActivity
         tvConfirmation = findViewById(R.id.tvConfirmation);
 
         // Edit Texts
+        etPaymentAmount = findViewById(R.id.etPaymentAmount);
         etIAmount = findViewById(R.id.etIAmount);
         etFAmount = findViewById(R.id.etFAmount);
         etLocation = findViewById(R.id.etLocation);
@@ -125,7 +127,8 @@ public class PaymentActivity extends AppCompatActivity
                 iAmount = Double.parseDouble(etIAmount.getText().toString());
                 location = etLocation.getText().toString();
                 category = etCategory.getText().toString();
-                spent = Double.parseDouble(etSpent.getText().toString());
+                spent = Double.parseDouble(etPaymentAmount.getText().toString());
+                etSpent.setText("" + spent);
 
                 Log.i(TAG, "onClick: Pulled Initial Text");
                 Log.i(TAG, "onClick: Setting Text for fAmount");
@@ -418,7 +421,6 @@ public class PaymentActivity extends AppCompatActivity
 
                     etCard.setText("" + parent.getItemAtPosition(position));
                     etCardNo.setText("6252 5166 0967 5245");
-                    etLocation.setText("" + parent.getItemAtPosition(position));
 
                     spinOptions.setVisibility(View.VISIBLE);
                 }
@@ -434,7 +436,6 @@ public class PaymentActivity extends AppCompatActivity
 
                     etCard.setText("" + parent.getItemAtPosition(position));
                     etCardNo.setText("8763 4125 0069 7366");
-                    etLocation.setText("" + parent.getItemAtPosition(position));
 
                     spinOptions.setVisibility(View.VISIBLE);
                 }
@@ -450,7 +451,6 @@ public class PaymentActivity extends AppCompatActivity
 
                     etCard.setText("" + parent.getItemAtPosition(position));
                     etCardNo.setText("6564 7512 7984 7245");
-                    etLocation.setText("" + parent.getItemAtPosition(position));
 
                     spinOptions.setVisibility(View.VISIBLE);
                 }
@@ -466,7 +466,6 @@ public class PaymentActivity extends AppCompatActivity
 
                     etCard.setText("" + parent.getItemAtPosition(position));
                     etCardNo.setText("7152 5363 9541 5625");
-                    etLocation.setText("" + parent.getItemAtPosition(position));
 
                     spinOptions.setVisibility(View.VISIBLE);
                 }
