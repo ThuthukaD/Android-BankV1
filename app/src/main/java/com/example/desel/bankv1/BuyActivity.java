@@ -789,24 +789,36 @@ public class BuyActivity extends AppCompatActivity
                 tvConfirmation.setText("Are you sure you want to purchase " +
                         category + " worth " + String.format("R%.2f", spent) + " on your " +
                         card + " account?");
+
+                //etCategory.setVisibility(View.GONE);
+                //etDate.setVisibility(View.GONE);
             }
             else if (etCategory.getText().toString().equals("Data"))
             {
                 tvConfirmation.setText("Are you sure you want to purchase " +
                         category + " of " + data + " worth " + String.format("R%.2f", spent) +
                         " on your " + card + " account?");
+
+                //etCategory.setVisibility(View.GONE);
+                //etDate.setVisibility(View.GONE);
             }
             else if (etCategory.getText().toString().equals("Electricity"))
             {
                 tvConfirmation.setText("Are you sure you want to purchase " +
                         category + " worth " + String.format("R%.2f", spent) + " on your " +
                         card + " account?");
+
+                //etCategory.setVisibility(View.GONE);
+                //etDate.setVisibility(View.GONE);
             }
             else if (etCategory.getText().toString().equals("Food"))
             {
                 tvConfirmation.setText("Are you sure you want to purchase " +
                         category + " worth " + String.format("R%.2f", spent) + " on your " +
                         card + " account?");
+
+                //etCategory.setVisibility(View.GONE);
+                //etDate.setVisibility(View.GONE);
             }
             else
             {

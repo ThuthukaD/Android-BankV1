@@ -156,6 +156,8 @@ public class PaymentActivity extends AppCompatActivity
                     cardNo = etCardNo.getText().toString();
 
                     tvConfirmation.setVisibility(View.VISIBLE);
+                    etPaymentAmount.setVisibility(View.GONE);
+
                     tvConfirmation.setText("Are you sure you want to perform a payment of " +
                             String.format("R%.2f", spent) + " from your " + card + " account ");
 

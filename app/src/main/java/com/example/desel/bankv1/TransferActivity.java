@@ -219,7 +219,12 @@ public class TransferActivity extends AppCompatActivity
 
                     //Toast.makeText(TransferActivity.this, "You Sure?", Toast.LENGTH_SHORT).show();
 
+//                    etSpent.setVisibility(View.GONE);
+//                    etDate.setVisibility(View.GONE);
+//                    etSAmount2.setVisibility(View.GONE);
+                    etTransferAmount.setVisibility(View.GONE);
                     tvConfirmation.setVisibility(View.VISIBLE);
+
                     tvConfirmation.setText("Are you sure you want to transfer " +
                             String.format("R%.2f", spent) + " from your " + card1 + " account " +
                             "to your " + card2 + " account?");
@@ -986,7 +991,12 @@ public class TransferActivity extends AppCompatActivity
 
             if (etCategory.getText().toString().equals("Transfer"))
             {
+//                etSpent.setVisibility(View.GONE);
+//                etDate.setVisibility(View.GONE);
+//                etSAmount2.setVisibility(View.GONE);
+                etTransferAmount.setVisibility(View.GONE);
                 tvConfirmation.setVisibility(View.VISIBLE);
+
                 tvConfirmation.setText("Are you sure you want to transfer " +
                         String.format("R%.2f", spent) + " from your " + card1 + " account " +
                         "to your " + card2 + "account?");
